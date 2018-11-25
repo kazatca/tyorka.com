@@ -1,0 +1,33 @@
+.gallery {
+  line-height: 0;
+  column-count: 4;
+  column-gap: 10px;
+
+  @media (max-width: 700px) {
+    column-count: 3;
+  }
+
+  &__photo {
+    position: relative;
+    
+    img {
+      width: 100% !important;
+      height: auto !important;
+      margin-top: 10px;
+    }
+  }
+
+  &__sale {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 10px;
+    height: 30px;
+    background: url("./static/sale.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+  }
+}

@@ -1,0 +1,73 @@
+.single {
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 500px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 3rem;
+    height: 2rem;
+    top: 50%;
+    margin-top: -1.5rem;
+    cursor: pointer;
+
+    &_left {
+      transform: scaleX(-1);
+      left: -10%;
+    }
+
+    &_right {
+      right: -10%;
+    }
+  }
+
+  &__dots {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__dot {
+    padding: 0.5rem;
+    cursor: pointer;
+
+    img {
+      width: 1rem;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+
+  &__description {
+    padding-top: 0.5rem;
+  }
+
+  &__price {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  &__buy-btn {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    border: 1px solid #d2d2d2;
+    background-color: white;
+    padding:  0.3rem 2.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+}

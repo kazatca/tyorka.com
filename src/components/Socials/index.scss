@@ -1,0 +1,15 @@
+.socials {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  
+  &__link {
+    padding: 1.3rem;
+    text-decoration: none;
+  }
+
+  &__link img {
+    width: 50px;
+  }
+}
+

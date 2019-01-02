@@ -39,14 +39,12 @@ interface Props {
 }
 
 const SinglePage = ({ data }: Props) => (
-  <Layout>
-    <Single
-      pics={formatPics(data)}
-      title={data.allProductsJson.edges[0].node.title}
-      description={data.allProductsJson.edges[0].node.description}
-      price={data.allProductsJson.edges[0].node.price}
-    />
-  </Layout>
+  <Single
+    pics={formatPics(data)}
+    title={data.allProductsJson.edges[0].node.title}
+    description={data.allProductsJson.edges[0].node.description}
+    price={data.allProductsJson.edges[0].node.price}
+  />
 )
 
 
@@ -57,7 +55,7 @@ export const query = graphql`
         node{
           name
           childImageSharp{
-            resize(height: 500){
+            resize(height: 500, quality: 95){
               src
               width
               height

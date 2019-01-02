@@ -61,7 +61,7 @@ export const query = graphql`query{
       node{
         relativePath
         childImageSharp{
-          fluid{
+          fluid(quality:95){
             src
           }
         }

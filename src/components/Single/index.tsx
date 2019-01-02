@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as b_ from 'b_'
-import Slider from './components/Slider';
+import Slider from './components/MobileSlider';
 import {Slide} from './types';
 
 import './index.scss';

@@ -1,0 +1,82 @@
+.mobile-slider {
+  &__wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 200px;
+    overflow: hidden;
+    
+    &_smooth{
+      transition: left 0.1s ease;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    transition: 0.3s ease;
+    width: 100%;
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 3rem;
+    height: 2rem;
+    top: 50%;
+    margin-top: -1.5rem;
+    cursor: pointer;
+
+    &_left {
+      transform: scaleX(-1);
+      left: -10%;
+    }
+
+    &_right {
+      right: -10%;
+    }
+  }
+
+  &__dots {
+    padding: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__dot {
+    padding: 0.5rem;
+    cursor: pointer;
+
+    img {
+      width: 1rem;
+    }
+  }
+
+  &__zoomed {
+
+    position: absolute;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    z-index: 11;
+    background-color: rgba(0,0,0,0.9);
+
+    img {
+      position: absolute;
+      left:0;
+      right: 0;
+      top:0;
+      bottom: 0;
+      z-index: 12;
+      margin: auto;
+    }
+  }
+}

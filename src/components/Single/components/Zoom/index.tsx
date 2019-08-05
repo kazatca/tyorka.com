@@ -4,7 +4,7 @@ import { Image } from '../../types';
 
 import './index.scss';
 
-const b = b_.bind(null, 'zoom');
+const b = b_.with('zoom');
 
 type Props = Image & {
   onClose: () => void;
@@ -49,7 +49,7 @@ class Zoom extends React.Component<Props, {}> {
   }
 
   move(mouseX: number, mouseY: number){
-    if(!this.image){
+    if(!this.image || !this.overlay){
       return;
     }
     const {clientWidth, clientHeight} = this.overlay;

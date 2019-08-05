@@ -5,4 +5,11 @@ export interface Image {
   height: number;
 }
 
-export interface Slide {preview: Image, original: Image}
+export interface Slide {
+  name: string
+  preview: Image
+  original: Image
+  positionX?: number
+  positionY?: number
+  size?: number
+}

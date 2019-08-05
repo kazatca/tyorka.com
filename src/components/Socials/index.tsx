@@ -8,7 +8,7 @@ import * as etsy from './static/etsy.png';
 import * as fb from './static/fb.png';
 import * as vk from './static/vk.png';
 
-const b = b_.bind(null, 'socials');
+const b = b_.with('socials');
 
 const Socials = () =>
   <section className={b("")}>

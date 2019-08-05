@@ -1,11 +1,13 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require('path');
+const fs = require('fs');
 
-const getPics = (fileNodes, productName) =>
-  fileNodes
-    .filter(({node}) => node.relativePath.indexOf(`${productName}/`) === 0)
-    .map(({node}) => node.childImageSharp.fluid.src);
-
+function getDescription(edges, name){
+  const result = edges.find(({node}) => node.relativeDirectory === name);
+  if(result){
+    return fs.readFileSync(path.resolve(`./src/products/${result.node.relativePath}`), 'utf-8');
+  }
+  return '';
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
@@ -17,27 +19,49 @@ exports.createPages = ({ graphql, actions }) => {
     toPath: '/',
   })
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     graphql(`{
       allProductsJson {
         edges {
           node {
-            path
-            title
-            description
+            products{
+              id
+              path
+              title
+              description
+              price
+              slides{
+                id
+                size
+                positionX
+                positionY
+              }
+            }
+          }
+        }
+      }
+      allFile(filter: { extension: { eq: "html" } }) {
+        edges {
+          node {
+            relativePath,
+            relativeDirectory
           }
         }
       }
     }`)
     .then(result => {
-      result.data.allProductsJson.edges.forEach(({ node }) => {
+      result.data.allProductsJson.edges[0].node.products.forEach(node => {
+        const description = getDescription(result.data.allFile.edges, node.path);
         createPage({
           path: `/single/${node.path}`,
           component: path.resolve(`./src/templates/single.tsx`),
           context: {
+            id: node.id,
             slug: node.path,
             title: node.title,
-            description: node.description
+            description,
+            price: node.price,
+            slides: node.slides
           }
         })
       });

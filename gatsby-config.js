@@ -9,6 +9,7 @@ module.exports = {
       options: {
         name: `products`,
         path: `${__dirname}/src/products/`,
+        ignore: [`.~*`, `${__dirname}/src/products/.~*`]
       },
     },
     'gatsby-plugin-typescript',

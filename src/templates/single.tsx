@@ -2,58 +2,64 @@ import * as React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Layout from '../components/Layout'
 import Single from '../components/Single'
+import {AllFile} from '../types';
 
-interface Response {
-  allFile: {
-    edges: {
-      node: {
-        name: string;
-        childImageSharp: {
-          resize: {
-            src: string;
-            width: number;
-            height: number;
-          }
-          original: {
-            src: string;
-            width: number;
-            height: number;
-          }
-        }
+type Data = 
+  AllFile<{
+    name: string;
+    relativePath: string
+    childImageSharp: {
+      resize: {
+        src: string;
+        width: number;
+        height: number;
       }
-    }[]
-  }
-  allProductsJson: {
-    edges: {
-      node: {
-        title?: string;
-        description?: string;
-        price?: number
+      original: {
+        src: string;
+        width: number;
+        height: number;
       }
-    }[]
-  }
+    }
+  }>
+
+interface Slide {
+  id: string
+  positionX: number
+  positionY: number
+  size: number
 }
 
 interface Props {
-  data: Response;
+  pathContext: {
+    id: number
+    slug: string
+    title: string,
+    description?: string
+    price?: number
+    slides: Slide[]
+  }
+  data: Data
 }
 
-const SinglePage = ({ data }: Props) => (
-  <Single
-    pics={formatPics(data)}
-    title={data.allProductsJson.edges[0].node.title}
-    description={data.allProductsJson.edges[0].node.description}
-    price={data.allProductsJson.edges[0].node.price}
-  />
-)
+const SinglePage = ({pathContext: {id, title, description, price, slug, slides}, data}: Props) => {
+  return (
+    <Single
+      slug={slug}
+      pics={formatPics(data, slides)}
+      title={title}
+      description={description}
+      price={price}
+    />);
+}
 
 
 export const query = graphql`
   query($slug: String!){
-    allFile(filter: {relativeDirectory: {eq: $slug }}){
+    allFile(filter: {relativeDirectory: {eq: $slug }, extension: { ne: "html" }}){
       edges{
         node{
           name
+          relativePath
           childImageSharp{
             resize(height: 500, quality: 95){
               src
@@ -70,22 +76,19 @@ export const query = graphql`
         }
       }
     }
-    allProductsJson(filter: {path: {eq: $slug}}){
-      edges {
-        node {
-          title
-          description
-          price
-        }
-      }
-    }
   }
 `;
 
-const formatPics = (data: Response) => data.allFile.edges.map(({node}) => ({
-  name: node.name,
-  preview: node.childImageSharp.resize,
-  original: node.childImageSharp.original
-}));
+const formatPics = (data: Data, slides: Slide[]) => data.allFile.edges.map(({node}) => {
+  const name = node.relativePath.split('/')[1];
+  const slideProps = slides.find(slide => slide.id === name);
+
+  return {
+    name,
+    preview: node.childImageSharp.resize,
+    original: node.childImageSharp.original,
+    ...slideProps
+  }
+});
 
 export default SinglePage;

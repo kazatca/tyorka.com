@@ -11,7 +11,7 @@ const Layout = ({ children }) => (
         title='Тёрка'
       >
         <html lang="ru" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Helmet>
       <div className="content">

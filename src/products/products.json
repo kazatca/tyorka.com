@@ -1,32 +1,591 @@
-[
-  {"path": "big blue whale"},
-  {"path": "big totoro"},
-  {"path": "botanist"},
-  {"path": "box trolls"},
-  {"path": "brooch mousehead"},
-  {"path": "ceramic cup"},
-  {"path": "ceramic face"},
-  {"path": "ceramic plant with legs"},
-  {"path": "ceramic sugar"},
-  {"path": "donkey"},
-  {"path": "forest spirit"},
-  {"path": "gray small whale"},
-  {"path": "green creature with pink ears"},
-  {"path": "green like dino creature"},
-  {"path": "nautilus"},
-  {"path": "photo"},
-  {"path": "sailor"},
-  {"path": "small blue creature"},
-  {"path": "uroboros"},
-  {"path": "whale"},
-  {"path": "whale van gogh",
-    "title": "Кит ван Гог",
-    "description": "Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ! Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ! Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ! Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ!",
-    "price": 20000},
-  {"path": "whale with wings"},
-  {
-    "path": "wombat",
-    "title": "Вомбат",
-    "description": "У вомбатов острый слух и обоняние, но довольно слабое зрение. Несмотря на внешнюю неуклюжесть, они очень быстрые: спасаясь от опасности, вомбат может легко влезть на дерево, нырнуть в водоём или убежать. Могут бежать со скоростью до 40 км/ч, а на коротких дистанциях достигают скорости в 60 км/ч."
-  }
-]
+{
+  "slides": [
+    {
+      "id": "DSC_8103",
+      "resized": true
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "path": "big blue whale",
+      "slides": [
+        {
+          "id": "1.jpg",
+          "resized": true,
+          "positionX": 0,
+          "positionY": -7,
+          "size": 100
+        },
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -3.1999999999999886,
+          "size": 103
+        }
+      ],
+      "title": "Кит"
+    },
+    {
+      "id": 2,
+      "path": "big totoro",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -92,
+          "size": 100
+        },
+        {
+          "id": "DSC03842.jpg",
+          "positionX": 0,
+          "positionY": -136,
+          "size": 100
+        },
+        {
+          "id": "DSC03866.jpg",
+          "positionX": 0,
+          "positionY": -94,
+          "size": 100
+        },
+        {
+          "id": "DSC03882.jpg",
+          "positionX": 0,
+          "positionY": -106,
+          "size": 100
+        },
+        {
+          "id": "DSC03924.jpg",
+          "positionX": 0,
+          "positionY": -169,
+          "size": 100
+        },
+        {
+          "id": "DSC03963.jpg",
+          "positionX": 0,
+          "positionY": -96,
+          "size": 100
+        },
+        {
+          "id": "DSC03982.jpg",
+          "positionX": 0,
+          "positionY": -37,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "path": "botanist",
+      "slides": [
+        {
+          "id": "cover.jpg"
+        },
+        {
+          "id": "DSC_8008.jpg"
+        },
+        {
+          "id": "DSC_8048.jpg"
+        },
+        {
+          "id": "DSC_8088.jpg"
+        },
+        {
+          "id": "DSC_8101.jpg"
+        },
+        {
+          "id": "DSC_8103.jpg"
+        },
+        {
+          "id": "DSC_8114.jpg"
+        },
+        {
+          "id": "DSC_8120.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "path": "box trolls",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -0.2848242100578773,
+          "size": 100
+        },
+        {
+          "id": "DSC_9508.jpg",
+          "positionX": -25.348314606741553,
+          "positionY": -1.7977528089887755,
+          "size": 119.66666666666667
+        },
+        {
+          "id": "DSC_9536.jpg",
+          "positionX": 0,
+          "positionY": -157,
+          "size": 100
+        },
+        {
+          "id": "DSC_9560.jpg",
+          "positionX": 0,
+          "positionY": -0.2848242100578773,
+          "size": 100
+        },
+        {
+          "id": "DSC_9566.jpg"
+        },
+        {
+          "id": "DSC_9591.jpg",
+          "positionX": 0,
+          "positionY": -80,
+          "size": 100
+        },
+        {
+          "id": "DSC_9595.jpg",
+          "positionX": 0,
+          "positionY": -0.2848242100578773,
+          "size": 100
+        },
+        {
+          "id": "DSC04070.jpg",
+          "positionX": 0,
+          "positionY": -238,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "path": "brooch mousehead",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -2.842170943040401e-14,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "path": "ceramic cup",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -103,
+          "size": 100
+        },
+        {
+          "id": "DSC05199.jpg",
+          "positionX": 0,
+          "positionY": -58,
+          "size": 100
+        },
+        {
+          "id": "DSC05264.jpg"
+        },
+        {
+          "id": "DSC05270.jpg",
+          "positionX": 0,
+          "positionY": -144,
+          "size": 100
+        },
+        {
+          "id": "DSC05280.jpg",
+          "positionX": 0,
+          "positionY": -13,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "path": "ceramic face",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -126,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "path": "ceramic plant with legs",
+      "slides": [
+        {
+          "id": "cover.jpg"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "path": "ceramic sugar",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "resized": true,
+          "positionX": 0,
+          "positionY": -80.57357357357358,
+          "size": 100
+        },
+        {
+          "id": "DSC05198.jpg",
+          "positionX": -19.59999999999988,
+          "positionY": -127.9960360360361,
+          "size": 126
+        },
+        {
+          "id": "DSC05200.jpg",
+          "positionX": -14,
+          "positionY": -131.39759759759772,
+          "size": 110
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "path": "donkey",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -120,
+          "size": 100
+        },
+        {
+          "id": "DSC04982.jpg"
+        },
+        {
+          "id": "DSC05034.jpg",
+          "positionX": 0,
+          "positionY": -37.46893139214002,
+          "size": 130
+        },
+        {
+          "id": "DSC05035.jpg",
+          "positionX": -10.399999999999977,
+          "positionY": -4.26666666666668,
+          "size": 104
+        },
+        {
+          "id": "DSC05038.jpg",
+          "positionX": -30.19999999999999,
+          "positionY": -18.800000000000026,
+          "size": 112
+        },
+        {
+          "id": "DSC05043.jpg",
+          "positionX": 0,
+          "positionY": -92,
+          "size": 100
+        },
+        {
+          "id": "DSC05057.jpg",
+          "positionX": 0,
+          "positionY": -121,
+          "size": 100
+        },
+        {
+          "id": "DSC05075.jpg",
+          "positionX": 0,
+          "positionY": -76,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "path": "forest spirit",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -117,
+          "size": 100
+        },
+        {
+          "id": "DSC_0500.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        },
+        {
+          "id": "DSC_0511.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "path": "gray small whale",
+      "slides": [
+        {
+          "id": "cover.jpg"
+        },
+        {
+          "id": "DSC04068.jpg"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "path": "green creature with pink ears",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "path": "green like dino creature",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -2.842170943040401e-14,
+          "size": 100
+        },
+        {
+          "id": "DSC_0780.jpg",
+          "positionX": 0,
+          "positionY": -2.842170943040401e-14,
+          "size": 100
+        },
+        {
+          "id": "DSC00614.jpg",
+          "positionX": 0,
+          "positionY": -118,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "path": "nautilus",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -20,
+          "size": 100
+        },
+        {
+          "id": "DSC01595.jpg",
+          "positionX": 0,
+          "positionY": -63,
+          "size": 100
+        },
+        {
+          "id": "DSC06538.jpg",
+          "positionX": 0,
+          "positionY": -143,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "path": "photo",
+      "slides": [
+        {
+          "id": "cover.jpg"
+        },
+        {
+          "id": "DSC_6201.jpg"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "path": "sailor",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -42,
+          "size": 100
+        },
+        {
+          "id": "DSC_8930.jpg",
+          "positionX": 0,
+          "positionY": -71,
+          "size": 100
+        },
+        {
+          "id": "DSC_8932.jpg",
+          "positionX": 0,
+          "positionY": -87,
+          "size": 100
+        },
+        {
+          "id": "DSC_9007.jpg",
+          "positionX": 0,
+          "positionY": -90,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "path": "small blue creature",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -70,
+          "size": 100
+        },
+        {
+          "id": "DSC01765.jpg",
+          "positionX": 0,
+          "positionY": -84,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "path": "uroboros",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -44,
+          "size": 100
+        },
+        {
+          "id": "DSC03263.jpg",
+          "positionX": 0,
+          "positionY": -149,
+          "size": 100
+        },
+        {
+          "id": "DSC03348.jpg",
+          "positionX": 0,
+          "positionY": -209,
+          "size": 100
+        },
+        {
+          "id": "DSC03349.jpg",
+          "positionX": 0,
+          "positionY": -136,
+          "size": 100
+        },
+        {
+          "id": "DSC03415.jpg",
+          "positionX": 0,
+          "positionY": -147,
+          "size": 100
+        },
+        {
+          "id": "DSC03424.jpg",
+          "positionX": 0,
+          "positionY": -102,
+          "size": 100
+        },
+        {
+          "id": "DSC03439.jpg",
+          "positionX": 0,
+          "positionY": -160,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "path": "whale",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "path": "whale van gogh",
+      "slides": [
+        {
+          "id": "cover.jpg"
+        },
+        {
+          "id": "DSC_9114.jpg"
+        },
+        {
+          "id": "DSC_9119.jpg",
+          "positionX": 0,
+          "positionY": -2.842170943040401e-14,
+          "size": 100
+        },
+        {
+          "id": "DSC_9120.jpg"
+        },
+        {
+          "id": "DSC_9132.jpg"
+        },
+        {
+          "id": "DSC_9142.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        }
+      ],
+      "title": "Кит ван Гог",
+      "description": "Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ! Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ! Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ! Кит такой прекрасный, что я прям думала продавать его или нет, НО мне нужны ДЕЕЕНЬГИ!",
+      "price": 20000
+    },
+    {
+      "id": 22,
+      "path": "whale with wings",
+      "slides": [
+        {
+          "id": "cover.jpg"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "path": "wombat",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": -68,
+          "size": 100
+        },
+        {
+          "id": "DSC_1351.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        },
+        {
+          "id": "DSC_7230.jpg",
+          "positionX": -33.34831460674155,
+          "positionY": -1.7977528089887755,
+          "size": 119.66666666666667
+        },
+        {
+          "id": "DSC_7395.jpg",
+          "positionX": 0,
+          "positionY": -177,
+          "size": 100
+        }
+      ],
+      "title": "Вомбат",
+      "description": "У вомбатов острый слух и обоняние, но довольно слабое зрение. Несмотря на внешнюю неуклюжесть, они очень быстрые: спасаясь от опасности, вомбат может легко влезть на дерево, нырнуть в водоём или убежать. Могут бежать со скоростью до 40 км/ч, а на коротких дистанциях достигают скорости в 60 км/ч."
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 import * as b_ from 'b_'
 
 import './index.scss';
 
-const b = b_.bind(null, 'gallery');
+const b = b_.with('gallery');
 
 interface Product {
   url: string;

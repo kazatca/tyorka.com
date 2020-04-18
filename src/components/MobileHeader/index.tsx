@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { Link } from 'gatsby';
 import * as b_ from 'b_'
 
 import './index.scss';
 
 import logo from './static/logo.png';
 
-const b = b_.bind(null, 'mobile-header');
+const b = b_.with('mobile-header');
 
 const MobileHeader = () => 
   <section className={b()}>
@@ -13,8 +14,8 @@ const MobileHeader = () =>
       <img className={b("logo")} src={logo} />
     </div>
     <div className={b("menu-wrap")}>
-      <a className={b("menu")} href="/">керамика</a>
-      <a className={b("menu")} href="/">валяние</a>
+      <Link className={b("menu")} to="/about">обо мне</Link>
+      <Link className={b("menu")} to="/shop">магазин</Link>
     </div>
   </section>
 

@@ -6,12 +6,12 @@ import './index.scss';
 
 import * as cart from "./static/cart.png"
 
-const b = b_.bind(null, 'corner-menu');
+const b = b_.with('corner-menu');
 
 const CornerMenu = () => (
   <div className={b()}>
     <div className={b("inner")}>
-      <a className={b("language")} href="#">eng</a>
+      {/* <a className={b("language")} href="#">eng</a> */}
       <a className={b("cart")} href="/">
         <img src={cart} alt="" />
       </a>

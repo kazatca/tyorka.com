@@ -40,7 +40,7 @@ const getProducts = (resp: Response) =>
 
 const IndexPage = (props: Response) => (
   <Layout>
-    <About />
+    {/* <About /> */}
     <Gallery products={getProducts(props)}/>
     <Socials />
   </Layout>

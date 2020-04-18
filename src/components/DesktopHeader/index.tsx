@@ -7,36 +7,38 @@ import './index.scss';
 
 import * as logo from "./static/logo.png";
 
-const b = b_.bind(null, 'desktop-header');
+const b = b_.with('desktop-header');
 
+interface Props {
+  fixed?: boolean
+}
 
 const headerHeightMax = 400;
 const headerHeightMin = 140;
 
-const marginMax = 120;
-const marginMin = 35;
-
-const ratio = (headerHeightMax - headerHeightMin)/(marginMax - marginMin);
-
-
-class DesktopHeader extends React.Component {
-  private logo?: HTMLImageElement = undefined;
-  private left?: HTMLAnchorElement = undefined;
-  private right?: HTMLAnchorElement = undefined;
+class DesktopHeader extends React.Component<Props> {
+  private logo: HTMLImageElement | null= null;
 
   render(){
+    const {fixed} = this.props;
     return (
-      <section className={b()}>
+      <section className={b({fixed})}>
         <CornerMenu />
-        <a className={b("menu")} ref={el => this.left = el}>керамика</a>
+        <div className={b("menu")}>
+          <Link to='/'>главная</Link>
+          <Link to='/about'>обо мне</Link>
+        </div>
         <Link to="/"><img className={b("logo")} src={logo} ref={el => this.logo = el}/></Link>
-        <a className={b("menu")} ref={el => this.right = el}>валяние</a>
+        <div className={b("menu")}>
+          <Link to='/blog'>блог</Link>
+          <Link to='/shop'>магазин</Link>
+        </div>
       </section>
     );
   }
 
   componentDidMount(){
-    if(typeof window !== 'undefined'){
+    if(typeof window !== 'undefined' && this.props.fixed){
       window.addEventListener('scroll', this.resizeHeader);
     }
   }
@@ -48,10 +50,6 @@ class DesktopHeader extends React.Component {
   resizeHeader = () => {
     const top = window.scrollY;
     this.logo && (this.logo.style.width = Math.max(headerHeightMax - top, headerHeightMin) + 'px'); 
-
-    this.left && (this.left.style.marginBottom = Math.max(marginMax - top/ratio, marginMin) + 'px');
-    this.right && (this.right.style.marginBottom = Math.max(marginMax - top/ratio, marginMin) + 'px');
-
   }
 }
 

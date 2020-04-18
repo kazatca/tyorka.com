@@ -16,7 +16,7 @@ function saveJson(json: object){
 function updateProductsJson(){
   const json: {products: Product[]} = require('../products/products.json');
 
-  const slides: Slide = glob.sync('./src/products/*/*').reduce((result: Slide, slide) => {
+  const slides: Slide = glob.sync('./src/products/*/*.jpg').reduce((result: Slide, slide) => {
     const dir = path.dirname(slide).split(path.sep).reverse()[0];
     const id = path.basename(slide);
 

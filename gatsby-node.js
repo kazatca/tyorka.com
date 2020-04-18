@@ -30,6 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
               title
               description
               price
+              tags
               slides{
                 id
                 size

@@ -1,0 +1,10 @@
+.shop-product {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+
+  &__photo {
+    width: 100%;
+  }
+}

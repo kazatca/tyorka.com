@@ -391,7 +391,9 @@
           "positionY": -143,
           "size": 100
         }
-      ]
+      ],
+      "tags": ["shop"],
+      "title": "Наутилус"
     },
     {
       "id": 16,
@@ -408,6 +410,8 @@
     {
       "id": 17,
       "path": "sailor",
+      "title": "Морячок",
+      "tags": ["shop"],
       "slides": [
         {
           "id": "cover.jpg",

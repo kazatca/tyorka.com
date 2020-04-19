@@ -18,7 +18,14 @@ exports.createPages = ({ graphql, actions }) => {
     redirectInBrowser: true,
     toPath: '/',
   })
+  return Promise.all([
+    createSinglePages(createPage),
+    createProductPages(createPage)
+  ])
 
+}
+
+function createSinglePages(createPage) {
   return new Promise((resolve) => {
     graphql(`{
       allProductsJson {
@@ -56,6 +63,59 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: `/single/${node.path}`,
           component: path.resolve(`./src/templates/single.tsx`),
+          context: {
+            id: node.id,
+            slug: node.path,
+            title: node.title,
+            description,
+            price: node.price,
+            slides: node.slides
+          }
+        })
+      });
+      resolve();
+    })
+  })
+}
+
+function createProductPages(createPage) {
+  return new Promise((resolve) => {
+    graphql(`{
+      allProductsJson {
+        edges {
+          node {
+            products{
+              id
+              path
+              title
+              description
+              price
+              tags
+              slides{
+                id
+                size
+                positionX
+                positionY
+              }
+            }
+          }
+        }
+      }
+      allFile(filter: { extension: { eq: "html" } }) {
+        edges {
+          node {
+            relativePath,
+            relativeDirectory
+          }
+        }
+      }
+    }`)
+    .then(result => {
+      result.data.allProductsJson.edges[0].node.products.forEach(node => {
+        const description = getDescription(result.data.allFile.edges, node.path);
+        createPage({
+          path: `/shop/${node.path}`,
+          component: path.resolve(`./src/templates/product.tsx`),
           context: {
             id: node.id,
             slug: node.path,

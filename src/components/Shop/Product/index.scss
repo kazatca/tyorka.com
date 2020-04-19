@@ -5,6 +5,8 @@
   break-inside: avoid;
 
   &__photo {
-    width: 100%;
+    img {
+      width: 100%;
+    }
   }
 }

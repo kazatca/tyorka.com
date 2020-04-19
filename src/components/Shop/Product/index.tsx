@@ -8,6 +8,7 @@ interface Product {
   url: string;
   cover: string;
   title: string
+  price?: number
 }
 
 interface Props {
@@ -26,6 +27,7 @@ const Product: React.SFC<Props> = ({ product }) => {
         <img src={product.cover} />
       </div>
       <div className={b('title')}>{product.title}</div>
+      {product.price && <div className={b('price')}>{product.price} ₽</div>}
     </Link>
 
   );

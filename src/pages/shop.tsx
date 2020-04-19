@@ -37,7 +37,8 @@ const getProducts = (resp: Response) =>
       url: `/single/${node.path}`,
       cover: findCover(resp, node.path),
       sale: !!node.price,
-      title: node.title
+      title: node.title,
+      price: node.price
     }));
 
 

@@ -11,7 +11,6 @@ import * as checked from './static/checked.svg';
 const ratio = 3/2;
 
 interface Props {
-  slug: string
   pics: Slide[];
   onClick: (pic: Slide) => void
 }
@@ -43,7 +42,7 @@ export class Slider extends React.Component<Props, State> {
   }
 
   render() {
-    const { slug, pics, onClick } = this.props;
+    const { pics, onClick } = this.props;
     const { current, width, touchPosition, isScrolling } = this.state;
     
     return (
@@ -56,7 +55,6 @@ export class Slider extends React.Component<Props, State> {
             pics.map((pic, i) => (
               <SlideView
                 key={i}
-                slug={slug}
                 name={pic.name}
                 pic={pic.preview}
                 geo={{

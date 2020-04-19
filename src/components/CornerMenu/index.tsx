@@ -12,9 +12,9 @@ const CornerMenu = () => (
   <div className={b()}>
     <div className={b("inner")}>
       {/* <a className={b("language")} href="#">eng</a> */}
-      <a className={b("cart")} href="/">
+      <Link className={b("cart")} to="/cart">
         <img src={cart} alt="" />
-      </a>
+      </Link>
     </div>
   </div>
 )

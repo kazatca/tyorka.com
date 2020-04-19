@@ -3,7 +3,6 @@ import { AllProductsJson, AllFile } from '../types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout'
 import Shop from '../components/Shop'
-import Socials from '../components/Socials'
 
 const findCover = (resp: Response, productName: string) => {
   const [edge] = resp.data.allFile.edges.filter(({node}) => node.relativePath.indexOf(`${productName}/`) == 0 );
@@ -32,9 +31,9 @@ type Response = {
 
 const getProducts = (resp: Response) =>
   resp.data.allProductsJson.edges[0].node.products
-    .filter(node => (node.tags || []).indexOf('shop') >= 0)
+    .filter(node => !!node.price)
     .map(node => ({
-      url: `/single/${node.path}`,
+      url: `/shop/${node.path}`,
       cover: findCover(resp, node.path),
       sale: !!node.price,
       title: node.title,
@@ -44,9 +43,7 @@ const getProducts = (resp: Response) =>
 
 const ShopPage = (props: Response) => (
   <Layout>
-    {/* <About /> */}
     <Shop products={getProducts(props)}/>
-    <Socials />
   </Layout>
 )
 

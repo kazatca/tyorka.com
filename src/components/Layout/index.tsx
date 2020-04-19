@@ -3,6 +3,7 @@ import * as b_ from 'b_';
 import Helmet from 'react-helmet'
 import DesktopHeader from '../DesktopHeader'
 import MobileHeader from '../MobileHeader'
+import Socials from '../Socials';
 
 import './index.scss';
 
@@ -23,6 +24,7 @@ const Layout: React.SFC<{}> = ({ children }) => (
       <DesktopHeader fixed={fixedMenu}/>
       <MobileHeader />
       {children}
+      <Socials />
     </div>
   </>
 )

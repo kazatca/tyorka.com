@@ -10,7 +10,6 @@ import './index.scss';
 const b = b_.with('single');
 
 interface Props {
-  slug: string
   pics: Slide[];
   title?: string;
   description?: string;
@@ -26,14 +25,13 @@ class Single extends React.Component<Props, State> {
   state: State ={};
 
   render(){
-    const { slug, pics, title, description, price } = this.props;
+    const { pics, title, description, price } = this.props;
     const { zoomed } = this.state;
 
     return (
       <section className={b()}>
         <Slider
           pics={pics}
-          slug={slug}
           onClick={pic => this.zoom(pic)}
         />
         {zoomed &&

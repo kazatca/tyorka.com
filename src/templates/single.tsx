@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
 import Single from '../components/Single'
 import {AllFile} from '../types';
 
@@ -41,10 +40,9 @@ interface Props {
   data: Data
 }
 
-const SinglePage = ({pathContext: {id, title, description, price, slug, slides}, data}: Props) => {
+const SinglePage = ({pathContext: {title, description, price, slides}, data}: Props) => {
   return (
     <Single
-      slug={slug}
       pics={formatPics(data, slides)}
       title={title}
       description={description}

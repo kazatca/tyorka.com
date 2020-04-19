@@ -12,7 +12,6 @@ interface Geo {
 }
 
 interface Props{
-  slug: string
   pic: Image
   name: string
   geo: Geo

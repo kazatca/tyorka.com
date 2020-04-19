@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import * as b_ from 'b_'
-import CornerMenu from './components/CornerMenu';
+import CornerMenu from '../CornerMenu';
 
 import './index.scss';
 

@@ -1,27 +1,47 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import * as b_ from 'b_';
+import { Slide } from '../Single/types';
+import { actions } from '../../state/actions';
 
 import './index.scss';
 
-interface Product {
-  url: string;
-  cover: string;
+interface Props {
+  id: number
+  pics: Slide[];
   title: string
   price?: number
 }
 
-interface Props {
-  product: Product
-}
-
 const b = b_.with('product');
 
-const Product: React.SFC<Props> = ({product}) => {
+const Product: React.SFC<Props> = ({id, pics, title, price}) => {
+  const dispatch = useDispatch();
+
+  const addToCart = () => dispatch(actions.addToCart(id))
   return (
     <div className={b()}>
-      <div className={b('photo')}>
-        <img src={product.cover} />
-      </div>
+      <section>
+        <div className={b('photo')}>
+          <img src={pics[0].preview.src} />
+        </div>
+      </section>
+
+      <section>
+        <div className={b('column')}>
+          <div className={b('title')}>
+            {title}
+          </div>
+
+          {price && <div className={b('price')}>
+            {price} ₽
+          </div>}
+
+          <div>
+            <button className={b('btn')} >Добавить в корзину</button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

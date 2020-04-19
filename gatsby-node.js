@@ -19,13 +19,13 @@ exports.createPages = ({ graphql, actions }) => {
     toPath: '/',
   })
   return Promise.all([
-    createSinglePages(createPage),
-    createProductPages(createPage)
+    createSinglePages(graphql, createPage),
+    createProductPages(graphql, createPage)
   ])
 
 }
 
-function createSinglePages(createPage) {
+function createSinglePages(graphql, createPage) {
   return new Promise((resolve) => {
     graphql(`{
       allProductsJson {
@@ -78,7 +78,7 @@ function createSinglePages(createPage) {
   })
 }
 
-function createProductPages(createPage) {
+function createProductPages(graphql, createPage) {
   return new Promise((resolve) => {
     graphql(`{
       allProductsJson {
@@ -111,7 +111,9 @@ function createProductPages(createPage) {
       }
     }`)
     .then(result => {
-      result.data.allProductsJson.edges[0].node.products.forEach(node => {
+      result.data.allProductsJson.edges[0].node.products
+      .filter(node => !!node.price)
+      .forEach(node => {
         const description = getDescription(result.data.allFile.edges, node.path);
         createPage({
           path: `/shop/${node.path}`,

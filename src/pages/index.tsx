@@ -42,7 +42,6 @@ const IndexPage = (props: Response) => (
   <Layout>
     {/* <About /> */}
     <Gallery products={getProducts(props)}/>
-    <Socials />
   </Layout>
 )
 

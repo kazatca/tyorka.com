@@ -50,7 +50,7 @@ const ProductPage = ({
 }: Props) => {
   return (
     <Layout>
-      <Product pics={formatPics(data, slides)} title={title} price={price} />
+      <Product id={id} pics={formatPics(data, slides)} title={title} price={price} />
     </Layout>
   )
 }

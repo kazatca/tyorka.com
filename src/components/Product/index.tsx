@@ -7,7 +7,7 @@ import { actions } from '../../state/actions';
 import './index.scss';
 
 interface Props {
-  id: number
+  id: string
   pics: Slide[];
   title: string
   price?: number
@@ -38,7 +38,7 @@ const Product: React.SFC<Props> = ({id, pics, title, price}) => {
           </div>}
 
           <div>
-            <button className={b('btn')} >Добавить в корзину</button>
+            <button className={b('btn')} onClick={addToCart}>Добавить в корзину</button>
           </div>
         </div>
       </section>

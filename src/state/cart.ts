@@ -1,7 +1,7 @@
-import { ADD_TO_CART, Action } from './actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, Action } from './actions';
 
 interface CartItem {
-  id: number
+  id: string
   count: number
 }
 
@@ -21,6 +21,10 @@ export default (state: State = initialState, action: Action): State => {
       }
       return { 
         items: [...state.items, {id: action.payload.productId, count: 1}]
+      };
+    case REMOVE_FROM_CART:
+      return { 
+        items: state.items.filter(item => item.id !== action.payload.productId)
       };
     default:
       return state;

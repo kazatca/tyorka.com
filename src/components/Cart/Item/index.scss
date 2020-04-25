@@ -1,3 +1,43 @@
 .cart-item {
-  
+  display: flex;
+  position: relative;
+  > div:not(:first-child) {
+    padding: 1rem;
+  }
+
+  &__photo {
+    img {
+      width: 150px;
+    }
+  }
+
+  &__remove-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.3;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 1rem;
+      width: 2px;
+      background-color: #333;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

@@ -34,7 +34,7 @@ interface Slide {
 
 interface Props {
   pathContext: {
-    id: number
+    id: string
     slug: string
     title: string
     description?: string

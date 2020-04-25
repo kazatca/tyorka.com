@@ -7,7 +7,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "13a03f68-ce5e-4b89-823b-fe05016a09c4",
       "path": "big blue whale",
       "slides": [
         {
@@ -27,7 +27,7 @@
       "title": "Кит"
     },
     {
-      "id": 2,
+      "id": "0fa1c102-b94a-41c8-943a-389efc6f74f2",
       "path": "big totoro",
       "slides": [
         {
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "05e3dc16-0f9f-4ef7-84ad-58bb966f4db8",
       "path": "botanist",
       "slides": [
         {
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "27d0a29e-9a28-43ab-9b62-c71794964fcc",
       "path": "box trolls",
       "slides": [
         {
@@ -156,7 +156,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "c11dab5b-6dda-49ac-b965-4d7b204b53f8",
       "path": "brooch mousehead",
       "slides": [
         {
@@ -168,7 +168,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "fec393c6-2069-4315-9980-d394a813715c",
       "path": "ceramic cup",
       "slides": [
         {
@@ -201,7 +201,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "f0ffb70a-e8f6-465b-8673-8105a373ebd1",
       "path": "ceramic face",
       "slides": [
         {
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "6752bfa7-ba9c-4407-9ba2-6de6c940f2b3",
       "path": "ceramic plant with legs",
       "slides": [
         {
@@ -222,7 +222,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": "5fdc0551-f89c-477d-9a10-db6446e86459",
       "path": "ceramic sugar",
       "slides": [
         {
@@ -247,7 +247,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": "9760f451-d65e-48a1-8058-f0ca131d437c",
       "path": "donkey",
       "slides": [
         {
@@ -298,7 +298,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "422345a7-fa2b-4877-9e8b-89ffeeb2f70e",
       "path": "forest spirit",
       "slides": [
         {
@@ -322,7 +322,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "aad319ae-fab5-46cc-a944-30e0fbf193fa",
       "path": "gray small whale",
       "slides": [
         {
@@ -334,7 +334,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "26f3e71a-3a1d-41b8-ba48-245a8c9c1bd4",
       "path": "green creature with pink ears",
       "slides": [
         {
@@ -346,7 +346,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "4a50161c-d45d-4167-928b-984a429f2cd7",
       "path": "green like dino creature",
       "slides": [
         {
@@ -370,7 +370,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "db043eed-9044-4193-84c3-3bbb55cd7968",
       "path": "nautilus",
       "slides": [
         {
@@ -397,7 +397,7 @@
       "price": 3000
     },
     {
-      "id": 16,
+      "id": "2289ca4c-5bcc-4971-bf38-246b00d25fa0",
       "path": "photo",
       "slides": [
         {
@@ -409,7 +409,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": "5c928d4d-5516-4652-8511-f56cba77090c",
       "path": "sailor",
       "title": "Морячок",
       "tags": ["shop"],
@@ -441,7 +441,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": "dac05491-e451-4f82-ab1a-f3a5c29608e4",
       "path": "small blue creature",
       "tags": ["shop"],
       "price": 2000,
@@ -462,7 +462,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": "a480fba4-3c8e-4093-a5d3-8dfe6af33258",
       "path": "uroboros",
       "tags": ["shop"],
       "price": 5000,
@@ -513,7 +513,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": "696654b7-1728-4dc1-8ce1-40464e4b665b",
       "path": "whale",
       "slides": [
         {
@@ -525,7 +525,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "d7b0fe50-bf46-472e-86db-43fa731c8aca",
       "path": "whale van gogh",
       "slides": [
         {
@@ -558,7 +558,7 @@
       "price": 20000
     },
     {
-      "id": 22,
+      "id": "e7710d2f-1a15-4543-abb7-b39470803faa",
       "path": "whale with wings",
       "slides": [
         {
@@ -567,7 +567,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": "38c6275f-b24c-4de4-8907-8f88d0e16ec0",
       "path": "wombat",
       "slides": [
         {

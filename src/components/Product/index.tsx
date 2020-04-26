@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as b_ from 'b_';
 import { Slide } from '../Single/types';
 import { actions } from '../../state/actions';
 
 import './index.scss';
+import { RootState } from '../../state/reducer';
+import { Link } from 'gatsby';
 
 interface Props {
   id: string
@@ -16,6 +18,7 @@ interface Props {
 const b = b_.with('product');
 
 const Product: React.SFC<Props> = ({id, pics, title, price}) => {
+  const inCart = useSelector((state: RootState) => state.cart.items.find(item => item.id === id))
   const dispatch = useDispatch();
 
   const addToCart = () => dispatch(actions.addToCart(id))
@@ -38,7 +41,11 @@ const Product: React.SFC<Props> = ({id, pics, title, price}) => {
           </div>}
 
           <div>
-            <button className={b('btn')} onClick={addToCart}>Добавить в корзину</button>
+            {
+              inCart
+              ? <Link className={b('btn')} to='/cart'>Перейти в корзину</Link>
+              : <button className={b('btn')} onClick={addToCart}>Добавить в корзину</button>
+            }
           </div>
         </div>
       </section>

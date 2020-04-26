@@ -1,5 +1,52 @@
+@import '../../common.scss';
+
 .cart {
+  color: #888785;
   &__total {
     text-align: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    padding: 1.5rem 0;
+
+    @media (max-width: 700px) {
+      text-align: center;
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    color: rgba(#888785, 0.7);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__total {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+  }
+
+  &__btn-wrapper {
+    text-align: center;
+  }
+
+  &__submit-btn {
+    @extend .button;
+    padding: 0.5rem 3rem;
+    margin: auto;
+    @media (max-width: 700px) {
+      width: 100%;
+    }
   }
 }

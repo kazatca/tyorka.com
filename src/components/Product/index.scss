@@ -1,3 +1,5 @@
+@import '../../common.scss';
+
 .product {
   width: 100%;
   display: flex;
@@ -39,15 +41,13 @@
   }
 
   &__btn {
+    @extend .button;
     width: 100%;
-    line-height: 1.5;
-    background: none;
-    border: 1px solid rgb(136, 135, 133);
-    padding: 0.5rem;
-    border-radius: 10px;
-    color: rgb(136, 135, 133);
-
     margin-top: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
   }
   
 }

@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { push } from 'gatsby';
 import { RootState } from '../../state/reducer'
 import { actions } from '../../state/actions'
-import Modal from '../Modal'
+import Modal from '../Modal';
+import { addOrder, Cart } from './firebase';
 
 import './index.scss'
 
@@ -12,10 +13,11 @@ const b = b_.with('checkout-modal')
 
 interface Props {
   total: number
+  cart: Cart[]
   onClose: () => void
 }
 
-const CheckoutModal: React.SFC<Props> = ({ total, onClose }) => {
+const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
   const name = useSelector((state: RootState) => state.checkout.name)
   const email = useSelector((state: RootState) => state.checkout.email)
 
@@ -25,9 +27,10 @@ const CheckoutModal: React.SFC<Props> = ({ total, onClose }) => {
   const changeEmail = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(actions.setField('email', e.target.value))
 
-  const checkout = (e: React.FormEvent<HTMLFormElement>) => {
+  const checkout = async (e: React.FormEvent<HTMLFormElement>) => {
     e.stopPropagation();
     e.preventDefault();
+    await addOrder(name, email, cart);
     push('/success');
   }
   

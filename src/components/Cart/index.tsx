@@ -3,7 +3,7 @@ import * as b_ from 'b_'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../state/reducer'
 import Item, { Product } from './Item'
-import CheckoutModal from '../CheckoutModal';
+import CheckoutModal from '../CheckoutModal'
 
 import './index.scss'
 
@@ -19,7 +19,7 @@ interface CartItem {
 }
 
 const Cart: React.SFC<Props> = ({ products }) => {
-  const items = useSelector((state: RootState) => state.cart.items);
+  const items = useSelector((state: RootState) => state.cart.items)
 
   const [checkoutModalVisible, setCheckoutModalVisible] = React.useState(false)
 
@@ -33,7 +33,7 @@ const Cart: React.SFC<Props> = ({ products }) => {
   const total = list.reduce(
     (result, { product, count }) => result + (product.price || 0) * count,
     0
-  );
+  )
 
   return (
     <div className={b()}>
@@ -49,11 +49,22 @@ const Cart: React.SFC<Props> = ({ products }) => {
         <>
           <div className={b('total')}>Итого: {total} ₽</div>
           <div className={b('btn-wrapper')}>
-            <button className={b('submit-btn')} onClick={() => setCheckoutModalVisible(true)}>Оформить заказ</button>
+            <button
+              className={b('submit-btn')}
+              onClick={() => setCheckoutModalVisible(true)}
+            >
+              Оформить заказ
+            </button>
           </div>
         </>
       )}
-      {checkoutModalVisible && <CheckoutModal total={total} onClose={() => setCheckoutModalVisible(false)}/>}
+      {checkoutModalVisible && (
+        <CheckoutModal
+          total={total}
+          cart={list.map(item => ({count: item.count, name: item.product.id}))}
+          onClose={() => setCheckoutModalVisible(false)}
+        />
+      )}
     </div>
   )
 }

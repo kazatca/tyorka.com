@@ -1,3 +1,5 @@
+@import '../../../common.scss';
+
 .cart-item {
   display: flex;
   position: relative;
@@ -16,33 +18,9 @@
   }
 
   &__remove-btn {
+    @include cross(1rem);
     position: absolute;
     right: 0;
     top: 0;
-    width: 1rem;
-    height: 1rem;
-    opacity: 0.3;
-    cursor: pointer;
-    transition: 0.2s all ease-in;
-
-    &:before,
-    &:after {
-      position: absolute;
-      left: 15px;
-      content: ' ';
-      height: 1rem;
-      width: 2px;
-      background-color: #333;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
-    }
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }

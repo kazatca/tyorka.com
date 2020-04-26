@@ -22,7 +22,41 @@ div, button {
   cursor: pointer;
   transition: 0.2s all ease-in;
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 0px #1e77fb;
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+@mixin cross($width: 1rem) {
+  width: $width;
+  height: $width;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: $width;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }

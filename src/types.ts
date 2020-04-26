@@ -15,3 +15,5 @@ export interface AllFile<F>{
     }[]
   }
 }
+
+export type CheckoutFields = 'name' | 'email';

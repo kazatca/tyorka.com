@@ -1,0 +1,39 @@
+@import '../../common.scss';
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50px;
+  width: 30rem;
+  z-index: 3;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  @media (max-width: 700px) {
+    width: unset;
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+
+  &__overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+
+  &__close {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    @include cross(1.5rem);
+  }
+}

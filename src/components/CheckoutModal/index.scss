@@ -1,0 +1,70 @@
+@import '../../common.scss';
+
+.checkout-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &__title {
+    font-size: 1.3rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: .5rem 0;
+    padding-left: 1rem;
+    border: 1px solid gray;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    outline: none;
+
+    &::placeholder {
+      opacity: .2;
+    }
+
+    &:focus {
+      box-shadow: 0 0 2px 0px #1e77fb;
+    }
+    
+    &:not(:first-child) {
+      margin-top: .5rem;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    vertical-align: baseline;
+    @media (max-width: 375px) {
+      flex-direction: column;
+
+      > * {
+        text-align: center;
+      }
+    }
+  }
+
+  &__btn {
+    @extend .button;
+    padding: 0.5rem 2rem;
+
+    @media (max-width: 375px) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__total{
+    padding: 0.5rem;
+    line-height: 2rem;
+  }
+}

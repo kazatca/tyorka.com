@@ -4,10 +4,14 @@ import { createStore as reduxCreateStore } from 'redux';
 import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import rootReducer from './reducer';
- 
-const enhancer = composeWithDevTools(
-  persistState()
-)
+
+const enhancer = (
+  typeof window !== 'undefined' 
+  ?composeWithDevTools(
+    persistState()
+  )
+  : undefined
+);
 
 const createStore = () => reduxCreateStore(rootReducer, enhancer);
 

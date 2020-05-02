@@ -12,9 +12,17 @@ var firebaseConfig = {
   appId: '1:1020162780981:web:f735d6c6cb58ef1bdd667c',
 }
 
-const app = firebase.initializeApp(firebaseConfig);
+let database: firebase.database.Database | null = null;
 
-const database = app.database();
+function init(){
+  if(typeof window !== 'undefined' && !database){
+    const app = firebase.initializeApp(firebaseConfig);
+    database = app.database();
+  }
+
+  return database;
+}
+
 
 function getOrderId() {
   return Date.now() + '_' + ('' + Math.random()).slice(2);
@@ -26,5 +34,10 @@ export interface Cart {
 }
 
 export function addOrder(name: string, email: string, cart: Cart[]) {
+  const database = init();
+
+  if(!database){
+    return;
+  }
   return database.ref('order/' + getOrderId()).set({name, email, cart});
 }

@@ -24,13 +24,15 @@ const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
   const dispatch = useDispatch()
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(actions.setField('name', e.target.value))
+  
   const changeEmail = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(actions.setField('email', e.target.value))
-
+  
   const checkout = async (e: React.FormEvent<HTMLFormElement>) => {
     e.stopPropagation();
     e.preventDefault();
     await addOrder(name, email, cart);
+
     push('/success');
   }
   

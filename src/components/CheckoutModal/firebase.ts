@@ -40,5 +40,5 @@ export function addOrder(name: string, email: string, cart: Cart[]) {
   if(!database){
     return;
   }
-  return database.ref('order/' + getOrderId()).set({name, email, cart});
+  return database.ref('order/' + getOrderId()).set({name, email, cart, date: new Date().toISOString()});
 }

@@ -2738,14 +2738,6 @@ export type Unnamed_1_Query = { allFile: { edges: Array<{ node: (
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
       ) }> } };
 
-export type CartItemImageQueryVariables = {};
-
-
-export type CartItemImageQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src'>> }> }
-      ) }> } };
-
 export type SinglePageQueryVariables = {};
 
 

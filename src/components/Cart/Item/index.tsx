@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as b_ from 'b_'
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../state/actions';
+import { useSquareCovers } from '../../../hooks/squareCovers'
 
 import './index.scss';
 
@@ -10,7 +11,7 @@ const b = b_.with('cart-item')
 export interface Product {
   id: string
   url: string
-  cover: string
+  name: string
   title: string
   price?: number
 }
@@ -20,9 +21,11 @@ interface Props {
 }
 
 const Item: React.SFC<Props> = ({
-  product: { id, cover, title, price },
+  product: { id, name, title, price },
   count
 }) => {
+  const covers = useSquareCovers();
+
   const dispatch = useDispatch();
 
   const remove = () => dispatch(actions.removeFromCart(id));
@@ -30,7 +33,7 @@ const Item: React.SFC<Props> = ({
   return (
     <div className={b()}>
       <div className={b('photo')}>
-        <img src={cover} />
+        <img src={covers[name]} />
       </div>
       <div>
         <div className={b('title')}>{title}</div>

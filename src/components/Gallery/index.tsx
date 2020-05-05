@@ -1,35 +1,34 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import * as b_ from 'b_'
+import { useCovers } from '../../hooks/covers';
+import { ProductsJson } from '../../types';
+
+const {products}: ProductsJson = require('../../products/products.json');
 
 import './index.scss';
 
 const b = b_.with('gallery');
 
-interface Product {
-  url: string;
-  cover: string;
-  sale: boolean;
-}
 
-interface Props {
-  products: Product[]
-}
+const Gallery: React.SFC = () => {
+  const covers = useCovers();
 
-const Gallery = ({products}: Props) => 
-  <section className={b()}>
-    {products
-      .map(product => 
-      <Link
-        to={product.url}
-        key={product.url}
-        className={b("photo")}
-      >
-        <img src={product.cover} />
-        {product.sale && <div className={b("sale")} />}
-      </Link>
-    )}  
-  </section>
+  return (
+    <section className={b()}>
+      {products
+        .map(product =>
+          <Link
+            key={product.id}
+            to={`/single/${product.path}` }
+            className={b("photo")}
+          >
+            <img src={covers[product.path]} />
+          </Link>
+        )}
+    </section>
+  );
+}
 
 
 export default Gallery;

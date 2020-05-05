@@ -29,7 +29,7 @@ const Product: React.SFC<Props> = ({id, pics, title, price}) => {
     <div className={b()}>
       <section>
         <div className={b('photo')}>
-          <img src={pics[0].preview.src} />
+          <img src={pics[0].preview.src || ''} />
         </div>
       </section>
 
@@ -44,11 +44,12 @@ const Product: React.SFC<Props> = ({id, pics, title, price}) => {
           </div>}
 
           <div>
-            {
-              inCart
-              ? <button className={b('btn')} onClick={goToCart}>Перейти в корзину</button>
-              : <button className={b('btn')} onClick={addToCart}>Добавить в корзину</button>
-            }
+            <button 
+              className={b('btn')} 
+              onClick={inCart ? goToCart: addToCart}
+            >
+              {inCart ? 'Перейти в корзину' : 'Добавить в корзину'}
+            </button>
           </div>
         </div>
       </section>

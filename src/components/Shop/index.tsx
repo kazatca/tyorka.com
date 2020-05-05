@@ -1,27 +1,30 @@
 import * as React from 'react'
 import * as b_ from 'b_'
 import ProductView from './Product';
+import { ProductsJson } from '../../types';
+
+const { products }:  ProductsJson = require('../../products/products.json');
 
 import './index.scss';
 
 const b = b_.with('shop');
 
-interface Product {
-  url: string;
-  cover: string;
-  title: string
-  price?: number
+const Shop: React.SFC = () => {
+  return (
+    <section className={b()}>
+      {products
+        .filter(product => !!product.price)
+        .map((product) =>
+          <ProductView
+            key={product.id}
+            name={product.path}
+            url={`/shop/${product.path}`}
+            title={product.title}
+            price={product.price}
+          />
+      )}
+    </section>
+  );
 }
-
-interface Props {
-  products: Product[]
-}
-
-const Shop = ({products}: Props) => 
-  <section className={b()}>
-    {products
-      .map((product, i) => <ProductView key={i} product={product} />)}  
-  </section>
-
 
 export default Shop;

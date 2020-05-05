@@ -1,6 +1,6 @@
 
 export interface Image {
-  src: string;
+  src?: string | null;
   width: number;
   height: number;
 }

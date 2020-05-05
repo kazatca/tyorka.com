@@ -1,36 +1,15 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { ProductImagesQuery, ShopProductPageQuery } from '../../gatsby-graphql';
 import Product from '../components/Product'
-import { AllFile } from '../types'
 import { Image } from '../components/Single/types'
 import Layout from '../components/Layout'
 
-type Data = AllFile<{
-  name: string
-  relativePath: string
-  childImageSharp: {
-    resize: {
-      src: string
-      width: number
-      height: number
-    }
-    original: {
-      src: string
-      width: number
-      height: number
-    }
-  }
-}>
+type N<P> = NonNullable<P>
 
-interface Slide {
-  id: string
-  name: string
-  preview: Image
-  original: Image
-  positionX: number
-  positionY: number
-  size: number
-}
+type Products = N<ShopProductPageQuery['allProductsJson']['edges'][number]['node']['products']>[number]
+
+type Slide = N<N<N<Products>['slides']>[number]>
 
 interface Props {
   pathContext: {
@@ -41,11 +20,11 @@ interface Props {
     price?: number
     slides: Slide[]
   }
-  data: Data
+  data: ProductImagesQuery
 }
 
 const ProductPage = ({
-  pathContext: { id, title, description, price, slug, slides },
+  pathContext: { id, title, price, slides },
   data,
 }: Props) => {
   return (
@@ -56,7 +35,7 @@ const ProductPage = ({
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ProductImages ($slug: String!) {
     allFile(
       filter: { relativeDirectory: { eq: $slug }, extension: { ne: "html" } }
     ) {
@@ -83,15 +62,17 @@ export const query = graphql`
   }
 `
 
-const formatPics = (data: Data, slides: Slide[]) =>
+const formatPics = (data: ProductImagesQuery, slides: Slide[]) =>
   data.allFile.edges.map(({ node }) => {
     const name = node.relativePath.split('/')[1]
-    const slideProps = slides.find(slide => slide.id === name)
+    const slideProps = slides.find(slide => slide.id === name)!
+
+    const image = node.childImageSharp!;
 
     return {
       name,
-      preview: node.childImageSharp.resize,
-      original: node.childImageSharp.original,
+      preview: image.resize!,
+      original: image.original!,
       ...slideProps,
     }
   })

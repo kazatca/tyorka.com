@@ -1,33 +1,32 @@
 import * as React from 'react';
 import * as b_ from 'b_';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import {useSquareCovers} from '../../../hooks/squareCovers'
 
 import './index.scss';
 
-interface Product {
+interface Props {
   url: string;
-  cover: string;
+  name: string;
   title: string
   price?: number
 }
 
-interface Props {
-  product: Product
-}
-
 const b = b_.with('shop-product');
 
-const Product: React.SFC<Props> = ({ product }) => {
+const Product: React.SFC<Props> = ({ url, name, title, price }) => {
+  const covers = useSquareCovers();
+
   return (
     <Link
       className={b()}
-      to={product.url}
+      to={url}
     >
       <div className={b("photo")}>
-        <img src={product.cover} />
+        <img src={covers[name]} />
       </div>
-      <div className={b('title')}>{product.title}</div>
-      {product.price && <div className={b('price')}>{product.price} ₽</div>}
+      <div className={b('title')}>{title}</div>
+      {price && <div className={b('price')}>{price} ₽</div>}
     </Link>
 
   );

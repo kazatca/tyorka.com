@@ -4,6 +4,7 @@
     "target": "esnext",
     "module": "commonjs",
     "lib": ["dom", "es2017"],
+    "resolveJsonModule": true,
     // "allowJs": true,
     // "checkJs": true,
     "jsx": "react",

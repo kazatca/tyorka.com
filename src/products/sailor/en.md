@@ -1,0 +1,5 @@
+---
+path: "sailor"
+title: "Sailor"
+---
+

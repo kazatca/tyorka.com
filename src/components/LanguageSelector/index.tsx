@@ -22,6 +22,7 @@ export const LanguageSelector: React.FC = () => {
     <div className={b()}>
       {locales.map(lng => (
         <span
+          key={lng}
           className={b('lng', {active: lng === actualLng})}
           onClick={() => set(lng)}
         >

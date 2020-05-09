@@ -1,0 +1,5 @@
+---
+path: "photo"
+title: "Photo"
+---
+

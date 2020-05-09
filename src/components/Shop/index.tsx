@@ -19,7 +19,6 @@ const Shop: React.SFC = () => {
             key={product.id}
             name={product.path}
             url={`/shop/${product.path}`}
-            title={product.title}
             price={product.price}
           />
       )}

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import DesktopHeader from '../DesktopHeader'
 import MobileHeader from '../MobileHeader'
 import Socials from '../Socials';
+import { LanguageSelector } from '../LanguageSelector';
 
 import './index.scss';
 
@@ -11,7 +12,7 @@ const b = b_.with('content');
 
 const fixedMenu = false;
 
-const Layout: React.SFC<{}> = ({ children }) => (
+const Layout: React.FC<{}> = ({ children }) => (
   <>
     <Helmet
       title='Тёрка'
@@ -25,6 +26,7 @@ const Layout: React.SFC<{}> = ({ children }) => (
       <MobileHeader />
       {children}
       <Socials />
+      <LanguageSelector />
     </div>
   </>
 )

@@ -2,24 +2,31 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as b_ from 'b_';
 import { push } from 'gatsby';
-import { Slide } from '../Single/types';
 import { actions } from '../../state/actions';
 import { RootState } from '../../state/reducer';
+import { useTranslate } from '../../hooks/translate';
+import { usePics } from './hooks';
 
 import './index.scss';
+import { useDescription } from '../../hooks/md';
 
 interface Props {
   id: string
-  pics: Slide[];
-  title: string
+  name: string
   price?: number
 }
 
 const b = b_.with('product');
 
-const Product: React.SFC<Props> = ({id, pics, title, price}) => {
+const Product: React.FC<Props> = ({id, name, price}) => {
   const inCart = useSelector((state: RootState) => state.cart.items.find(item => item.id === id))
   const dispatch = useDispatch();
+
+  const { t } = useTranslate();
+
+  const pics = usePics(name);
+
+  const {title} = useDescription(name);
 
   const addToCart = () => dispatch(actions.addToCart(id));
 
@@ -29,7 +36,7 @@ const Product: React.SFC<Props> = ({id, pics, title, price}) => {
     <div className={b()}>
       <section>
         <div className={b('photo')}>
-          <img src={pics[0].preview.src || ''} />
+          <img src={pics[0]?.preview?.src || ''} />
         </div>
       </section>
 
@@ -48,7 +55,7 @@ const Product: React.SFC<Props> = ({id, pics, title, price}) => {
               className={b('btn')} 
               onClick={inCart ? goToCart: addToCart}
             >
-              {inCart ? 'Перейти в корзину' : 'Добавить в корзину'}
+              {inCart ? t('Go to cart') : t('Add to cart')}
             </button>
           </div>
         </div>

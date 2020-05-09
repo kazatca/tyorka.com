@@ -9,7 +9,7 @@ interface Props {
   pathContext: {
     id: string
     slug: string
-    title: string
+    name: string
     description?: string
     price?: number
     slides: Slide[]
@@ -18,12 +18,12 @@ interface Props {
 }
 
 const ProductPage = ({
-  pathContext: { id, title, price, slides },
+  pathContext: { id, name, price, slides },
   data,
 }: Props) => {
   return (
     <Layout>
-      <Product id={id} pics={formatPics(data, slides)} title={title} price={price} />
+      <Product id={id} name={name} price={price} />
     </Layout>
   )
 }

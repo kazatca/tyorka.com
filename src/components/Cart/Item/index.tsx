@@ -5,6 +5,7 @@ import { actions } from '../../../state/actions';
 import { useSquareCovers } from '../../../hooks/squareCovers'
 
 import './index.scss';
+import { useDescription } from '../../../hooks/md';
 
 const b = b_.with('cart-item')
 
@@ -12,7 +13,6 @@ export interface Product {
   id: string
   url: string
   name: string
-  title: string
   price?: number
 }
 interface Props {
@@ -21,10 +21,12 @@ interface Props {
 }
 
 const Item: React.SFC<Props> = ({
-  product: { id, name, title, price },
+  product: { id, name, price },
   count
 }) => {
   const covers = useSquareCovers();
+
+  const { title } = useDescription(name)
 
   const dispatch = useDispatch();
 

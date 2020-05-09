@@ -1762,6 +1762,8 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1872,6 +1874,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2072,6 +2076,8 @@ export type SiteEdge = {
 export type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata___title'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2164,6 +2170,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2223,8 +2231,6 @@ export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['Int']>;
   slides?: Maybe<Array<Maybe<SitePageContextSlides>>>;
 };
@@ -2233,8 +2239,6 @@ export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   price?: Maybe<IntQueryOperatorInput>;
   slides?: Maybe<SitePageContextSlidesFilterListInput>;
 };
@@ -2361,8 +2365,6 @@ export type SitePageFieldsEnum =
   | 'context___id'
   | 'context___name'
   | 'context___slug'
-  | 'context___title'
-  | 'context___description'
   | 'context___price'
   | 'context___slides'
   | 'context___slides___id'
@@ -2783,12 +2785,10 @@ export type ProductImagesQuery = { allFile: { edges: Array<{ node: (
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
       ) }> } };
 
-export type Unnamed_1_QueryVariables = {
-  slug: Scalars['String'];
-};
+export type ProductPagePicsQueryVariables = {};
 
 
-export type Unnamed_1_Query = { allFile: { edges: Array<{ node: (
+export type ProductPagePicsQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'name' | 'relativePath'>
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
       ) }> } };

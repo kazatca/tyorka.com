@@ -2,16 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const { products } = require('./src/products/products.json')
 
-function getDescription(name, lng) {
-  try {
-    return fs.readFileSync(
-      path.resolve(`./src/products/${name}/description/${lng}`),
-      'utf-8'
-    )
-  } catch (e) {}
-  return ''
-}
-
 exports.createPages = ({ actions }) => {
   const { createPage, createRedirect } = actions
 
@@ -36,8 +26,6 @@ function createSinglePages(createPage) {
         id: node.id,
         name: node.path,
         slug: node.path,
-        title: node.title,
-        description: getDescription(node.path, 'en'),
         price: node.price,
         slides: node.slides,
       },
@@ -55,8 +43,7 @@ function createProductPages(createPage) {
         context: {
           id: node.id,
           slug: node.path,
-          description: getDescription(node.path, 'en'),
-          title: node.title,
+          name: node.path,
           price: node.price,
           slides: node.slides,
         },

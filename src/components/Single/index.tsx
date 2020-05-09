@@ -1,13 +1,11 @@
+import 'isomorphic-fetch';
 import * as React from 'react'
 import * as b_ from 'b_'
-import 'isomorphic-fetch';
-import { useSelector } from 'react-redux';
 import Slider from './components/MobileSlider';
 import Zoom from './components/MobileZoom';
 import { Slide } from '../../types';
 import { usePics } from './hooks';
 import { useDescription } from '../../hooks/md';
-import { RootState } from '../../state/reducer';
 
 import './index.scss';
 
@@ -18,12 +16,10 @@ interface Props {
   price?: number;
 }
 
-const Single: React.SFC<Props> = ({ name }) => {
+const Single: React.FC<Props> = ({ name }) => {
   const [zoomed, setZoomed] = React.useState<Slide | null>(null);
-
-  const lng = useSelector((state: RootState) => state.app.locale);
   
-  const { title, html } = useDescription(name, lng);
+  const { title, html } = useDescription(name);
 
   const pics = usePics(name);
 

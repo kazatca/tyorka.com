@@ -3,6 +3,7 @@ import * as b_ from 'b_'
 import Item from './Item'
 import CheckoutModal from '../CheckoutModal'
 import { useCart } from './hooks'
+import { useTranslate } from '../../hooks/translate'
 
 import './index.scss'
 
@@ -12,13 +13,14 @@ interface Props { }
 
 const Cart: React.SFC<Props> = () => {
   const {list, total} = useCart();
+  const { t } = useTranslate();
 
   const [checkoutModalVisible, setCheckoutModalVisible] = React.useState(false)
 
   return (
     <div className={b()}>
-      <div className={b('title')}>Моя корзина</div>
-      {!total && <div className={b('empty')}>Тут пока ничего нет</div>}
+      <div className={b('title')}>{t('My cart')}</div>
+      {!total && <div className={b('empty')}>{t("There is nothing here yet")}</div>}
       <div className={b('list')}>
         {list.map(({ product, count }) => (
           <Item key={product.id} product={product} count={count} />
@@ -27,13 +29,13 @@ const Cart: React.SFC<Props> = () => {
 
       {total > 0 && (
         <>
-          <div className={b('total')}>Итого: {total} ₽</div>
+          <div className={b('total')}>{t('Total')}: {total} ₽</div>
           <div className={b('btn-wrapper')}>
             <button
               className={b('submit-btn')}
               onClick={() => setCheckoutModalVisible(true)}
             >
-              Оформить заказ
+              {t('Checkout')}
             </button>
           </div>
         </>
@@ -41,7 +43,7 @@ const Cart: React.SFC<Props> = () => {
       {checkoutModalVisible && (
         <CheckoutModal
           total={total}
-          cart={list.map(item => ({ count: item.count, id: item.product.id, name: item.product.title }))}
+          cart={list.map(item => ({ count: item.count, ...item.product }))}
           onClose={() => setCheckoutModalVisible(false)}
         />
       )}

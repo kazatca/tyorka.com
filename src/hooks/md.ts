@@ -1,5 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
 import { MdQuery } from '../../gatsby-graphql';
+import { useSelector } from "react-redux";
+import { RootState } from "../state/reducer";
 
 type N<T> = NonNullable<T>;
 
@@ -9,7 +11,10 @@ interface Description {
   [lng: string]: MD
 }
 
-export const useDescription = (productName: string, lng: string) => {
+export const useDescription = (productName: string) => {
+
+  const lng = useSelector((state: RootState) => state.app.locale);
+
   const data = useStaticQuery<MdQuery>(graphql`
     query MD {
       allMarkdownRemark{

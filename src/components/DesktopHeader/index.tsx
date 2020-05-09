@@ -6,6 +6,7 @@ import CornerMenu from '../CornerMenu';
 import './index.scss';
 
 import * as logo from "./static/logo.png";
+import { useTranslate } from '../../hooks/translate';
 
 const b = b_.with('desktop-header');
 
@@ -16,41 +17,41 @@ interface Props {
 const headerHeightMax = 400;
 const headerHeightMin = 140;
 
-class DesktopHeader extends React.Component<Props> {
-  private logo: HTMLImageElement | null= null;
+const DesktopHeader: React.FC<Props> = ({fixed}) => {
+  const logoRef = React.useRef<HTMLImageElement>(null);
+  
+  const { t } = useTranslate()
 
-  render(){
-    const {fixed} = this.props;
-    return (
-      <section className={b({fixed})}>
-        <CornerMenu />
-        <div className={b("menu")}>
-          <Link to='/'>главная</Link>
-          <Link to='/about'>обо мне</Link>
-        </div>
-        <Link to="/"><img className={b("logo")} src={logo} ref={el => this.logo = el}/></Link>
-        <div className={b("menu")}>
-          <Link to='/blog'>блог</Link>
-          <Link to='/shop'>магазин</Link>
-        </div>
-      </section>
-    );
-  }
-
-  componentDidMount(){
-    if(typeof window !== 'undefined' && this.props.fixed){
-      window.addEventListener('scroll', this.resizeHeader);
+  const resizeHeader = () => {
+    const top = window.scrollY;
+    if(logoRef.current) {
+      logoRef.current.style.width = Math.max(headerHeightMax - top, headerHeightMin) + 'px'
     }
   }
 
-  componentWillUnmount(){
-    window.removeEventListener('scroll', this.resizeHeader);  
-  }
+  React.useEffect(() => {
+    if(typeof window !== 'undefined' && fixed){
+      window.addEventListener('scroll', resizeHeader);
+    }
+    return () => {
+      window.removeEventListener('scroll', resizeHeader);  
+    }
+  })
 
-  resizeHeader = () => {
-    const top = window.scrollY;
-    this.logo && (this.logo.style.width = Math.max(headerHeightMax - top, headerHeightMin) + 'px'); 
-  }
+  return (
+    <section className={b({fixed})}>
+      <CornerMenu />
+      <div className={b("menu")}>
+        <Link to='/'>{t('Main page')}</Link>
+        <Link to='/about'>{t('About page')}</Link>
+      </div>
+      <Link to="/"><img className={b("logo")} src={logo} ref={logoRef}/></Link>
+      <div className={b("menu")}>
+        <Link to='/blog'>{t('Blog page')}</Link>
+        <Link to='/shop'>{t('Shop page')}</Link>
+      </div>
+    </section>
+  );
 }
 
 export default DesktopHeader

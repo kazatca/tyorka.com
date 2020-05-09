@@ -3,7 +3,7 @@ import * as b_ from 'b_'
 
 import './index.scss';
 
-const b = b_.bind(null, 'about');
+const b = b_.with('about');
 
 const About = () => 
   <section className={b()}>

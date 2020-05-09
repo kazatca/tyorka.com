@@ -8,6 +8,7 @@ import Modal from '../Modal';
 import { addOrder, Cart } from './firebase';
 
 import './index.scss'
+import { useTranslate } from '../../hooks/translate';
 
 const b = b_.with('checkout-modal')
 
@@ -20,6 +21,8 @@ interface Props {
 const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
   const name = useSelector((state: RootState) => state.checkout.name)
   const email = useSelector((state: RootState) => state.checkout.email)
+
+  const { t } = useTranslate();
 
   const dispatch = useDispatch()
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -38,14 +41,14 @@ const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
   
   return (
     <Modal onClose={onClose}>
-      <div className={b('title')}>Оформление заказа</div>
+      <div className={b('title')}>{t('Order checkout')}</div>
       <form className={b('form')} onSubmit={checkout}>
         <input
           className={b('input')}
           name="name"
           value={name}
           onChange={changeName}
-          placeholder="Имя"
+          placeholder={t('Name')}
           autoFocus
           required
         />
@@ -59,8 +62,8 @@ const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
           required
         />
         <div className={b('footer')}>
-          <div className={b('total')}>На сумму: {total} ₽</div>
-          <button className={b('btn')} >Отправить</button>
+          <div className={b('total')}>{t('Amounting to')}: {total} ₽</div>
+          <button className={b('btn')} >{t('Send')}</button>
         </div>
       </form>
     </Modal>

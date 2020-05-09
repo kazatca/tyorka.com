@@ -1,15 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { ProductImagesQuery, ShopProductPageQuery } from '../../gatsby-graphql';
+import { ProductImagesQuery } from '../../gatsby-graphql';
 import Product from '../components/Product'
-import { Image } from '../components/Single/types'
-import Layout from '../components/Layout'
-
-type N<P> = NonNullable<P>
-
-type Products = N<ShopProductPageQuery['allProductsJson']['edges'][number]['node']['products']>[number]
-
-type Slide = N<N<N<Products>['slides']>[number]>
+import Layout from '../components/Layout';
+import { Slide } from '../server/types';
 
 interface Props {
   pathContext: {
@@ -37,7 +31,7 @@ const ProductPage = ({
 export const query = graphql`
   query ProductImages ($slug: String!) {
     allFile(
-      filter: { relativeDirectory: { eq: $slug }, extension: { ne: "html" } }
+      filter: { relativeDirectory: { eq: $slug }, extension: { ne: "md" } }
     ) {
       edges {
         node {

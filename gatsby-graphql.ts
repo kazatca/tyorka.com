@@ -392,7 +392,7 @@ export type File = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  childProductsJson?: Maybe<ProductsJson>;
+  childMarkdownRemark?: Maybe<MarkdownRemark>;
   childImageSharp?: Maybe<ImageSharp>;
 };
 
@@ -600,60 +600,61 @@ export type FileFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'childProductsJson___id'
-  | 'childProductsJson___parent___id'
-  | 'childProductsJson___parent___parent___id'
-  | 'childProductsJson___parent___parent___children'
-  | 'childProductsJson___parent___children'
-  | 'childProductsJson___parent___children___id'
-  | 'childProductsJson___parent___children___children'
-  | 'childProductsJson___parent___internal___content'
-  | 'childProductsJson___parent___internal___contentDigest'
-  | 'childProductsJson___parent___internal___description'
-  | 'childProductsJson___parent___internal___fieldOwners'
-  | 'childProductsJson___parent___internal___ignoreType'
-  | 'childProductsJson___parent___internal___mediaType'
-  | 'childProductsJson___parent___internal___owner'
-  | 'childProductsJson___parent___internal___type'
-  | 'childProductsJson___children'
-  | 'childProductsJson___children___id'
-  | 'childProductsJson___children___parent___id'
-  | 'childProductsJson___children___parent___children'
-  | 'childProductsJson___children___children'
-  | 'childProductsJson___children___children___id'
-  | 'childProductsJson___children___children___children'
-  | 'childProductsJson___children___internal___content'
-  | 'childProductsJson___children___internal___contentDigest'
-  | 'childProductsJson___children___internal___description'
-  | 'childProductsJson___children___internal___fieldOwners'
-  | 'childProductsJson___children___internal___ignoreType'
-  | 'childProductsJson___children___internal___mediaType'
-  | 'childProductsJson___children___internal___owner'
-  | 'childProductsJson___children___internal___type'
-  | 'childProductsJson___internal___content'
-  | 'childProductsJson___internal___contentDigest'
-  | 'childProductsJson___internal___description'
-  | 'childProductsJson___internal___fieldOwners'
-  | 'childProductsJson___internal___ignoreType'
-  | 'childProductsJson___internal___mediaType'
-  | 'childProductsJson___internal___owner'
-  | 'childProductsJson___internal___type'
-  | 'childProductsJson___slides'
-  | 'childProductsJson___slides___id'
-  | 'childProductsJson___slides___resized'
-  | 'childProductsJson___products'
-  | 'childProductsJson___products___id'
-  | 'childProductsJson___products___path'
-  | 'childProductsJson___products___slides'
-  | 'childProductsJson___products___slides___id'
-  | 'childProductsJson___products___slides___resized'
-  | 'childProductsJson___products___slides___positionX'
-  | 'childProductsJson___products___slides___positionY'
-  | 'childProductsJson___products___slides___size'
-  | 'childProductsJson___products___title'
-  | 'childProductsJson___products___tags'
-  | 'childProductsJson___products___price'
-  | 'childProductsJson___products___description'
+  | 'childMarkdownRemark___id'
+  | 'childMarkdownRemark___frontmatter___title'
+  | 'childMarkdownRemark___frontmatter___path'
+  | 'childMarkdownRemark___excerpt'
+  | 'childMarkdownRemark___rawMarkdownBody'
+  | 'childMarkdownRemark___fileAbsolutePath'
+  | 'childMarkdownRemark___html'
+  | 'childMarkdownRemark___htmlAst'
+  | 'childMarkdownRemark___excerptAst'
+  | 'childMarkdownRemark___headings'
+  | 'childMarkdownRemark___headings___id'
+  | 'childMarkdownRemark___headings___value'
+  | 'childMarkdownRemark___headings___depth'
+  | 'childMarkdownRemark___timeToRead'
+  | 'childMarkdownRemark___tableOfContents'
+  | 'childMarkdownRemark___wordCount___paragraphs'
+  | 'childMarkdownRemark___wordCount___sentences'
+  | 'childMarkdownRemark___wordCount___words'
+  | 'childMarkdownRemark___parent___id'
+  | 'childMarkdownRemark___parent___parent___id'
+  | 'childMarkdownRemark___parent___parent___children'
+  | 'childMarkdownRemark___parent___children'
+  | 'childMarkdownRemark___parent___children___id'
+  | 'childMarkdownRemark___parent___children___children'
+  | 'childMarkdownRemark___parent___internal___content'
+  | 'childMarkdownRemark___parent___internal___contentDigest'
+  | 'childMarkdownRemark___parent___internal___description'
+  | 'childMarkdownRemark___parent___internal___fieldOwners'
+  | 'childMarkdownRemark___parent___internal___ignoreType'
+  | 'childMarkdownRemark___parent___internal___mediaType'
+  | 'childMarkdownRemark___parent___internal___owner'
+  | 'childMarkdownRemark___parent___internal___type'
+  | 'childMarkdownRemark___children'
+  | 'childMarkdownRemark___children___id'
+  | 'childMarkdownRemark___children___parent___id'
+  | 'childMarkdownRemark___children___parent___children'
+  | 'childMarkdownRemark___children___children'
+  | 'childMarkdownRemark___children___children___id'
+  | 'childMarkdownRemark___children___children___children'
+  | 'childMarkdownRemark___children___internal___content'
+  | 'childMarkdownRemark___children___internal___contentDigest'
+  | 'childMarkdownRemark___children___internal___description'
+  | 'childMarkdownRemark___children___internal___fieldOwners'
+  | 'childMarkdownRemark___children___internal___ignoreType'
+  | 'childMarkdownRemark___children___internal___mediaType'
+  | 'childMarkdownRemark___children___internal___owner'
+  | 'childMarkdownRemark___children___internal___type'
+  | 'childMarkdownRemark___internal___content'
+  | 'childMarkdownRemark___internal___contentDigest'
+  | 'childMarkdownRemark___internal___description'
+  | 'childMarkdownRemark___internal___fieldOwners'
+  | 'childMarkdownRemark___internal___ignoreType'
+  | 'childMarkdownRemark___internal___mediaType'
+  | 'childMarkdownRemark___internal___owner'
+  | 'childMarkdownRemark___internal___type'
   | 'childImageSharp___id'
   | 'childImageSharp___parent___id'
   | 'childImageSharp___parent___parent___id'
@@ -785,7 +786,7 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childProductsJson?: Maybe<ProductsJsonFilterInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
 };
 
@@ -1295,92 +1296,134 @@ export type IntQueryOperatorInput = {
 };
 
 
-/** Node Interface */
-export type Node = {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
+export type JsonQueryOperatorInput = {
+  eq?: Maybe<Scalars['JSON']>;
+  ne?: Maybe<Scalars['JSON']>;
+  in?: Maybe<Array<Maybe<Scalars['JSON']>>>;
+  nin?: Maybe<Array<Maybe<Scalars['JSON']>>>;
+  regex?: Maybe<Scalars['JSON']>;
+  glob?: Maybe<Scalars['JSON']>;
 };
 
-export type NodeFilterInput = {
+export type MarkdownExcerptFormats = 
+  | 'PLAIN'
+  | 'HTML'
+  | 'MARKDOWN';
+
+export type MarkdownHeading = {
+  id?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+  depth?: Maybe<Scalars['Int']>;
+};
+
+export type MarkdownHeadingFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
+  value?: Maybe<StringQueryOperatorInput>;
+  depth?: Maybe<IntQueryOperatorInput>;
 };
 
-export type NodeFilterListInput = {
-  elemMatch?: Maybe<NodeFilterInput>;
+export type MarkdownHeadingFilterListInput = {
+  elemMatch?: Maybe<MarkdownHeadingFilterInput>;
 };
 
-export type PageInfo = {
-  currentPage: Scalars['Int'];
-  hasPreviousPage: Scalars['Boolean'];
-  hasNextPage: Scalars['Boolean'];
-  itemCount: Scalars['Int'];
-  pageCount: Scalars['Int'];
-  perPage?: Maybe<Scalars['Int']>;
-};
+export type MarkdownHeadingLevels = 
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6';
 
-export type Potrace = {
-  turnPolicy?: Maybe<PotraceTurnPolicy>;
-  turdSize?: Maybe<Scalars['Float']>;
-  alphaMax?: Maybe<Scalars['Float']>;
-  optCurve?: Maybe<Scalars['Boolean']>;
-  optTolerance?: Maybe<Scalars['Float']>;
-  threshold?: Maybe<Scalars['Int']>;
-  blackOnWhite?: Maybe<Scalars['Boolean']>;
-  color?: Maybe<Scalars['String']>;
-  background?: Maybe<Scalars['String']>;
-};
-
-export type PotraceTurnPolicy = 
-  | 'TURNPOLICY_BLACK'
-  | 'TURNPOLICY_WHITE'
-  | 'TURNPOLICY_LEFT'
-  | 'TURNPOLICY_RIGHT'
-  | 'TURNPOLICY_MINORITY'
-  | 'TURNPOLICY_MAJORITY';
-
-export type ProductsJson = Node & {
+export type MarkdownRemark = Node & {
   id: Scalars['ID'];
+  frontmatter?: Maybe<MarkdownRemarkFrontmatter>;
+  excerpt?: Maybe<Scalars['String']>;
+  rawMarkdownBody?: Maybe<Scalars['String']>;
+  fileAbsolutePath?: Maybe<Scalars['String']>;
+  html?: Maybe<Scalars['String']>;
+  htmlAst?: Maybe<Scalars['JSON']>;
+  excerptAst?: Maybe<Scalars['JSON']>;
+  headings?: Maybe<Array<Maybe<MarkdownHeading>>>;
+  timeToRead?: Maybe<Scalars['Int']>;
+  tableOfContents?: Maybe<Scalars['String']>;
+  wordCount?: Maybe<MarkdownWordCount>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  slides?: Maybe<Array<Maybe<ProductsJsonSlides>>>;
-  products?: Maybe<Array<Maybe<ProductsJsonProducts>>>;
 };
 
-export type ProductsJsonConnection = {
+
+export type MarkdownRemarkExcerptArgs = {
+  pruneLength?: Maybe<Scalars['Int']>;
+  truncate?: Maybe<Scalars['Boolean']>;
+  format?: Maybe<MarkdownExcerptFormats>;
+};
+
+
+export type MarkdownRemarkExcerptAstArgs = {
+  pruneLength?: Maybe<Scalars['Int']>;
+  truncate?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type MarkdownRemarkHeadingsArgs = {
+  depth?: Maybe<MarkdownHeadingLevels>;
+};
+
+
+export type MarkdownRemarkTableOfContentsArgs = {
+  absolute?: Maybe<Scalars['Boolean']>;
+  pathToSlugField?: Maybe<Scalars['String']>;
+  maxDepth?: Maybe<Scalars['Int']>;
+  heading?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<ProductsJsonEdge>;
-  nodes: Array<ProductsJson>;
+  edges: Array<MarkdownRemarkEdge>;
+  nodes: Array<MarkdownRemark>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
-  group: Array<ProductsJsonGroupConnection>;
+  group: Array<MarkdownRemarkGroupConnection>;
 };
 
 
-export type ProductsJsonConnectionDistinctArgs = {
-  field: ProductsJsonFieldsEnum;
+export type MarkdownRemarkConnectionDistinctArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-export type ProductsJsonConnectionGroupArgs = {
+export type MarkdownRemarkConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  field: ProductsJsonFieldsEnum;
+  field: MarkdownRemarkFieldsEnum;
 };
 
-export type ProductsJsonEdge = {
-  next?: Maybe<ProductsJson>;
-  node: ProductsJson;
-  previous?: Maybe<ProductsJson>;
+export type MarkdownRemarkEdge = {
+  next?: Maybe<MarkdownRemark>;
+  node: MarkdownRemark;
+  previous?: Maybe<MarkdownRemark>;
 };
 
-export type ProductsJsonFieldsEnum = 
+export type MarkdownRemarkFieldsEnum = 
   | 'id'
+  | 'frontmatter___title'
+  | 'frontmatter___path'
+  | 'excerpt'
+  | 'rawMarkdownBody'
+  | 'fileAbsolutePath'
+  | 'html'
+  | 'htmlAst'
+  | 'excerptAst'
+  | 'headings'
+  | 'headings___id'
+  | 'headings___value'
+  | 'headings___depth'
+  | 'timeToRead'
+  | 'tableOfContents'
+  | 'wordCount___paragraphs'
+  | 'wordCount___sentences'
+  | 'wordCount___words'
   | 'parent___id'
   | 'parent___parent___id'
   | 'parent___parent___parent___id'
@@ -1465,104 +1508,109 @@ export type ProductsJsonFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type'
-  | 'slides'
-  | 'slides___id'
-  | 'slides___resized'
-  | 'products'
-  | 'products___id'
-  | 'products___path'
-  | 'products___slides'
-  | 'products___slides___id'
-  | 'products___slides___resized'
-  | 'products___slides___positionX'
-  | 'products___slides___positionY'
-  | 'products___slides___size'
-  | 'products___title'
-  | 'products___tags'
-  | 'products___price'
-  | 'products___description';
+  | 'internal___type';
 
-export type ProductsJsonFilterInput = {
+export type MarkdownRemarkFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+  rawMarkdownBody?: Maybe<StringQueryOperatorInput>;
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>;
+  html?: Maybe<StringQueryOperatorInput>;
+  htmlAst?: Maybe<JsonQueryOperatorInput>;
+  excerptAst?: Maybe<JsonQueryOperatorInput>;
+  headings?: Maybe<MarkdownHeadingFilterListInput>;
+  timeToRead?: Maybe<IntQueryOperatorInput>;
+  tableOfContents?: Maybe<StringQueryOperatorInput>;
+  wordCount?: Maybe<MarkdownWordCountFilterInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  slides?: Maybe<ProductsJsonSlidesFilterListInput>;
-  products?: Maybe<ProductsJsonProductsFilterListInput>;
 };
 
-export type ProductsJsonGroupConnection = {
+export type MarkdownRemarkFrontmatter = {
+  title?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MarkdownRemarkGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<ProductsJsonEdge>;
-  nodes: Array<ProductsJson>;
+  edges: Array<MarkdownRemarkEdge>;
+  nodes: Array<MarkdownRemark>;
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type ProductsJsonProducts = {
-  id?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
-  slides?: Maybe<Array<Maybe<ProductsJsonProductsSlides>>>;
-  title?: Maybe<Scalars['String']>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  price?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['String']>;
-};
-
-export type ProductsJsonProductsFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  slides?: Maybe<ProductsJsonProductsSlidesFilterListInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  tags?: Maybe<StringQueryOperatorInput>;
-  price?: Maybe<IntQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ProductsJsonProductsFilterListInput = {
-  elemMatch?: Maybe<ProductsJsonProductsFilterInput>;
-};
-
-export type ProductsJsonProductsSlides = {
-  id?: Maybe<Scalars['String']>;
-  resized?: Maybe<Scalars['Boolean']>;
-  positionX?: Maybe<Scalars['Float']>;
-  positionY?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-};
-
-export type ProductsJsonProductsSlidesFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  resized?: Maybe<BooleanQueryOperatorInput>;
-  positionX?: Maybe<FloatQueryOperatorInput>;
-  positionY?: Maybe<FloatQueryOperatorInput>;
-  size?: Maybe<FloatQueryOperatorInput>;
-};
-
-export type ProductsJsonProductsSlidesFilterListInput = {
-  elemMatch?: Maybe<ProductsJsonProductsSlidesFilterInput>;
-};
-
-export type ProductsJsonSlides = {
-  id?: Maybe<Scalars['String']>;
-  resized?: Maybe<Scalars['Boolean']>;
-};
-
-export type ProductsJsonSlidesFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  resized?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type ProductsJsonSlidesFilterListInput = {
-  elemMatch?: Maybe<ProductsJsonSlidesFilterInput>;
-};
-
-export type ProductsJsonSortInput = {
-  fields?: Maybe<Array<Maybe<ProductsJsonFieldsEnum>>>;
+export type MarkdownRemarkSortInput = {
+  fields?: Maybe<Array<Maybe<MarkdownRemarkFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
+
+export type MarkdownWordCount = {
+  paragraphs?: Maybe<Scalars['Int']>;
+  sentences?: Maybe<Scalars['Int']>;
+  words?: Maybe<Scalars['Int']>;
+};
+
+export type MarkdownWordCountFilterInput = {
+  paragraphs?: Maybe<IntQueryOperatorInput>;
+  sentences?: Maybe<IntQueryOperatorInput>;
+  words?: Maybe<IntQueryOperatorInput>;
+};
+
+/** Node Interface */
+export type Node = {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type NodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type NodeFilterListInput = {
+  elemMatch?: Maybe<NodeFilterInput>;
+};
+
+export type PageInfo = {
+  currentPage: Scalars['Int'];
+  hasPreviousPage: Scalars['Boolean'];
+  hasNextPage: Scalars['Boolean'];
+  itemCount: Scalars['Int'];
+  pageCount: Scalars['Int'];
+  perPage?: Maybe<Scalars['Int']>;
+};
+
+export type Potrace = {
+  turnPolicy?: Maybe<PotraceTurnPolicy>;
+  turdSize?: Maybe<Scalars['Float']>;
+  alphaMax?: Maybe<Scalars['Float']>;
+  optCurve?: Maybe<Scalars['Boolean']>;
+  optTolerance?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Int']>;
+  blackOnWhite?: Maybe<Scalars['Boolean']>;
+  color?: Maybe<Scalars['String']>;
+  background?: Maybe<Scalars['String']>;
+};
+
+export type PotraceTurnPolicy = 
+  | 'TURNPOLICY_BLACK'
+  | 'TURNPOLICY_WHITE'
+  | 'TURNPOLICY_LEFT'
+  | 'TURNPOLICY_RIGHT'
+  | 'TURNPOLICY_MINORITY'
+  | 'TURNPOLICY_MAJORITY';
 
 export type Query = {
   file?: Maybe<File>;
@@ -1573,8 +1621,8 @@ export type Query = {
   allSitePage: SitePageConnection;
   site?: Maybe<Site>;
   allSite: SiteConnection;
-  productsJson?: Maybe<ProductsJson>;
-  allProductsJson: ProductsJsonConnection;
+  markdownRemark?: Maybe<MarkdownRemark>;
+  allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -1623,7 +1671,7 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childProductsJson?: Maybe<ProductsJsonFilterInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
 };
 
@@ -1714,8 +1762,6 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1733,19 +1779,28 @@ export type QueryAllSiteArgs = {
 };
 
 
-export type QueryProductsJsonArgs = {
+export type QueryMarkdownRemarkArgs = {
   id?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+  rawMarkdownBody?: Maybe<StringQueryOperatorInput>;
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>;
+  html?: Maybe<StringQueryOperatorInput>;
+  htmlAst?: Maybe<JsonQueryOperatorInput>;
+  excerptAst?: Maybe<JsonQueryOperatorInput>;
+  headings?: Maybe<MarkdownHeadingFilterListInput>;
+  timeToRead?: Maybe<IntQueryOperatorInput>;
+  tableOfContents?: Maybe<StringQueryOperatorInput>;
+  wordCount?: Maybe<MarkdownWordCountFilterInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  slides?: Maybe<ProductsJsonSlidesFilterListInput>;
-  products?: Maybe<ProductsJsonProductsFilterListInput>;
 };
 
 
-export type QueryAllProductsJsonArgs = {
-  filter?: Maybe<ProductsJsonFilterInput>;
-  sort?: Maybe<ProductsJsonSortInput>;
+export type QueryAllMarkdownRemarkArgs = {
+  filter?: Maybe<MarkdownRemarkFilterInput>;
+  sort?: Maybe<MarkdownRemarkSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -1817,8 +1872,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2019,8 +2072,6 @@ export type SiteEdge = {
 export type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata___title'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2113,8 +2164,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2172,6 +2221,7 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -2181,6 +2231,7 @@ export type SitePageContext = {
 
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
@@ -2190,16 +2241,18 @@ export type SitePageContextFilterInput = {
 
 export type SitePageContextSlides = {
   id?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
+  resized?: Maybe<Scalars['Boolean']>;
   positionX?: Maybe<Scalars['Float']>;
   positionY?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
 };
 
 export type SitePageContextSlidesFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
-  size?: Maybe<FloatQueryOperatorInput>;
+  resized?: Maybe<BooleanQueryOperatorInput>;
   positionX?: Maybe<FloatQueryOperatorInput>;
   positionY?: Maybe<FloatQueryOperatorInput>;
+  size?: Maybe<FloatQueryOperatorInput>;
 };
 
 export type SitePageContextSlidesFilterListInput = {
@@ -2306,15 +2359,17 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___id'
+  | 'context___name'
   | 'context___slug'
   | 'context___title'
   | 'context___description'
   | 'context___price'
   | 'context___slides'
   | 'context___slides___id'
-  | 'context___slides___size'
+  | 'context___slides___resized'
   | 'context___slides___positionX'
   | 'context___slides___positionY'
+  | 'context___slides___size'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -2738,21 +2793,13 @@ export type Unnamed_1_Query = { allFile: { edges: Array<{ node: (
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
       ) }> } };
 
-export type SinglePageQueryVariables = {};
+export type SinglePagePicsQueryVariables = {};
 
 
-export type SinglePageQuery = { allProductsJson: { edges: Array<{ node: { products?: Maybe<Array<Maybe<(
-          Pick<ProductsJsonProducts, 'id' | 'path' | 'title' | 'description' | 'price' | 'tags'>
-          & { slides?: Maybe<Array<Maybe<Pick<ProductsJsonProductsSlides, 'id' | 'size' | 'positionX' | 'positionY'>>>> }
-        )>>> } }> }, allFile: { edges: Array<{ node: Pick<File, 'relativePath' | 'relativeDirectory'> }> } };
-
-export type ShopProductPageQueryVariables = {};
-
-
-export type ShopProductPageQuery = { allProductsJson: { edges: Array<{ node: { products?: Maybe<Array<Maybe<(
-          Pick<ProductsJsonProducts, 'id' | 'path' | 'title' | 'description' | 'price' | 'tags'>
-          & { slides?: Maybe<Array<Maybe<Pick<ProductsJsonProductsSlides, 'id' | 'size' | 'positionX' | 'positionY'>>>> }
-        )>>> } }> }, allFile: { edges: Array<{ node: Pick<File, 'relativePath' | 'relativeDirectory'> }> } };
+export type SinglePagePicsQuery = { allFile: { edges: Array<{ node: (
+        Pick<File, 'name' | 'relativePath'>
+        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
+      ) }> } };
 
 export type CoversQueryVariables = {};
 
@@ -2760,6 +2807,14 @@ export type CoversQueryVariables = {};
 export type CoversQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'relativePath'>
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src'>> }> }
+      ) }> } };
+
+export type MdQueryVariables = {};
+
+
+export type MdQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'fileAbsolutePath' | 'html'>
+        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'path'>> }
       ) }> } };
 
 export type SquareCoversQueryVariables = {};

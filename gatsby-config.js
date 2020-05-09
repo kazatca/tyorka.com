@@ -3,7 +3,6 @@ module.exports = {
     title: `Title from siteMetadata`,
   },
   plugins: [
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -12,6 +11,7 @@ module.exports = {
         ignore: [`.~*`, `${__dirname}/src/products/.~*`]
       },
     },
+    'gatsby-transformer-remark',
     'gatsby-plugin-typescript',
     {
       resolve: `gatsby-plugin-sass`,
@@ -27,10 +27,8 @@ module.exports = {
       options: {
         fileName: `./gatsby-graphql.ts`,
         documentPaths: [
-          './src/pages/*.{ts,tsx}',
           './src/templates/*.{ts,tsx}',
           './src/**/hooks.ts',
-          './gatsby-node.js',
           './src/hooks/*.ts'
         ],
       }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import SlideView from './components/SliderView';
 import * as b_ from 'b_';
-import {Slide} from '../../types';
+import {Slide} from '../../../../types';
 
 import './index.scss';
 
@@ -55,7 +55,6 @@ export class Slider extends React.Component<Props, State> {
             pics.map((pic, i) => (
               <SlideView
                 key={i}
-                name={pic.name}
                 pic={pic.preview}
                 geo={{
                   positionX: pic.positionX,

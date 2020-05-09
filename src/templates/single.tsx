@@ -32,18 +32,18 @@ interface Props {
   pathContext: {
     id: number
     slug: string
+    name: string
     title: string,
     description?: string
     price?: number
-    slides: Slide[]
   }
   data: Data
 }
 
-const SinglePage = ({pathContext: {title, description, price, slides}, data}: Props) => {
+const SinglePage = ({pathContext: {title, description, price, name}, data}: Props) => {
   return (
     <Single
-      pics={formatPics(data, slides)}
+      name={name}
       title={title}
       description={description}
       price={price}

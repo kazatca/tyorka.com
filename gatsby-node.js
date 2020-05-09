@@ -1,18 +1,18 @@
 const path = require('path')
 const fs = require('fs')
+const { products } = require('./src/products/products.json')
 
-function getDescription(edges, name) {
-  const result = edges.find(({ node }) => node.relativeDirectory === name)
-  if (result) {
+function getDescription(name, lng) {
+  try {
     return fs.readFileSync(
-      path.resolve(`./src/products/${result.node.relativePath}`),
+      path.resolve(`./src/products/${name}/description/${lng}`),
       'utf-8'
     )
-  }
+  } catch (e) {}
   return ''
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ actions }) => {
   const { createPage, createRedirect } = actions
 
   createRedirect({
@@ -21,55 +21,23 @@ exports.createPages = ({ graphql, actions }) => {
     redirectInBrowser: true,
     toPath: '/',
   })
-  return Promise.all([
-    createSinglePages(graphql, createPage),
-    createProductPages(graphql, createPage),
-  ])
+  
+  createSinglePages(createPage);
+
+  createProductPages(createPage);
 }
 
-async function createSinglePages(graphql, createPage) {
-  const result = await graphql(`
-    query SinglePage{
-      allProductsJson {
-        edges {
-          node {
-            products {
-              id
-              path
-              title
-              description
-              price
-              tags
-              slides {
-                id
-                size
-                positionX
-                positionY
-              }
-            }
-          }
-        }
-      }
-      allFile(filter: { extension: { eq: "html" } }) {
-        edges {
-          node {
-            relativePath
-            relativeDirectory
-          }
-        }
-      }
-    }
-  `)
-
-  result.data.allProductsJson.edges[0].node.products.forEach(node => {
+function createSinglePages(createPage) {
+  products.forEach(node => {
     createPage({
       path: `/single/${node.path}`,
       component: path.resolve(`./src/templates/single.tsx`),
       context: {
         id: node.id,
+        name: node.path,
         slug: node.path,
         title: node.title,
-        description: getDescription(result.data.allFile.edges, node.path),
+        description: getDescription(node.path, 'en'),
         price: node.price,
         slides: node.slides,
       },
@@ -77,41 +45,8 @@ async function createSinglePages(graphql, createPage) {
   })
 }
 
-async function createProductPages(graphql, createPage) {
-  const result = await graphql(`
-    query ShopProductPage{
-      allProductsJson {
-        edges {
-          node {
-            products {
-              id
-              path
-              title
-              description
-              price
-              tags
-              slides {
-                id
-                size
-                positionX
-                positionY
-              }
-            }
-          }
-        }
-      }
-      allFile(filter: { extension: { eq: "html" } }) {
-        edges {
-          node {
-            relativePath
-            relativeDirectory
-          }
-        }
-      }
-    }
-  `)
-
-  result.data.allProductsJson.edges[0].node.products
+function createProductPages(createPage) {
+  products
     .filter(node => !!node.price)
     .forEach(node => {
       createPage({
@@ -120,8 +55,8 @@ async function createProductPages(graphql, createPage) {
         context: {
           id: node.id,
           slug: node.path,
+          description: getDescription(node.path, 'en'),
           title: node.title,
-          description: getDescription(result.data.allFile.edges, node.path),
           price: node.price,
           slides: node.slides,
         },

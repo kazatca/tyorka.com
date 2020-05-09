@@ -13,7 +13,6 @@ interface Geo {
 
 interface Props{
   pic: Image
-  name: string
   geo: Geo
   width: number
   height: number

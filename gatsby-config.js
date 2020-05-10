@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Title from siteMetadata`,
+    title: `Tyorka`,
   },
   plugins: [
     {
@@ -23,6 +23,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-extract-image-colors',
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {

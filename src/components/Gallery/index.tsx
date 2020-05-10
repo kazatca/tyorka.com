@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import * as b_ from 'b_'
 import { useCovers } from '../../hooks/covers';
 import { ProductsJson } from '../../types';
+import {Image} from '../FastImage';
 
 const {products}: ProductsJson = require('../../products/products.json');
 
@@ -23,7 +24,7 @@ const Gallery: React.SFC = () => {
             to={`/single/${product.path}` }
             className={b("photo")}
           >
-            <img src={covers[product.path]} />
+            <Image {...covers[product.path]}/>
           </Link>
         )}
     </section>

@@ -2221,38 +2221,14 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['Int']>;
-  slides?: Maybe<Array<Maybe<SitePageContextSlides>>>;
 };
 
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   price?: Maybe<IntQueryOperatorInput>;
-  slides?: Maybe<SitePageContextSlidesFilterListInput>;
-};
-
-export type SitePageContextSlides = {
-  id?: Maybe<Scalars['String']>;
-  resized?: Maybe<Scalars['Boolean']>;
-  positionX?: Maybe<Scalars['Float']>;
-  positionY?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-};
-
-export type SitePageContextSlidesFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  resized?: Maybe<BooleanQueryOperatorInput>;
-  positionX?: Maybe<FloatQueryOperatorInput>;
-  positionY?: Maybe<FloatQueryOperatorInput>;
-  size?: Maybe<FloatQueryOperatorInput>;
-};
-
-export type SitePageContextSlidesFilterListInput = {
-  elemMatch?: Maybe<SitePageContextSlidesFilterInput>;
 };
 
 export type SitePageEdge = {
@@ -2355,15 +2331,8 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___id'
-  | 'context___name'
   | 'context___slug'
   | 'context___price'
-  | 'context___slides'
-  | 'context___slides___id'
-  | 'context___slides___resized'
-  | 'context___slides___positionX'
-  | 'context___slides___positionY'
-  | 'context___slides___size'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -2767,16 +2736,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type ProductImagesQueryVariables = {
-  slug: Scalars['String'];
-};
-
-
-export type ProductImagesQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'name' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
-      ) }> } };
-
 export type ProductPagePicsQueryVariables = {};
 
 
@@ -2789,6 +2748,14 @@ export type SinglePagePicsQueryVariables = {};
 
 
 export type SinglePagePicsQuery = { allFile: { edges: Array<{ node: (
+        Pick<File, 'name' | 'relativePath'>
+        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
+      ) }> } };
+
+export type SliderPicsQueryVariables = {};
+
+
+export type SliderPicsQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'name' | 'relativePath'>
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
       ) }> } };

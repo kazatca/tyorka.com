@@ -1,11 +1,14 @@
 .single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 1900px) {
+    grid-template-columns: 1fr;
+  }
 
   &__slider {
-    display: flex;
-    justify-content: center;
     position: relative;
-    height: 500px;
   }
+
 
   &__image {
     position: absolute;
@@ -74,5 +77,21 @@
     padding:  0.3rem 2.5rem;
     margin-top: 1rem;
     cursor: pointer;
+  }
+
+  &__edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: .3rem;
+    z-index: 1;
+    background: none;
+    border: none;
+    color: rgba(black, 0.5);
+    filter: drop-shadow(.05em .05em white);
+
+    &_active {
+      color: black;
+    }
   }
 }

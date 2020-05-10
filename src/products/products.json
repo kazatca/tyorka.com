@@ -14,14 +14,14 @@
           "id": "1.jpg",
           "resized": true,
           "positionX": 0,
-          "positionY": -7,
-          "size": 100
+          "positionY": 0,
+          "size": 101
         },
         {
           "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -3.1999999999999886,
-          "size": 103
+          "positionX": -0.5465945801380049,
+          "positionY": 0,
+          "size": 174
         }
       ],
       "title": "Кит"
@@ -45,14 +45,14 @@
         {
           "id": "DSC03866.jpg",
           "positionX": 0,
-          "positionY": -94,
+          "positionY": -51,
           "size": 100
         },
         {
           "id": "DSC03882.jpg",
-          "positionX": 0,
-          "positionY": -106,
-          "size": 100
+          "positionX": -58.46500000000009,
+          "positionY": -202.72499999999945,
+          "size": 151
         },
         {
           "id": "DSC03924.jpg",
@@ -110,30 +110,33 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -0.2848242100578773,
-          "size": 100
+          "positionX": -98.61512791991112,
+          "positionY": -39.230255839822064,
+          "size": 174.83333333333334
         },
         {
           "id": "DSC_9508.jpg",
-          "positionX": -25.348314606741553,
-          "positionY": -1.7977528089887755,
-          "size": 119.66666666666667
+          "positionX": -124.34831460674138,
+          "positionY": 0,
+          "size": 178
         },
         {
           "id": "DSC_9536.jpg",
           "positionX": 0,
-          "positionY": -157,
+          "positionY": -109,
           "size": 100
         },
         {
           "id": "DSC_9560.jpg",
-          "positionX": 0,
-          "positionY": -0.2848242100578773,
-          "size": 100
+          "positionX": -61,
+          "positionY": 0,
+          "size": 149.83333333333334
         },
         {
-          "id": "DSC_9566.jpg"
+          "id": "DSC_9566.jpg",
+          "positionX": -170.92833333333337,
+          "positionY": 0,
+          "size": 149.83333333333334
         },
         {
           "id": "DSC_9591.jpg",
@@ -143,14 +146,14 @@
         },
         {
           "id": "DSC_9595.jpg",
-          "positionX": 0,
-          "positionY": -0.2848242100578773,
-          "size": 100
+          "positionX": -198.36833333333337,
+          "positionY": -18.31368186874306,
+          "size": 157.83333333333334
         },
         {
           "id": "DSC04070.jpg",
           "positionX": 0,
-          "positionY": -238,
+          "positionY": -171.5,
           "size": 100
         }
       ]
@@ -174,22 +177,25 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -103,
+          "positionY": -73,
           "size": 100
         },
         {
           "id": "DSC05199.jpg",
           "positionX": 0,
-          "positionY": -58,
+          "positionY": -14,
           "size": 100
         },
         {
-          "id": "DSC05264.jpg"
+          "id": "DSC05264.jpg",
+          "positionX": -61,
+          "positionY": 0,
+          "size": 150
         },
         {
           "id": "DSC05270.jpg",
           "positionX": 0,
-          "positionY": -144,
+          "positionY": -101,
           "size": 100
         },
         {
@@ -207,7 +213,7 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -126,
+          "positionY": -50,
           "size": 100
         }
       ]
@@ -217,7 +223,10 @@
       "path": "ceramic plant with legs",
       "slides": [
         {
-          "id": "cover.jpg"
+          "id": "cover.jpg",
+          "positionX": -78,
+          "positionY": 0,
+          "size": 150
         }
       ]
     },
@@ -228,20 +237,20 @@
         {
           "id": "cover.jpg",
           "resized": true,
-          "positionX": 0,
-          "positionY": -80.57357357357358,
-          "size": 100
+          "positionX": -125.42359927300839,
+          "positionY": -157.92411674645723,
+          "size": 133
         },
         {
           "id": "DSC05198.jpg",
-          "positionX": -19.59999999999988,
-          "positionY": -127.9960360360361,
-          "size": 126
+          "positionX": -30.480367052315444,
+          "positionY": -87.48036705231544,
+          "size": 131
         },
         {
           "id": "DSC05200.jpg",
-          "positionX": -14,
-          "positionY": -131.39759759759772,
+          "positionX": -9.299999999999997,
+          "positionY": -48.39759759759772,
           "size": 110
         }
       ]
@@ -257,25 +266,28 @@
           "size": 100
         },
         {
-          "id": "DSC04982.jpg"
+          "id": "DSC04982.jpg",
+          "positionX": -157,
+          "positionY": 0,
+          "size": 150
         },
         {
           "id": "DSC05034.jpg",
-          "positionX": 0,
-          "positionY": -37.46893139214002,
-          "size": 130
+          "positionX": -66,
+          "positionY": 0,
+          "size": 150
         },
         {
           "id": "DSC05035.jpg",
-          "positionX": -10.399999999999977,
-          "positionY": -4.26666666666668,
-          "size": 104
+          "positionX": -121.39999999999992,
+          "positionY": 0,
+          "size": 150
         },
         {
           "id": "DSC05038.jpg",
-          "positionX": -30.19999999999999,
-          "positionY": -18.800000000000026,
-          "size": 112
+          "positionX": -130.19999999999993,
+          "positionY": 0,
+          "size": 150
         },
         {
           "id": "DSC05043.jpg",
@@ -286,13 +298,13 @@
         {
           "id": "DSC05057.jpg",
           "positionX": 0,
-          "positionY": -121,
+          "positionY": -120.99999999999983,
           "size": 100
         },
         {
           "id": "DSC05075.jpg",
           "positionX": 0,
-          "positionY": -76,
+          "positionY": -75.99999999999966,
           "size": 100
         }
       ]
@@ -309,15 +321,15 @@
         },
         {
           "id": "DSC_0500.jpg",
-          "positionX": 0,
+          "positionX": -99.00000000000006,
           "positionY": 0,
-          "size": 100
+          "size": 149.83333333333334
         },
         {
           "id": "DSC_0511.jpg",
-          "positionX": 0,
+          "positionX": -89.00000000000006,
           "positionY": 0,
-          "size": 100
+          "size": 149.83333333333334
         }
       ]
     },
@@ -339,9 +351,9 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": 0,
-          "size": 100
+          "positionX": -20.480000000000132,
+          "positionY": -20.479999999999905,
+          "size": 156
         }
       ]
     },
@@ -376,23 +388,25 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -20,
+          "positionY": 0,
           "size": 100
         },
         {
           "id": "DSC01595.jpg",
           "positionX": 0,
-          "positionY": -63,
-          "size": 100
+          "positionY": 0,
+          "size": 101
         },
         {
           "id": "DSC06538.jpg",
           "positionX": 0,
-          "positionY": -143,
+          "positionY": -0.26384839650145775,
           "size": 100
         }
       ],
-      "tags": ["shop"],
+      "tags": [
+        "shop"
+      ],
       "title": "Наутилус",
       "price": 3000
     },
@@ -412,30 +426,32 @@
       "id": "5c928d4d-5516-4652-8511-f56cba77090c",
       "path": "sailor",
       "title": "Морячок",
-      "tags": ["shop"],
+      "tags": [
+        "shop"
+      ],
       "slides": [
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -42,
+          "positionY": 0,
           "size": 100
         },
         {
           "id": "DSC_8930.jpg",
           "positionX": 0,
-          "positionY": -71,
+          "positionY": 0,
           "size": 100
         },
         {
           "id": "DSC_8932.jpg",
           "positionX": 0,
-          "positionY": -87,
+          "positionY": 0,
           "size": 100
         },
         {
           "id": "DSC_9007.jpg",
           "positionX": 0,
-          "positionY": -90,
+          "positionY": 0,
           "size": 100
         }
       ]
@@ -443,71 +459,75 @@
     {
       "id": "dac05491-e451-4f82-ab1a-f3a5c29608e4",
       "path": "small blue creature",
-      "tags": ["shop"],
+      "tags": [
+        "shop"
+      ],
       "price": 2000,
       "title": "Животное",
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -70,
-          "size": 100
+          "positionX": -0.029010189648702566,
+          "positionY": -0.1725281770604961,
+          "size": 113
         },
         {
           "id": "DSC01765.jpg",
-          "positionX": 0,
-          "positionY": -84,
-          "size": 100
+          "positionX": -0.2571929546894247,
+          "positionY": -0.4723441937564801,
+          "size": 150
         }
       ]
     },
     {
       "id": "a480fba4-3c8e-4093-a5d3-8dfe6af33258",
       "path": "uroboros",
-      "tags": ["shop"],
+      "tags": [
+        "shop"
+      ],
       "price": 5000,
       "title": "Уроборос",
       "slides": [
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -44,
+          "positionY": 0,
           "size": 100
         },
         {
           "id": "DSC03263.jpg",
           "positionX": 0,
-          "positionY": -149,
+          "positionY": -0.17638483965014579,
           "size": 100
         },
         {
           "id": "DSC03348.jpg",
           "positionX": 0,
-          "positionY": -209,
+          "positionY": -0.5,
           "size": 100
         },
         {
           "id": "DSC03349.jpg",
           "positionX": 0,
-          "positionY": -136,
+          "positionY": -0.09912536443148688,
           "size": 100
         },
         {
           "id": "DSC03415.jpg",
           "positionX": 0,
-          "positionY": -147,
+          "positionY": -0.16763848396501457,
           "size": 100
         },
         {
           "id": "DSC03424.jpg",
           "positionX": 0,
-          "positionY": -102,
+          "positionY": -0.2259475218658892,
           "size": 100
         },
         {
           "id": "DSC03439.jpg",
           "positionX": 0,
-          "positionY": -160,
+          "positionY": -0.021865889212827987,
           "size": 100
         }
       ]
@@ -529,28 +549,40 @@
       "path": "whale van gogh",
       "slides": [
         {
-          "id": "cover.jpg"
+          "id": "cover.jpg",
+          "positionX": -0.21865889212827988,
+          "positionY": 0,
+          "size": 149.83333333333334
         },
         {
-          "id": "DSC_9114.jpg"
+          "id": "DSC_9114.jpg",
+          "positionX": -0.18658892128279883,
+          "positionY": 0,
+          "size": 149.83333333333334
         },
         {
           "id": "DSC_9119.jpg",
-          "positionX": 0,
-          "positionY": -2.842170943040401e-14,
-          "size": 100
+          "positionX": -0.2259475218658892,
+          "positionY": 0,
+          "size": 150
         },
         {
-          "id": "DSC_9120.jpg"
+          "id": "DSC_9120.jpg",
+          "positionX": -0.49833333333333346,
+          "positionY": 0,
+          "size": 149.83333333333334
         },
         {
-          "id": "DSC_9132.jpg"
+          "id": "DSC_9132.jpg",
+          "positionX": -0.32653061224489793,
+          "positionY": 0,
+          "size": 149.83333333333334
         },
         {
           "id": "DSC_9142.jpg",
-          "positionX": 0,
+          "positionX": -0.2594752186588921,
           "positionY": 0,
-          "size": 100
+          "size": 149.83333333333334
         }
       ],
       "title": "Кит ван Гог",
@@ -573,31 +605,33 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -68,
+          "positionY": -0.15441573341721754,
           "size": 100
         },
         {
           "id": "DSC_1351.jpg",
-          "positionX": 0,
+          "positionX": -0.14285714285714285,
           "positionY": 0,
-          "size": 100
+          "size": 149.83333333333334
         },
         {
           "id": "DSC_7230.jpg",
-          "positionX": -33.34831460674155,
-          "positionY": -1.7977528089887755,
-          "size": 119.66666666666667
+          "positionX": -0.42093632798605307,
+          "positionY": 0,
+          "size": 178
         },
         {
           "id": "DSC_7395.jpg",
-          "positionX": 0,
-          "positionY": -177,
-          "size": 100
+          "positionX": -0.1732277287374684,
+          "positionY": -0.85174991844654,
+          "size": 155
         }
       ],
       "title": "Вомбат",
       "price": 6000,
-      "tags": ["shop"],
+      "tags": [
+        "shop"
+      ],
       "description": "У вомбатов острый слух и обоняние, но довольно слабое зрение. Несмотря на внешнюю неуклюжесть, они очень быстрые: спасаясь от опасности, вомбат может легко влезть на дерево, нырнуть в водоём или убежать. Могут бежать со скоростью до 40 км/ч, а на коротких дистанциях достигают скорости в 60 км/ч."
     }
   ]

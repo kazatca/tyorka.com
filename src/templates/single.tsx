@@ -1,25 +1,23 @@
 import * as React from 'react'
 import Single from '../components/Single'
-import { LanguageSelector } from '../components/LanguageSelector'
+import Layout from '../components/Layout';
 
 interface Props {
   pathContext: {
     id: number
     slug: string
-    name: string
     price?: number
   }
 }
 
-const SinglePage = ({pathContext: {price, name}}: Props) => {
+const SinglePage = ({pathContext: {price, slug}}: Props) => {
   return (
-    <>
+    <Layout>
       <Single
-        name={name}
+        name={slug}
         price={price}
       />
-      <LanguageSelector />
-    </>);
+    </Layout>);
 }
 
 export default SinglePage;

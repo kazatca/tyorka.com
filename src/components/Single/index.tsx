@@ -1,10 +1,8 @@
 import 'isomorphic-fetch';
 import * as React from 'react'
 import * as b_ from 'b_'
-import Slider from './components/MobileSlider';
-import Zoom from './components/MobileZoom';
+import Slider from '../Slider';
 import { Slide } from '../../types';
-import { usePics } from './hooks';
 import { useDescription } from '../../hooks/md';
 
 import './index.scss';
@@ -18,10 +16,8 @@ interface Props {
 
 const Single: React.FC<Props> = ({ name }) => {
   const [zoomed, setZoomed] = React.useState<Slide | null>(null);
-  
-  const { title, html } = useDescription(name);
 
-  const pics = usePics(name);
+  const { title, html } = useDescription(name);
 
   const zoom = (pic: Slide) => {
     setZoomed(pic);
@@ -45,18 +41,11 @@ const Single: React.FC<Props> = ({ name }) => {
 
   return (
     <section className={b()}>
-      <Slider
-        pics={pics}
-        onClick={pic => zoom(pic)}
-      />
-      {zoomed &&
-        <Zoom
-          {...zoomed.original}
-          onClose={() => window.history.back()}
-        />
-      }
-      <div className={b('title')}>{title}</div>
-      <div className={b('description')} dangerouslySetInnerHTML={{ __html: html }} />
+      <Slider name={name} />
+      <section>
+        <div className={b('title')}>{title}</div>
+        <div className={b('description')} dangerouslySetInnerHTML={{ __html: html }} />
+      </section>
     </section>);
 }
 

@@ -1,23 +1,24 @@
 import * as React from 'react'
 import SlideView from './components/SliderView';
 import * as b_ from 'b_';
-import {Slide} from '../../../../types';
+import {Slide} from '../../../types';
 
 import './index.scss';
 
-import * as unchecked from './static/unchecked.png';
-import * as checked from './static/checked.png';
+import * as unchecked from './static/unchecked.svg';
+import * as checked from './static/checked.svg';
 
-const ratio = 3/2;
+const ratio = 1;
 
 interface Props {
+  current: number
   slug: string
   pics: Slide[];
+  onChangeCurrent: (i: number) => void
 }
 
 interface State {
   width: number;
-  current: number;
   touchPosition: number;
   isScrolling: boolean;
   touchStartPosition: number;
@@ -35,7 +36,6 @@ export class Slider extends React.Component<Props, State> {
     super(props);
     this.state = {
       width: 0,
-      current: 0,
       touchPosition: 0,
       touchStartPosition: 0,
       isScrolling: true,
@@ -44,8 +44,9 @@ export class Slider extends React.Component<Props, State> {
   }
 
   render() {
-    const { slug, pics } = this.props;
-    const { current, width, touchPosition, isScrolling } = this.state;
+    const { slug, pics, current, onChangeCurrent } = this.props;
+
+    const { width, isScrolling } = this.state;
     
     return (
       <div
@@ -58,7 +59,7 @@ export class Slider extends React.Component<Props, State> {
               pic.preview && <SlideView
                 key={i}
                 slug={slug}
-                name={slug}
+                name={pic.id}
                 pic={pic.preview}
                 geo={{
                   positionX: pic.positionX,
@@ -69,7 +70,6 @@ export class Slider extends React.Component<Props, State> {
                 width={width}
                 height={width/ratio}
                 current={current}
-                touchPosition={touchPosition}
                 isScrolling={isScrolling}
               />
             ))}
@@ -79,9 +79,9 @@ export class Slider extends React.Component<Props, State> {
             <div
               key={i}
               className={b('dot')}
-              onClick={() => this.setState({current: i})}
+              onClick={() => onChangeCurrent(i)}
             >
-              <img src={i === this.state.current ? checked: unchecked} alt="o"/>
+              <img src={i === current ? checked: unchecked} alt="o"/>
             </div>
           ))}
         </div>

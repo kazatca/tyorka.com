@@ -1,11 +1,11 @@
 import { useStaticQuery, graphql } from "gatsby";
-import { SinglePagePicsQuery } from '../../../gatsby-graphql';
+import { SliderPicsQuery } from '../../../gatsby-graphql';
 import { ProductsJson, Slide } from "../../types";
 const { products }: ProductsJson = require('../../products/products.json');
 
 export const usePics = (name: string): Slide[] => {
-  const data = useStaticQuery<SinglePagePicsQuery>(graphql`
-    query SinglePagePics{
+  const data = useStaticQuery<SliderPicsQuery>(graphql`
+    query SliderPics{
       allFile(filter: {extension: {regex: "/jpg|png/"}}){
         edges{
           node{
@@ -41,7 +41,7 @@ export const usePics = (name: string): Slide[] => {
 
   const slideConfigs = product.slides || [];
 
-  return pics.map(({node}) => {
+  const result = pics.map(({node}) => {
 
     const slideConfig = slideConfigs.find(config => node.relativePath.endsWith(`/${config.id}`));
 
@@ -54,4 +54,14 @@ export const usePics = (name: string): Slide[] => {
       preview: node.childImageSharp?.resize
     }
   })
+
+  const coverIndex = result.findIndex(pic => pic.id.startsWith('cover'));
+
+  if(coverIndex >= 0) {
+    const cover = result[coverIndex];
+    result.splice(coverIndex, 1);
+    result.unshift(cover);
+  }
+
+  return result;
 }

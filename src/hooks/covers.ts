@@ -11,7 +11,7 @@ export const useCovers = () => {
           node{
             relativePath
             childImageSharp{
-              resize(quality:95, height: 200){
+              resize(quality:95, height: 600){
                 src
               }
             }

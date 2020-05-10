@@ -1,10 +1,8 @@
 const path = require('path')
-const fs = require('fs')
+
 const { products } = require('./src/products/products.json')
 
-exports.createPages = ({ actions }) => {
-  const { createPage, createRedirect } = actions
-
+exports.createPages = ({ actions: { createPage, createRedirect } }) => {
   createRedirect({
     fromPath: `/single`,
     isPermanent: true,
@@ -18,19 +16,18 @@ exports.createPages = ({ actions }) => {
 }
 
 function createSinglePages(createPage) {
-  products.forEach(node => {
-    createPage({
-      path: `/single/${node.path}`,
-      component: path.resolve(`./src/templates/single.tsx`),
-      context: {
-        id: node.id,
-        name: node.path,
-        slug: node.path,
-        price: node.price,
-        slides: node.slides,
-      },
+  products
+    .forEach(node => {
+      createPage({
+        path: `/single/${node.path}`,
+        component: path.resolve(`./src/templates/single.tsx`),
+        context: {
+          id: node.id,
+          slug: node.path,
+          price: node.price
+        },
+      })
     })
-  })
 }
 
 function createProductPages(createPage) {
@@ -43,9 +40,7 @@ function createProductPages(createPage) {
         context: {
           id: node.id,
           slug: node.path,
-          name: node.path,
-          price: node.price,
-          slides: node.slides,
+          price: node.price
         },
       })
     })

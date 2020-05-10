@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as b_ from 'b_';
-import {Image} from '../../../../types';
+import {Image} from 'types';
 import './index.scss';
 
 const b = b_.with('mobile-slider-slide');

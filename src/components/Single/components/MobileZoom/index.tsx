@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as b_ from 'b_';
 import PinchZoom from 'pinch-zoom-js';
-import { Image } from '../../types';
+import { Image } from '../../../../types';
 
 import './index.scss';
 
@@ -22,7 +22,7 @@ class Zoom extends React.Component<Props> {
       >
         <img
           ref={el => el && new PinchZoom(el)}
-          src={src}
+          src={src || undefined}
         />
       </div>);
   }

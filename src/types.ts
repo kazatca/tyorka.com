@@ -18,7 +18,7 @@ export interface AllFile<F>{
 
 export type CheckoutFields = 'name' | 'email';
 
-interface Image {
+export interface Image {
   src?: string | null
   width?: number | null
   height?: number | null

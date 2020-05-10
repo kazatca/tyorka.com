@@ -1,13 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore as reduxCreateStore } from 'redux';
+import { createStore as reduxCreateStore, StoreEnhancer } from 'redux';
 import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import rootReducer from './reducer';
 
 const enhancer = (
   typeof window !== 'undefined' 
-  ?composeWithDevTools(
+  ? composeWithDevTools(
+    // @ts-ignore
     persistState()
   )
   : undefined
@@ -15,6 +16,12 @@ const enhancer = (
 
 const createStore = () => reduxCreateStore(rootReducer, enhancer);
 
-export default ({ element }) => (
+interface Props {
+  element: React.ReactNode
+}
+
+const Root: React.FC<Props> = ({ element }) => (
   <Provider store={createStore()}>{element}</Provider>
 );
+
+export default Root;

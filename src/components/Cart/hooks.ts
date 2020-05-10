@@ -22,7 +22,6 @@ export const useCart = () => {
       const product: CartItem['product'] = {
         id: result.id,
         name: result.path,
-        title: result.title,
         url: `/shop/${result.path}`,
         price: result.price
       }

@@ -53,7 +53,7 @@ export class Slider extends React.Component<Props, State> {
         <div className={b('wrapper')} style={{height: `${width/ratio}px`}}>
           {width &&
             pics.map((pic, i) => (
-              <SlideView
+              pic.preview && <SlideView
                 key={i}
                 pic={pic.preview}
                 geo={{

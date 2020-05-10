@@ -1,7 +1,7 @@
 import * as React from 'react'
 import SlideView from './components/SliderView';
 import * as b_ from 'b_';
-import {Slide} from '../../types';
+import {Slide} from '../../../../types';
 
 import './index.scss';
 
@@ -55,10 +55,10 @@ export class Slider extends React.Component<Props, State> {
         <div className={b('wrapper')} style={{height: `${width/ratio}px`}}>
           {width &&
             pics.map((pic, i) => (
-              <SlideView
+              pic.preview && <SlideView
                 key={i}
                 slug={slug}
-                name={pic.name}
+                name={slug}
                 pic={pic.preview}
                 geo={{
                   positionX: pic.positionX,

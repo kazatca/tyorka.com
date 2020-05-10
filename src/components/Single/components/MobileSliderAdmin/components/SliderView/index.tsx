@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as b_ from 'b_';
-import {Image} from '../../../../types';
+import {Image} from 'types';
 import './index.scss';
 
 const b = b_.with('mobile-slider-slide');
@@ -134,7 +134,7 @@ class SlideView extends React.Component<Props, State> {
   private getMinSize(){
     const {pic, width, height} = this.props; 
     const ratio = width/height;
-    const pratio = pic.width/pic.height;
+    const pratio = pic.width && pic.height ? pic.width/pic.height : 1;
     return Math.max(1, pratio / ratio);
   }
 
@@ -152,7 +152,7 @@ class SlideView extends React.Component<Props, State> {
     const {pic, width, height} = this.props;
     const {positionY, size} = this.state;
     const y = positionY + dy;
-    const bottom = height - pic.height * width / pic.width * size/100;
+    const bottom = pic.width && pic.height ? height - pic.height * width / pic.width * size/100 : 0;
     if(y > 0) return -positionY;
     if(y < bottom) return bottom - positionY;
     return dy;
@@ -168,7 +168,7 @@ class SlideView extends React.Component<Props, State> {
   
   private getBounceY(y: number, size: number) {
     const {pic, width, height} = this.props;
-    const bottom = height - pic.height * width / pic.width * size/100;
+    const bottom = pic.width && pic.height ? height - pic.height * width / pic.width * size/100 : 0;
     if(y > 0) return 0;
     if(y < bottom) return bottom;
     return y;

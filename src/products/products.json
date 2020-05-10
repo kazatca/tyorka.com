@@ -33,43 +33,43 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -92,
+          "positionY": -0.146484375,
           "size": 100
         },
         {
           "id": "DSC03842.jpg",
           "positionX": 0,
-          "positionY": -136,
-          "size": 100
+          "positionY": -0.06792230155964618,
+          "size": 101
         },
         {
           "id": "DSC03866.jpg",
           "positionX": 0,
-          "positionY": -51,
+          "positionY": -0.06154864902378099,
           "size": 100
         },
         {
           "id": "DSC03882.jpg",
-          "positionX": -58.46500000000009,
-          "positionY": -202.72499999999945,
+          "positionX": -0.21312500000000512,
+          "positionY": -0.6146093749999864,
           "size": 151
         },
         {
           "id": "DSC03924.jpg",
           "positionX": 0,
-          "positionY": -169,
+          "positionY": -0.0859375,
           "size": 100
         },
         {
           "id": "DSC03963.jpg",
           "positionX": 0,
-          "positionY": -96,
+          "positionY": -0.103515625,
           "size": 100
         },
         {
           "id": "DSC03982.jpg",
           "positionX": 0,
-          "positionY": -37,
+          "positionY": -0.02734375,
           "size": 100
         }
       ]
@@ -79,28 +79,52 @@
       "path": "botanist",
       "slides": [
         {
-          "id": "cover.jpg"
+          "id": "cover.jpg",
+          "positionX": -0.478134110787172,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8008.jpg"
+          "id": "DSC_8008.jpg",
+          "positionX": -0.15105499468791111,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8048.jpg"
+          "id": "DSC_8048.jpg",
+          "positionX": -0.27696793002915454,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8088.jpg"
+          "id": "DSC_8088.jpg",
+          "positionX": -0.39608418386823924,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8101.jpg"
+          "id": "DSC_8101.jpg",
+          "positionX": -0.44820076839637407,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8103.jpg"
+          "id": "DSC_8103.jpg",
+          "positionX": -0.32326399914536635,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8114.jpg"
+          "id": "DSC_8114.jpg",
+          "positionX": -0.3530952380952383,
+          "positionY": 0,
+          "size": 178.16666666666669
         },
         {
-          "id": "DSC_8120.jpg"
+          "id": "DSC_8120.jpg",
+          "positionX": -0.5247813411078717,
+          "positionY": 0,
+          "size": 179
         }
       ]
     },
@@ -110,50 +134,50 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": -98.61512791991112,
-          "positionY": -39.230255839822064,
-          "size": 174.83333333333334
+          "positionX": -0.24515549076773577,
+          "positionY": -0.07717353586913875,
+          "size": 161.83333333333334
         },
         {
           "id": "DSC_9508.jpg",
-          "positionX": -124.34831460674138,
+          "positionX": -0.34851311953353026,
           "positionY": 0,
           "size": 178
         },
         {
           "id": "DSC_9536.jpg",
           "positionX": 0,
-          "positionY": -109,
+          "positionY": -0.26676384839650147,
           "size": 100
         },
         {
           "id": "DSC_9560.jpg",
-          "positionX": -61,
+          "positionX": -0.061224489795918366,
           "positionY": 0,
           "size": 149.83333333333334
         },
         {
           "id": "DSC_9566.jpg",
-          "positionX": -170.92833333333337,
+          "positionX": -0.4341933916423817,
           "positionY": 0,
           "size": 149.83333333333334
         },
         {
           "id": "DSC_9591.jpg",
           "positionX": 0,
-          "positionY": -80,
+          "positionY": -0.2401326629213449,
           "size": 100
         },
         {
           "id": "DSC_9595.jpg",
-          "positionX": -198.36833333333337,
-          "positionY": -18.31368186874306,
+          "positionX": -0.5783333333333335,
+          "positionY": -0.05339265850945499,
           "size": 157.83333333333334
         },
         {
           "id": "DSC04070.jpg",
           "positionX": 0,
-          "positionY": -171.5,
+          "positionY": -0.5,
           "size": 100
         }
       ]
@@ -164,9 +188,9 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -2.842170943040401e-14,
-          "size": 100
+          "positionX": -0.37026239067055394,
+          "positionY": 0,
+          "size": 150
         }
       ]
     },
@@ -177,31 +201,31 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -73,
+          "positionY": -0.23177842565597667,
           "size": 100
         },
         {
           "id": "DSC05199.jpg",
           "positionX": 0,
-          "positionY": -14,
+          "positionY": -0.05393586005830904,
           "size": 100
         },
         {
           "id": "DSC05264.jpg",
-          "positionX": -61,
+          "positionX": -0.5,
           "positionY": 0,
-          "size": 150
+          "size": 151
         },
         {
           "id": "DSC05270.jpg",
           "positionX": 0,
-          "positionY": -101,
+          "positionY": -0.2813411078717201,
           "size": 100
         },
         {
           "id": "DSC05280.jpg",
           "positionX": 0,
-          "positionY": -13,
+          "positionY": 0,
           "size": 100
         }
       ]
@@ -213,7 +237,7 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -50,
+          "positionY": -0.10932944606413994,
           "size": 100
         }
       ]
@@ -224,7 +248,7 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": -78,
+          "positionX": -0.23469387755102042,
           "positionY": 0,
           "size": 150
         }
@@ -237,21 +261,21 @@
         {
           "id": "cover.jpg",
           "resized": true,
-          "positionX": -125.42359927300839,
-          "positionY": -157.92411674645723,
-          "size": 133
+          "positionX": 0,
+          "positionY": -0.009933553863454785,
+          "size": 100
         },
         {
           "id": "DSC05198.jpg",
-          "positionX": -30.480367052315444,
-          "positionY": -87.48036705231544,
-          "size": 131
+          "positionX": -0.07049562682215746,
+          "positionY": -0.11448979591836729,
+          "size": 126
         },
         {
           "id": "DSC05200.jpg",
-          "positionX": -9.299999999999997,
-          "positionY": -48.39759759759772,
-          "size": 110
+          "positionX": 0,
+          "positionY": -0.1291059827576047,
+          "size": 100
         }
       ]
     },
@@ -262,49 +286,49 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -120,
+          "positionY": -0.22662254917925984,
           "size": 100
         },
         {
           "id": "DSC04982.jpg",
-          "positionX": -157,
+          "positionX": -0.5,
           "positionY": 0,
           "size": 150
         },
         {
           "id": "DSC05034.jpg",
-          "positionX": -66,
+          "positionX": -0.033203125,
           "positionY": 0,
           "size": 150
         },
         {
           "id": "DSC05035.jpg",
-          "positionX": -121.39999999999992,
+          "positionX": -0.27252690397351,
           "positionY": 0,
           "size": 150
         },
         {
           "id": "DSC05038.jpg",
-          "positionX": -130.19999999999993,
+          "positionX": -0.2109375,
           "positionY": 0,
           "size": 150
         },
         {
           "id": "DSC05043.jpg",
           "positionX": 0,
-          "positionY": -92,
+          "positionY": -0.140625,
           "size": 100
         },
         {
           "id": "DSC05057.jpg",
           "positionX": 0,
-          "positionY": -120.99999999999983,
+          "positionY": -0.095703125,
           "size": 100
         },
         {
           "id": "DSC05075.jpg",
           "positionX": 0,
-          "positionY": -75.99999999999966,
+          "positionY": -0.234375,
           "size": 100
         }
       ]
@@ -316,18 +340,18 @@
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -117,
+          "positionY": -0.31924198250728864,
           "size": 100
         },
         {
           "id": "DSC_0500.jpg",
-          "positionX": -99.00000000000006,
+          "positionX": -0.2505199222546266,
           "positionY": 0,
           "size": 149.83333333333334
         },
         {
           "id": "DSC_0511.jpg",
-          "positionX": -89.00000000000006,
+          "positionX": -0.20970359572400374,
           "positionY": 0,
           "size": 149.83333333333334
         }
@@ -338,10 +362,16 @@
       "path": "gray small whale",
       "slides": [
         {
-          "id": "cover.jpg"
+          "id": "cover.jpg",
+          "positionX": -0.2536443148688047,
+          "positionY": 0,
+          "size": 150
         },
         {
-          "id": "DSC04068.jpg"
+          "id": "DSC04068.jpg",
+          "positionX": -0.24489795918367346,
+          "positionY": 0,
+          "size": 150
         }
       ]
     },
@@ -351,8 +381,8 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": -20.480000000000132,
-          "positionY": -20.479999999999905,
+          "positionX": -0.026472303206996874,
+          "positionY": -0.04000000000000008,
           "size": 156
         }
       ]
@@ -363,20 +393,20 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -2.842170943040401e-14,
-          "size": 100
+          "positionX": -0.08420314001909993,
+          "positionY": 0,
+          "size": 151
         },
         {
           "id": "DSC_0780.jpg",
-          "positionX": 0,
-          "positionY": -2.842170943040401e-14,
-          "size": 100
+          "positionX": -0.008662041741635306,
+          "positionY": 0,
+          "size": 151
         },
         {
           "id": "DSC00614.jpg",
           "positionX": 0,
-          "positionY": -118,
+          "positionY": -0.22381882095922884,
           "size": 100
         }
       ]
@@ -395,7 +425,7 @@
           "id": "DSC01595.jpg",
           "positionX": 0,
           "positionY": 0,
-          "size": 101
+          "size": 100
         },
         {
           "id": "DSC06538.jpg",
@@ -415,10 +445,16 @@
       "path": "photo",
       "slides": [
         {
-          "id": "cover.jpg"
+          "id": "cover.jpg",
+          "positionX": -0.25103368695108574,
+          "positionY": 0,
+          "size": 149.66666666666666
         },
         {
-          "id": "DSC_6201.jpg"
+          "id": "DSC_6201.jpg",
+          "positionX": -0.39212827988338195,
+          "positionY": 0,
+          "size": 150
         }
       ]
     },
@@ -538,9 +574,9 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": 0,
+          "positionX": -0.28576998671506204,
           "positionY": 0,
-          "size": 100
+          "size": 151
         }
       ]
     },
@@ -594,7 +630,10 @@
       "path": "whale with wings",
       "slides": [
         {
-          "id": "cover.jpg"
+          "id": "cover.jpg",
+          "positionX": -0.4314868804664723,
+          "positionY": 0,
+          "size": 150
         }
       ]
     },

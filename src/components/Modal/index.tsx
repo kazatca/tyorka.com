@@ -5,7 +5,7 @@ import './index.scss';
 interface Props {
   onClose: () => void
 }
-const Modal: React.SFC<Props> = ({ onClose, children }) => {
+const Modal: React.FC<Props> = ({ onClose, children }) => {
   return (
     <>
       <div className="modal__overlay" onClick={onClose} />

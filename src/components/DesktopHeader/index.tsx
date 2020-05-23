@@ -42,13 +42,13 @@ const DesktopHeader: React.FC<Props> = ({fixed}) => {
     <section className={b({fixed})}>
       <CornerMenu />
       <div className={b("menu")}>
-        <Link to='/'>{t('Main page')}</Link>
-        <Link to='/about'>{t('About page')}</Link>
+        <Link to='/' activeClassName='active'>{t('Main page')}</Link>
+        <Link partiallyActive to='/about' activeClassName='active'>{t('About page')}</Link>
       </div>
       <Link to="/"><img className={b("logo")} src={logo} ref={logoRef}/></Link>
       <div className={b("menu")}>
-        <Link to='/blog'>{t('Blog page')}</Link>
-        <Link to='/shop'>{t('Shop page')}</Link>
+        <Link partiallyActive to='/blog' activeClassName='active'>{t('Blog page')}</Link>
+        <Link partiallyActive to='/shop' activeClassName='active'>{t('Shop page')}</Link>
       </div>
     </section>
   );

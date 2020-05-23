@@ -1,0 +1,18 @@
+.thanks-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  cursor: pointer;
+
+  h1 {
+    text-align: center;
+  }
+
+  &__notice {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}

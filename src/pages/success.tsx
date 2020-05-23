@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Thanks } from '../components/Thanks';
 import { useTranslate } from '../hooks/translate';
 
 interface Props {
@@ -6,9 +7,7 @@ interface Props {
 const SuccessPage: React.SFC<Props> = ({}) => {
   const { t } = useTranslate();
   return (
-    <div>
-      {t('Your order recieved Thanks')}
-    </div>
+    <Thanks />
   );
 }
 

@@ -1,5 +1,4 @@
 {
-  "Total": "Total",
   "About page": "About",
   "Add to cart": "Add to cart",
   "Amounting to": "Amounting to",
@@ -12,6 +11,8 @@
   "Order checkout": "Order checkout",
   "Send": "Send",
   "Shop page": "Shop",
+  "Thank you": "Thank you!",
   "There is nothing here yet": "There is nothing yet :)",
-  "Your order recieved Thanks": "Your order recieved. Thank you"
+  "Total": "Total",
+  "We will send you instructions": "You'll soon receive an email with a reply"
 }

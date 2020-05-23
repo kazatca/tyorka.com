@@ -21,8 +21,8 @@ const MobileHeader = () => {
         <img className={b("logo")} src={logo} />
       </Link>
       <div className={b("menu-wrap")}>
-        <Link className={b("menu")} to="/about">{t('About page')}</Link>
-        <Link className={b("menu")} to="/shop">{t('Shop page')}</Link>
+        <Link className={b("menu")} activeClassName='active' partiallyActive to="/about">{t('About page')}</Link>
+        <Link className={b("menu")} activeClassName='active' partiallyActive to="/shop">{t('Shop page')}</Link>
       </div>
     </section>);
 }

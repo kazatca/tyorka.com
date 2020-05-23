@@ -3,9 +3,9 @@
   display: flex;
 
     
-  @media (max-width: 700px) {
-    display: none;
-  }
+  // @media (max-width: 768px) {
+  //   display: none;
+  // }
 
   @media (max-width: 1200px) {
     flex-direction: column;
@@ -20,15 +20,16 @@
     height: 300px;
     display: inline-block;
     
-    @media (max-width: 1200px) {
-      border-radius: 50%;
-      background-size: 200%;
-      width: 200px;
-      height: 200px;
-      margin: 2rem;
-    }
+    // @media (max-width: 1200px) {
+    //   border-radius: 50%;
+    //   background-size: 200%;
+    //   background-position: -25px 0px;
+    //   width: 200px;
+    //   height: 200px;
+    //   margin: 2rem;
+    // }
 
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
       // width: 100px;
       // height: 100px;
     }

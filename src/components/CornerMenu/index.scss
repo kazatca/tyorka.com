@@ -5,12 +5,12 @@
   margin: auto;
   
   @media (max-width: 1200px) {
-    width: 700px;
+    width: 768px;
     left: 0;
     right: 0;
   }
   
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     width: 100%;
     left: unset;
     right: 10px;

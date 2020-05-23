@@ -1,5 +1,4 @@
 {
-  "Total": "Итого",
   "About page": "Обо мне",
   "Add to cart": "Добавить в корзину",
   "Amounting to": "На сумму",
@@ -12,6 +11,8 @@
   "Order checkout": "Оформление заказа",
   "Send": "Отправить",
   "Shop page": "Магазин",
+  "Thank you": "Спасибо!",
   "There is nothing here yet": "Тут пока ничего нет :)",
-  "Your order recieved Thanks": "Ваш заказ принят. Скоро мы с вами свяжемся"
+  "Total": "Итого",
+  "We will send you instructions": "В ближайшее время вам на почту придет письмо с ответом"
 }

@@ -1,7 +1,7 @@
 .mobile-header {
   display: none;
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     display: block;
     width: 100%;
   }
@@ -11,6 +11,10 @@
     display: block;
     margin: auto;
     padding: 1rem;
+
+    @media (max-width: 768px) {
+      width: 150px;
+    }
   }
 
   &__menu-wrap {
@@ -25,5 +29,9 @@
     padding: 1.5rem;
     padding-top: 0;
     text-transform: lowercase;
+
+    &.active {
+      font-weight: bold;  
+    }
   }
 }

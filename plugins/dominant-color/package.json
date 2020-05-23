@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "color": "^3.1.1",
+    "dominant-color": "0.0.1",
+    "node-vibrant": "^3.2.0-alpha"
+  },
+  "description": "Plugin to extract image dominant color",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "babel-preset-gatsby-package": "^0.1.4",
+    "cross-env": "^5.2.0"
+  },
+  "main": "gatsby-node.js",
+  "name": "gatsby-plugin-extract-dominant-colors",
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  },
+  "version": "0.0.14"
+}

@@ -15,29 +15,8 @@ interface Props {
 }
 
 const Single: React.FC<Props> = ({ name }) => {
-  const [zoomed, setZoomed] = React.useState<Slide | null>(null);
 
   const { title, html } = useDescription(name);
-
-  const zoom = (pic: Slide) => {
-    setZoomed(pic);
-    window.history.pushState('zoomed', '', null);
-  }
-
-  const unzoom = (e: PopStateEvent) => {
-    if (e.state !== 'zoomed') {
-      setZoomed(null);
-    }
-  }
-
-  React.useEffect(() => {
-    const origOnPopState = window.onpopstate;
-    window.onpopstate = unzoom;
-
-    return () => {
-      window.onpopstate = origOnPopState;
-    }
-  })
 
   return (
     <section className={b()}>

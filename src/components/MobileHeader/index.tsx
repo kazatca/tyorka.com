@@ -6,6 +6,7 @@ import { useTranslate } from '../../hooks/translate';
 
 import './index.scss';
 
+import logoMobile from './static/logo_200.png';
 import logo from './static/logo.png';
 
 const b = b_.with('mobile-header');
@@ -18,7 +19,7 @@ const MobileHeader = () => {
     <section className={b()}>
       <CornerMenu />
       <Link to='/'>
-        <img className={b("logo")} src={logo} />
+        <img className={b("logo")} src={logoMobile} />
       </Link>
       <div className={b("menu-wrap")}>
         <Link className={b("menu")} activeClassName='active' partiallyActive to="/about">{t('About page')}</Link>

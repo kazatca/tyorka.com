@@ -15,7 +15,7 @@ interface Props {
   name: string
 }
 
-const Single: React.FC<Props> = ({ name }) => {
+const SliderView: React.FC<Props> = ({ name }) => {
   const [isEdit, setEditing] = React.useState(false);
 
   const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -49,4 +49,4 @@ const Single: React.FC<Props> = ({ name }) => {
   );
 }
 
-export default Single;
+export default SliderView;

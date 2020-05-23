@@ -386,7 +386,7 @@ export type File = Node & {
   birthtimeMs?: Maybe<Scalars['Float']>;
   blksize?: Maybe<Scalars['Int']>;
   blocks?: Maybe<Scalars['Int']>;
-  colors?: Maybe<FileColors>;
+  dominantColor?: Maybe<FileDominantColor>;
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -453,24 +453,6 @@ export type FileCtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-export type FileColors = {
-  vibrant?: Maybe<Scalars['String']>;
-  darkVibrant?: Maybe<Scalars['String']>;
-  lightVibrant?: Maybe<Scalars['String']>;
-  muted?: Maybe<Scalars['String']>;
-  darkMuted?: Maybe<Scalars['String']>;
-  lightMuted?: Maybe<Scalars['String']>;
-};
-
-export type FileColorsFilterInput = {
-  vibrant?: Maybe<StringQueryOperatorInput>;
-  darkVibrant?: Maybe<StringQueryOperatorInput>;
-  lightVibrant?: Maybe<StringQueryOperatorInput>;
-  muted?: Maybe<StringQueryOperatorInput>;
-  darkMuted?: Maybe<StringQueryOperatorInput>;
-  lightMuted?: Maybe<StringQueryOperatorInput>;
-};
-
 export type FileConnection = {
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
@@ -490,6 +472,14 @@ export type FileConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   field: FileFieldsEnum;
+};
+
+export type FileDominantColor = {
+  color?: Maybe<Scalars['String']>;
+};
+
+export type FileDominantColorFilterInput = {
+  color?: Maybe<StringQueryOperatorInput>;
 };
 
 export type FileEdge = {
@@ -532,12 +522,7 @@ export type FileFieldsEnum =
   | 'birthtimeMs'
   | 'blksize'
   | 'blocks'
-  | 'colors___vibrant'
-  | 'colors___darkVibrant'
-  | 'colors___lightVibrant'
-  | 'colors___muted'
-  | 'colors___darkMuted'
-  | 'colors___lightMuted'
+  | 'dominantColor___color'
   | 'publicURL'
   | 'id'
   | 'parent___id'
@@ -806,7 +791,7 @@ export type FileFilterInput = {
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
-  colors?: Maybe<FileColorsFilterInput>;
+  dominantColor?: Maybe<FileDominantColorFilterInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -1692,7 +1677,7 @@ export type QueryFileArgs = {
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
-  colors?: Maybe<FileColorsFilterInput>;
+  dominantColor?: Maybe<FileDominantColorFilterInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2792,7 +2777,7 @@ export type SliderPicsQueryVariables = {};
 
 export type SliderPicsQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'name' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
+        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
       ) }> } };
 
 export type CoversQueryVariables = {};
@@ -2800,7 +2785,7 @@ export type CoversQueryVariables = {};
 
 export type CoversQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'relativePath'>
-        & { colors?: Maybe<Pick<FileColors, 'vibrant' | 'darkVibrant' | 'lightVibrant' | 'muted' | 'darkMuted' | 'lightMuted'>>, childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>> }> }
+        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
       ) }> } };
 
 export type MdQueryVariables = {};
@@ -2816,5 +2801,5 @@ export type SquareCoversQueryVariables = {};
 
 export type SquareCoversQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src'>> }> }
+        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
       ) }> } };

@@ -1,3 +1,24 @@
 .fast-image {
-  display: block;
+  position: relative;
+
+  
+  img:nth-child(2) {
+    position: absolute;
+    top:0;
+    left: 0;
+    object-fit: cover;
+  }
+
+  img:nth-child(2) {
+    opacity: 1;
+    z-index: 2;
+    transition: all 0.2s ease-out;
+  }
+
+  &__back {
+    img:nth-child(2) {
+      opacity: 0;
+    }
+  
+  }
 }

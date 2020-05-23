@@ -17,7 +17,6 @@
     "firebase": "^7.14.2",
     "gatsby": "^2.20.25",
     "gatsby-image": "^2.0.15",
-    "gatsby-plugin-extract-image-colors": "0.0.14",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-graphql-loader": "^1.0.2",
     "gatsby-plugin-manifest": "^2.0.5",

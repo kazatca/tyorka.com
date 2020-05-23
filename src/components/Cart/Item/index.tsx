@@ -3,9 +3,10 @@ import * as b_ from 'b_'
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../state/actions';
 import { useSquareCovers } from '../../../hooks/squareCovers'
+import { Image } from '../../FastImage';
+import { useDescription } from '../../../hooks/md';
 
 import './index.scss';
-import { useDescription } from '../../../hooks/md';
 
 const b = b_.with('cart-item')
 
@@ -26,6 +27,8 @@ const Item: React.SFC<Props> = ({
 }) => {
   const covers = useSquareCovers();
 
+  const pic = covers[name];
+
   const { title } = useDescription(name)
 
   const dispatch = useDispatch();
@@ -35,7 +38,7 @@ const Item: React.SFC<Props> = ({
   return (
     <div className={b()}>
       <div className={b('photo')}>
-        <img src={covers[name]} />
+        <Image {...pic} />
       </div>
       <div>
         <div className={b('title')}>{title}</div>

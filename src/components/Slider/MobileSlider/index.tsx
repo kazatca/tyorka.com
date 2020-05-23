@@ -107,6 +107,8 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
             pic.preview && <SlideView
               key={i}
               pic={pic.preview}
+              color={pic.color}
+              
               geo={{
                 positionX: pic.positionX,
                 positionY: pic.positionY,

@@ -13,6 +13,7 @@ interface Geo {
 
 interface Props {
   pic: Image
+  color?: string
   geo: Geo
   width: number
   height: number
@@ -31,10 +32,26 @@ const SlideView: React.FC<Props> = ({
   current,
   isScrolling,
   pic,
+  color,
   geo,
   onClick
 }) => {
   const position = (index - current) * width + touchPosition;
+
+  const [url, setUrl] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if(typeof window === 'undefined' || !pic.src){
+      return;
+    }
+
+    const img = document.createElement('img');
+
+    img.onload = () => setUrl(pic.src || null);
+    img.onerror = () => setUrl(pic.src || null);
+
+    img.src = pic.src;
+  })
 
   return (
     <div
@@ -47,7 +64,8 @@ const SlideView: React.FC<Props> = ({
       <div
         className={b("image")}
         style={{
-          backgroundImage: `url(${pic.src})`,
+          backgroundImage: url? `url(${url})`: undefined,
+          backgroundColor: !url ? color : undefined,
           backgroundPositionX: `${(geo.positionX || 0) * width}px`,
           backgroundPositionY: `${(geo.positionY || 0) * height}px`,
           backgroundSize: `${geo.size}%`

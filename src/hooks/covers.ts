@@ -17,20 +17,16 @@ export const useCovers = () => {
         edges{
           node{
             relativePath
-            colors {
-              vibrant
-              darkVibrant
-              lightVibrant
-              muted
-              darkMuted
-              lightMuted
-            }
+            
             childImageSharp{
               resize(quality:95, height: 600){
                 src
                 width
                 height
               }
+            }
+            dominantColor {
+              color
             }
           }
         }
@@ -44,7 +40,7 @@ export const useCovers = () => {
       src: node.childImageSharp?.resize?.src || '',
       width: node.childImageSharp?.resize?.width || 0,
       height: node.childImageSharp?.resize?.height || 0,
-      color: node.colors?.lightMuted || 'white'
+      color: node.dominantColor?.color || 'white'
     }
     return result;
   }, {} as Cover);

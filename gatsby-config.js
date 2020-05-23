@@ -23,18 +23,18 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-extract-image-colors',
+    'dominant-color',
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./gatsby-graphql.ts`,
         documentPaths: [
-          './src/templates/*.{ts,tsx}',
           './src/**/hooks.ts',
           './src/hooks/*.ts'
         ],
       }
     },
+
     'gatsby-plugin-graphql-loader'
   ],
 }

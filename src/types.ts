@@ -31,6 +31,7 @@ export interface Slide {
   size: number
   original?: Image | null
   preview?: Image | null
+  color?: string
 }
 
 export interface Product {

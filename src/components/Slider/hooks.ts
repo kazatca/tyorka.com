@@ -24,6 +24,9 @@ export const usePics = (name: string): Slide[] => {
                 height
               }
             }
+            dominantColor {
+              color
+            }
           }
         }
       }
@@ -51,7 +54,8 @@ export const usePics = (name: string): Slide[] => {
       positionY: slideConfig?.positionY || 0,
       size: slideConfig?.size || 100,
       original: node.childImageSharp?.original,
-      preview: node.childImageSharp?.resize
+      preview: node.childImageSharp?.resize,
+      color: node.dominantColor?.color || 'white'
     }
   })
 

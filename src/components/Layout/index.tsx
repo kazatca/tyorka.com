@@ -3,6 +3,7 @@ import * as b_ from 'b_';
 import Helmet from 'react-helmet'
 import DesktopHeader from '../DesktopHeader'
 import MobileHeader from '../MobileHeader'
+import { ToTopButton } from '../ToTopButton'
 import Socials from '../Socials';
 import { LanguageSelector } from '../LanguageSelector';
 
@@ -27,6 +28,7 @@ const Layout: React.FC<{}> = ({ children }) => (
       {children}
       <Socials />
       <LanguageSelector />
+      <ToTopButton />
     </div>
   </>
 )

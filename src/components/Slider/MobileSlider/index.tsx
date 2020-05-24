@@ -35,6 +35,8 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
   };
 
   const onTouchMove = (e: TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setTouchPosition(getTouchPosition(e.touches[0].pageX - touchStartPosition));
   };
 

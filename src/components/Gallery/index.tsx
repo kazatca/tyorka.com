@@ -25,7 +25,7 @@ const Gallery: React.FC = () => {
   )
 }
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 
 const GalleryWithControls: React.FC = () => {
   const [isEdit, toggleEdit] = React.useState(false)

@@ -12,7 +12,7 @@
     position: fixed;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 870px) {
     display: none;
   }
 
@@ -21,7 +21,7 @@
     font-size: 23px;
     justify-content: space-between;
     align-items: center;
-    min-width: 250px;
+    min-width: 220px;
 
     a {
       text-decoration: none;

@@ -44,5 +44,6 @@ export interface Product {
 }
 
 export interface ProductsJson {
+  gallery: string[]
   products: Product[]
 }

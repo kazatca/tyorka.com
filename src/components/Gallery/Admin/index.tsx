@@ -1,21 +1,26 @@
 import * as React from 'react'
 import * as b_ from 'b_'
 import { useCovers } from '../../../hooks/covers'
-import { ProductsJson } from '../../../types'
 import { useDrag } from './hooks'
+import {products, Product } from '../consts';
 
-const { products }: ProductsJson = require('../../../products/products.json')
 
 import './index.scss'
 
-const b = b_.with('gallery-admin')
+const b = b_.with('gallery-admin');
+
 
 const GalleryAdmin: React.FC = () => {
   const covers = useCovers()
   const [order, setOrder] = React.useState(products)
-  const [undo, changeUndo] = React.useState<ProductsJson['products'][]>([
+  const [undo, changeUndo] = React.useState<Product[][]>([
     products,
-  ])
+  ]);
+
+  const reorder = (order: Product[]) => {
+    setOrder(order);
+    save(order.map(product => product.id));
+  } 
 
   const onChange = (from: string, to: string) => {
     const fromIndex = order.findIndex(({ id }) => from === id)
@@ -25,7 +30,7 @@ const GalleryAdmin: React.FC = () => {
     const [item] = result.splice(fromIndex, 1)
     result.splice(toIndex, 0, item)
     changeUndo([...undo, order])
-    setOrder(result)
+    reorder(result)
   }
 
   const { dragStart, dragEnter, dragEnd, picked, hovered } = useDrag(onChange)
@@ -34,7 +39,7 @@ const GalleryAdmin: React.FC = () => {
     if (e.key === 'z' && e.ctrlKey) {
       const result = undo.pop()
       if (result) {
-        setOrder(result);
+        reorder(result);
         changeUndo(undo);
       }
     }
@@ -79,3 +84,15 @@ const GalleryAdmin: React.FC = () => {
 }
 
 export default GalleryAdmin
+
+
+const save = (order: string[]) => {
+  fetch(`http://localhost:3000/gallery`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(order),
+    credentials: 'include'
+  })
+}

@@ -18,7 +18,7 @@ export const Image: React.FC<Props> = ({
   height = 10
 }) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect fill="${color}" width="${width}" height="${height}"/></svg>`
-  const back = `data:image/svg+xml;base64,${btoa(svg)}`
+  const back = `data:image/svg+xml;base64,${btoa(svg)}`;
 
   return (
     <div className={`${b()} ${className || ''}`}>

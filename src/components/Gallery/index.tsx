@@ -12,7 +12,7 @@ import './index.scss';
 const b = b_.with('gallery');
 
 
-const Gallery: React.SFC = () => {
+const Gallery: React.FC = () => {
   const covers = useCovers();
 
   return (
@@ -22,7 +22,6 @@ const Gallery: React.SFC = () => {
           <Link
             key={product.id}
             to={`/single/${product.path}` }
-            
           >
             <Image {...covers[product.path]} className={b("photo")}/>
           </Link>

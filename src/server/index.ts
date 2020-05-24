@@ -1,5 +1,4 @@
 import Koa from 'koa';
-// import Router from 'koa-router';
 import { Product } from './types';
 import * as glob from 'glob';
 import * as path from 'path';

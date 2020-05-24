@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Layout from '../components/Layout'
-import Gallery from '../components/GalleryAdmin'
+import Gallery from '../components/Gallery'
 
-const IndexPage = () =>
+const IndexPage = () => 
   <Layout>
     <Gallery />
   </Layout>

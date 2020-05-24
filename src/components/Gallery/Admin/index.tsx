@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as b_ from 'b_'
-import { useCovers } from '../../hooks/covers'
-import { ProductsJson } from '../../types'
+import { useCovers } from '../../../hooks/covers'
+import { ProductsJson } from '../../../types'
 import { useDrag } from './hooks'
 
-const { products }: ProductsJson = require('../../products/products.json')
+const { products }: ProductsJson = require('../../../products/products.json')
 
 import './index.scss'
 

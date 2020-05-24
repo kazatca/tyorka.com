@@ -10,18 +10,4 @@
   &__photo {
     margin: 0 0 .6rem .6rem;
   }
-
-  &__sale {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin: 10px;
-    height: 30px;
-    background: url("./static/sale.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center; 
-  }
 }

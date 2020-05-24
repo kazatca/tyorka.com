@@ -4,6 +4,7 @@ import * as b_ from 'b_'
 import { useCovers } from '../../hooks/covers';
 import { ProductsJson } from '../../types';
 import {Image} from '../FastImage';
+import GalleryAdmin from './Admin';
 
 const {products}: ProductsJson = require('../../products/products.json');
 
@@ -30,5 +31,6 @@ const Gallery: React.FC = () => {
   );
 }
 
+const isDev = process.env.NODE_ENV === 'development';
 
-export default Gallery;
+export default () => isDev ? <GalleryAdmin /> : <Gallery />

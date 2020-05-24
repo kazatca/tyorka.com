@@ -1,26 +1,29 @@
 import * as React from 'react'
+import * as b_ from 'b_';
 import { btoa } from 'isomorphic-base64'
 
 import './index.scss';
+
+const b = b_.with('fast-image');
 
 interface Props extends React.HTMLProps<HTMLImageElement> {
   color: string
 }
 
 export const Image: React.FC<Props> = ({
+  className,
   color,
   src,
-  width,
-  height,
-  className,
+  width = 10,
+  height = 10
 }) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect fill="${color}" width="${width}" height="${height}"/></svg>`
   const back = `data:image/svg+xml;base64,${btoa(svg)}`
 
   return (
-    <div className={`fast-image ${className}`}>
-      <img src={back} />
-      <img src={src} />
+    <div className={`${b()} ${className || ''}`}>
+      <img src={back} className={b('back')}/>
+      <img src={src} className={b('image')}/>
     </div>
   )
 }

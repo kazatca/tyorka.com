@@ -22,9 +22,9 @@ const Gallery: React.SFC = () => {
           <Link
             key={product.id}
             to={`/single/${product.path}` }
-            className={b("photo")}
+            
           >
-            <Image {...covers[product.path]}/>
+            <Image {...covers[product.path]} className={b("photo")}/>
           </Link>
         )}
     </section>

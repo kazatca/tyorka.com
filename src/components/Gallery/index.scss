@@ -1,20 +1,14 @@
 .gallery {
   line-height: 0;
   column-count: 4;
-  column-gap: 10px;
+  column-gap: 0;
 
   @media (max-width: 700px) {
     column-count: 1;
   }
 
   &__photo {
-    position: relative;
-    
-    img {
-      width: 100% !important;
-      height: auto !important;
-      margin-top: 10px;
-    }
+    margin: 0 0 .6rem .6rem;
   }
 
   &__sale {

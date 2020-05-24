@@ -1,3 +1,5 @@
+require("dotenv").config({path: `.env`})
+
 module.exports = {
   siteMetadata: {
     title: `Tyorka`,
@@ -29,12 +31,23 @@ module.exports = {
       options: {
         fileName: `./gatsby-graphql.ts`,
         documentPaths: [
+          './src/pages/*.tsx',
           './src/**/hooks.ts',
           './src/hooks/*.ts'
         ],
       }
     },
 
-    'gatsby-plugin-graphql-loader'
+    'gatsby-plugin-graphql-loader',
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `tyorka`,
+        access_token: process.env.FB_API_KEY,
+        instagram_id: process.env.INSTAGRAM_BUSINESS_ACCOUNT,
+        paginate: 100,
+        maxPosts: 1000,
+      },
+    }
   ],
 }

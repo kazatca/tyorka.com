@@ -1,5 +1,0 @@
----
-path: "ceramic sugar"
-title: ""
----
-

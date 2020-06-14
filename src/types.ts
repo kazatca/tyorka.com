@@ -37,7 +37,7 @@ export interface Slide {
 export interface Product {
   id: string
   path: string
-  title: string
+  title?: string
   tags?: string[],
   slides?: Slide[]
   price?: number

@@ -34,6 +34,7 @@
     position: absolute;
     right: 18px;
     top: 10px;
+    z-index: 3;
     @include cross(1.5rem);
   }
 }

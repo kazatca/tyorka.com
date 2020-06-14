@@ -1,46 +1,16 @@
 import Koa from 'koa';
-import { Product } from './types';
-import * as glob from 'glob';
-import * as path from 'path';
 import * as fs from 'fs';
 import koaBody from 'koa-body';
 import { ProductsJson } from '../types';
-
-interface Slide { [key: string]: string[] }
+import { updateSlides } from './slides';
+import { updateProducts } from './products';
+import { fillDescriptions } from './descriptions';
 
 function saveJson(json: object) {
   fs.writeFileSync('./src/products/.~products.json', JSON.stringify(json, null, 2));
   fs.renameSync('./src/products/.~products.json', './src/products/products.json');
 }
-
-function updateProductsJson() {
-  const json: { products: Product[] } = require('../products/products.json');
-
-  const slides: Slide = glob.sync('./src/products/*/*.jpg').reduce((result: Slide, slide) => {
-    const dir = path.dirname(slide).split(path.sep).reverse()[0];
-    const id = path.basename(slide);
-
-    result[dir] = result[dir] || [];
-    result[dir].push(id);
-    return result;
-  }, {});
-
-  json.products.forEach(product => {
-    if (!slides[product.path]) {
-      return;
-    }
-
-    product.slides = slides[product.path].map(filename => {
-      const slide = product.slides.find(({ id }) => id === filename);
-      if (!slide) {
-        return { id: filename };
-      }
-      return slide;
-    });
-  });
-
-  saveJson(json);
-}
+const json: ProductsJson = require('../products/products.json');
 
 const app = new Koa();
 
@@ -91,4 +61,7 @@ app.use(async ctx => {
 app.listen(3000);
 console.log('listening on port 3000');
 
-updateProductsJson();
+updateProducts(json);
+updateSlides(json);
+saveJson(json);
+fillDescriptions();

@@ -1,0 +1,21 @@
+.mobile-header-logo {
+
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  &__logo {
+    padding-top: 9px;
+    width: 200px;
+
+    @media (max-width: 768px) {
+      width: 150px;
+    }
+  }
+
+  &__left-mustache,
+  &__right-mustache {
+    width: 50px;
+    object-fit: scale-down;
+    padding: 1rem;
+  }
+}

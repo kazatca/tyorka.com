@@ -2807,11 +2807,10 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
   | 'pluginCreator___pluginOptions___includePaths'
+  | 'pluginCreator___pluginOptions___useResolveUrlLoader'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___username'
-  | 'pluginCreator___pluginOptions___access_token'
-  | 'pluginCreator___pluginOptions___instagram_id'
   | 'pluginCreator___pluginOptions___paginate'
   | 'pluginCreator___pluginOptions___maxPosts'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -3005,11 +3004,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
   | 'pluginOptions___includePaths'
+  | 'pluginOptions___useResolveUrlLoader'
   | 'pluginOptions___fileName'
   | 'pluginOptions___documentPaths'
   | 'pluginOptions___username'
-  | 'pluginOptions___access_token'
-  | 'pluginOptions___instagram_id'
   | 'pluginOptions___paginate'
   | 'pluginOptions___maxPosts'
   | 'pluginOptions___pathCheck'
@@ -3129,11 +3127,10 @@ export type SitePluginPluginOptions = {
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
   includePaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  useResolveUrlLoader?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   username?: Maybe<Scalars['String']>;
-  access_token?: Maybe<Scalars['String']>;
-  instagram_id?: Maybe<Scalars['String']>;
   paginate?: Maybe<Scalars['Int']>;
   maxPosts?: Maybe<Scalars['Int']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -3144,11 +3141,10 @@ export type SitePluginPluginOptionsFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
   includePaths?: Maybe<StringQueryOperatorInput>;
+  useResolveUrlLoader?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   username?: Maybe<StringQueryOperatorInput>;
-  access_token?: Maybe<StringQueryOperatorInput>;
-  instagram_id?: Maybe<StringQueryOperatorInput>;
   paginate?: Maybe<IntQueryOperatorInput>;
   maxPosts?: Maybe<IntQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;

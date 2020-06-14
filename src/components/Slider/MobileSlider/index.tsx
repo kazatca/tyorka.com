@@ -22,6 +22,7 @@ const b = b_.with('mobile-slider');
 export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurrent }) => {
   const [width, setWidth] = React.useState(0);
   const [touchStartPosition, setTouchStartPosition] = React.useState(0)
+  // const [touchStartPositionY, setTouchStartPositionY] = React.useState(0)
   const [touchPosition, setTouchPosition] = React.useState(0);
   const [isScrolling, toggleScrolling] = React.useState(false);
 
@@ -38,11 +39,17 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
     e.stopPropagation();
     e.preventDefault();
     setTouchPosition(getTouchPosition(e.touches[0].pageX - touchStartPosition));
+    // const d = touchStartPositionY - e.touches[0].pageY;
+    //   window.scrollBy({
+    //   top: d
+    // })
+    // setTouchStartPositionY(e.touches[0].pageY);
   };
 
   const onTouchStart = (e: TouchEvent) => {
     toggleScrolling(true);
     setTouchStartPosition(e.touches[0].pageX);
+    // setTouchStartPositionY(e.touches[0].pageY);
   };
 
   const onTouchEnd = () => {
@@ -101,9 +108,9 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
   return (
     <div
       className={b()}
-      ref={container}
+      
     >
-      <div className={b('wrapper')} style={{ height: `${width / ratio}px` }}>
+      <div className={b('wrapper')} style={{ height: `${width / ratio}px` }} ref={container}>
         {width &&
           pics.map((pic, i) => (
             pic.preview && <SlideView

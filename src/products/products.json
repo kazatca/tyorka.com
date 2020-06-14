@@ -195,99 +195,14 @@
       ]
     },
     {
-      "id": "fec393c6-2069-4315-9980-d394a813715c",
-      "path": "ceramic cup",
-      "slides": [
-        {
-          "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -0.23177842565597667,
-          "size": 100
-        },
-        {
-          "id": "DSC05199.jpg",
-          "positionX": 0,
-          "positionY": -0.05393586005830904,
-          "size": 100
-        },
-        {
-          "id": "DSC05264.jpg",
-          "positionX": -0.5,
-          "positionY": 0,
-          "size": 151
-        },
-        {
-          "id": "DSC05270.jpg",
-          "positionX": 0,
-          "positionY": -0.2813411078717201,
-          "size": 100
-        },
-        {
-          "id": "DSC05280.jpg",
-          "positionX": 0,
-          "positionY": 0,
-          "size": 100
-        }
-      ]
-    },
-    {
-      "id": "f0ffb70a-e8f6-465b-8673-8105a373ebd1",
-      "path": "ceramic face",
-      "slides": [
-        {
-          "id": "cover.jpg",
-          "positionX": 0,
-          "positionY": -0.10932944606413994,
-          "size": 100
-        }
-      ]
-    },
-    {
-      "id": "6752bfa7-ba9c-4407-9ba2-6de6c940f2b3",
-      "path": "ceramic plant with legs",
-      "slides": [
-        {
-          "id": "cover.jpg",
-          "positionX": -0.23469387755102042,
-          "positionY": 0,
-          "size": 150
-        }
-      ]
-    },
-    {
-      "id": "5fdc0551-f89c-477d-9a10-db6446e86459",
-      "path": "ceramic sugar",
-      "slides": [
-        {
-          "id": "cover.jpg",
-          "resized": true,
-          "positionX": 0,
-          "positionY": -0.009933553863454785,
-          "size": 100
-        },
-        {
-          "id": "DSC05198.jpg",
-          "positionX": -0.07049562682215746,
-          "positionY": -0.11448979591836729,
-          "size": 126
-        },
-        {
-          "id": "DSC05200.jpg",
-          "positionX": 0,
-          "positionY": -0.1291059827576047,
-          "size": 100
-        }
-      ]
-    },
-    {
       "id": "9760f451-d65e-48a1-8058-f0ca131d437c",
       "path": "donkey",
       "slides": [
         {
           "id": "cover.jpg",
           "positionX": 0,
-          "positionY": -0.22662254917925984,
-          "size": 100
+          "positionY": -0.18525057884119933,
+          "size": 101
         },
         {
           "id": "DSC04982.jpg",
@@ -372,42 +287,6 @@
           "positionX": -0.24489795918367346,
           "positionY": 0,
           "size": 150
-        }
-      ]
-    },
-    {
-      "id": "26f3e71a-3a1d-41b8-ba48-245a8c9c1bd4",
-      "path": "green creature with pink ears",
-      "slides": [
-        {
-          "id": "cover.jpg",
-          "positionX": -0.026472303206996874,
-          "positionY": -0.04000000000000008,
-          "size": 156
-        }
-      ]
-    },
-    {
-      "id": "4a50161c-d45d-4167-928b-984a429f2cd7",
-      "path": "green like dino creature",
-      "slides": [
-        {
-          "id": "cover.jpg",
-          "positionX": -0.08420314001909993,
-          "positionY": 0,
-          "size": 151
-        },
-        {
-          "id": "DSC_0780.jpg",
-          "positionX": -0.008662041741635306,
-          "positionY": 0,
-          "size": 151
-        },
-        {
-          "id": "DSC00614.jpg",
-          "positionX": 0,
-          "positionY": -0.22381882095922884,
-          "size": 100
         }
       ]
     },
@@ -672,31 +551,222 @@
         "shop"
       ],
       "description": "У вомбатов острый слух и обоняние, но довольно слабое зрение. Несмотря на внешнюю неуклюжесть, они очень быстрые: спасаясь от опасности, вомбат может легко влезть на дерево, нырнуть в водоём или убежать. Могут бежать со скоростью до 40 км/ч, а на коротких дистанциях достигают скорости в 60 км/ч."
+    },
+    {
+      "id": "162b8e43-56e6-4b45-ae24-956f5fa8d90e",
+      "path": "brooch fish",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.16034985422740525,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC01730.jpg",
+          "positionX": -0.3965014577259475,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC01734.jpg",
+          "positionX": -0.45481049562682213,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC01747.jpg",
+          "positionX": -0.48941246801686167,
+          "positionY": 0,
+          "size": 174
+        }
+      ]
+    },
+    {
+      "id": "fb5ac914-34f1-4e5c-92bd-8e7dbe663af7",
+      "path": "brooch guitar",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.36443148688046645,
+          "positionY": 0,
+          "size": 150
+        }
+      ]
+    },
+    {
+      "id": "a8a1a565-d807-4ce4-b091-ae2655a6839a",
+      "path": "free promotion instagram",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 101
+        }
+      ],
+      "tags": [
+        "shop"
+      ],
+      "price": 300
+    },
+    {
+      "id": "387ea165-d395-4672-a1b8-b7d897b31717",
+      "path": "perkacibus",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.18658892128279883,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC00367.jpg",
+          "positionX": -0.239067055393586,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC00400.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 150
+        }
+      ]
+    },
+    {
+      "id": "ed52cf96-4dde-42fc-a890-d76b6abe7c01",
+      "path": "pingolin",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.22813476087781637,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC07236.jpg",
+          "positionX": -0.4242290587908952,
+          "positionY": 0,
+          "size": 150
+        }
+      ]
+    },
+    {
+      "id": "b565d56b-e164-47f5-b2c7-d6215d90fc2a",
+      "path": "punya",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.2594752186588921,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC07248.jpg",
+          "positionX": -0.25072886297376096,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC07250.jpg",
+          "positionX": -0.29127109689665837,
+          "positionY": 0,
+          "size": 151
+        },
+        {
+          "id": "DSC07258.jpg",
+          "positionX": -0.2653061224489796,
+          "positionY": 0,
+          "size": 150
+        }
+      ]
+    },
+    {
+      "id": "868f0aa9-4e26-48ab-b665-15c7c3fcd5c2",
+      "path": "scirp",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.28012697142348997,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC00351-восстановлено.jpg",
+          "positionX": -0.21,
+          "positionY": -0.16199026062601582,
+          "size": 121
+        }
+      ]
+    },
+    {
+      "id": "0b7070ee-cff5-4ec5-b9b3-abc60a0f7955",
+      "path": "shadow",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": -0.31486880466472306,
+          "positionY": 0,
+          "size": 150
+        },
+        {
+          "id": "DSC08297.jpg",
+          "positionX": -0.18658892128279883,
+          "positionY": 0,
+          "size": 150
+        }
+      ]
+    },
+    {
+      "id": "f3d48fcb-ec23-4689-bdd2-ef73bb27bb5f",
+      "path": "visual instagram",
+      "slides": [
+        {
+          "id": "cover.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        },
+        {
+          "id": "визуал.jpg",
+          "positionX": 0,
+          "positionY": 0,
+          "size": 100
+        }
+      ],
+      "tags": [
+        "shop"
+      ],
+      "price": 300
     }
   ],
   "gallery": [
+    "162b8e43-56e6-4b45-ae24-956f5fa8d90e",
+    "fb5ac914-34f1-4e5c-92bd-8e7dbe663af7",
+    "a8a1a565-d807-4ce4-b091-ae2655a6839a",
+    "422345a7-fa2b-4877-9e8b-89ffeeb2f70e",
+    "387ea165-d395-4672-a1b8-b7d897b31717",
+    "ed52cf96-4dde-42fc-a890-d76b6abe7c01",
+    "b565d56b-e164-47f5-b2c7-d6215d90fc2a",
+    "868f0aa9-4e26-48ab-b665-15c7c3fcd5c2",
+    "0b7070ee-cff5-4ec5-b9b3-abc60a0f7955",
+    "f3d48fcb-ec23-4689-bdd2-ef73bb27bb5f",
     "9760f451-d65e-48a1-8058-f0ca131d437c",
     "27d0a29e-9a28-43ab-9b62-c71794964fcc",
     "5c928d4d-5516-4652-8511-f56cba77090c",
-    "fec393c6-2069-4315-9980-d394a813715c",
     "aad319ae-fab5-46cc-a944-30e0fbf193fa",
-    "f0ffb70a-e8f6-465b-8673-8105a373ebd1",
-    "05e3dc16-0f9f-4ef7-84ad-58bb966f4db8",
-    "5fdc0551-f89c-477d-9a10-db6446e86459",
     "2289ca4c-5bcc-4971-bf38-246b00d25fa0",
-    "26f3e71a-3a1d-41b8-ba48-245a8c9c1bd4",
     "db043eed-9044-4193-84c3-3bbb55cd7968",
     "13a03f68-ce5e-4b89-823b-fe05016a09c4",
     "696654b7-1728-4dc1-8ce1-40464e4b665b",
-    "0fa1c102-b94a-41c8-943a-389efc6f74f2",
-    "422345a7-fa2b-4877-9e8b-89ffeeb2f70e",
-    "6752bfa7-ba9c-4407-9ba2-6de6c940f2b3",
-    "dac05491-e451-4f82-ab1a-f3a5c29608e4",
+    "05e3dc16-0f9f-4ef7-84ad-58bb966f4db8",
     "a480fba4-3c8e-4093-a5d3-8dfe6af33258",
+    "0fa1c102-b94a-41c8-943a-389efc6f74f2",
+    "dac05491-e451-4f82-ab1a-f3a5c29608e4",
     "c11dab5b-6dda-49ac-b965-4d7b204b53f8",
     "d7b0fe50-bf46-472e-86db-43fa731c8aca",
     "e7710d2f-1a15-4543-abb7-b39470803faa",
-    "4a50161c-d45d-4167-928b-984a429f2cd7",
     "38c6275f-b24c-4de4-8907-8f88d0e16ec0"
   ]
 }

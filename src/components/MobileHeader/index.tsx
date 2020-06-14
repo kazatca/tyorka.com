@@ -2,12 +2,10 @@ import * as React from 'react'
 import { Link } from 'gatsby';
 import * as b_ from 'b_'
 import CornerMenu from '../CornerMenu';
+import { Logo } from './components/Logo'
 import { useTranslate } from '../../hooks/translate';
 
 import './index.scss';
-
-import logoMobile from './static/logo_200.png';
-import logo from './static/logo.png';
 
 const b = b_.with('mobile-header');
 
@@ -18,9 +16,7 @@ const MobileHeader = () => {
   return (
     <section className={b()}>
       <CornerMenu />
-      <Link to='/'>
-        <img className={b("logo")} src={logoMobile} />
-      </Link>
+      <Logo />
       <div className={b("menu-wrap")}>
         <Link className={b("menu")} activeClassName='active' partiallyActive to="/about">{t('About page')}</Link>
         <Link className={b("menu")} activeClassName='active' partiallyActive to="/shop">{t('Shop page')}</Link>

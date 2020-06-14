@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'HeldustryFT';
+  src: url('HeldustryFT-Regular.woff2') format('woff2'),
+    url('HeldustryFT-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'HeldustryFT', sans-serif;
+}

@@ -43,12 +43,6 @@
           "size": 101
         },
         {
-          "id": "DSC03866.jpg",
-          "positionX": 0,
-          "positionY": -0.06154864902378099,
-          "size": 100
-        },
-        {
           "id": "DSC03882.jpg",
           "positionX": -0.21312500000000512,
           "positionY": -0.6146093749999864,
@@ -70,6 +64,12 @@
           "id": "DSC03982.jpg",
           "positionX": 0,
           "positionY": -0.02734375,
+          "size": 100
+        },
+        {
+          "id": "totoro1.jpg",
+          "positionX": 0,
+          "positionY": 0,
           "size": 100
         }
       ]
@@ -358,13 +358,13 @@
           "size": 100
         },
         {
-          "id": "DSC_8932.jpg",
+          "id": "DSC_9007.jpg",
           "positionX": 0,
           "positionY": 0,
           "size": 100
         },
         {
-          "id": "DSC_9007.jpg",
+          "id": "sailor1.jpg",
           "positionX": 0,
           "positionY": 0,
           "size": 100
@@ -382,8 +382,8 @@
       "slides": [
         {
           "id": "cover.jpg",
-          "positionX": -0.03674214841158916,
-          "positionY": -0.10809518736977448,
+          "positionX": -0.03478902341158916,
+          "positionY": -0.11102487486977448,
           "size": 113
         },
         {
@@ -742,6 +742,8 @@
     }
   ],
   "gallery": [
+    "dac05491-e451-4f82-ab1a-f3a5c29608e4",
+    "fb5ac914-34f1-4e5c-92bd-8e7dbe663af7",
     "5c928d4d-5516-4652-8511-f56cba77090c",
     "162b8e43-56e6-4b45-ae24-956f5fa8d90e",
     "db043eed-9044-4193-84c3-3bbb55cd7968",
@@ -755,8 +757,6 @@
     "9760f451-d65e-48a1-8058-f0ca131d437c",
     "c11dab5b-6dda-49ac-b965-4d7b204b53f8",
     "387ea165-d395-4672-a1b8-b7d897b31717",
-    "fb5ac914-34f1-4e5c-92bd-8e7dbe663af7",
-    "dac05491-e451-4f82-ab1a-f3a5c29608e4",
     "696654b7-1728-4dc1-8ce1-40464e4b665b",
     "13a03f68-ce5e-4b89-823b-fe05016a09c4",
     "b565d56b-e164-47f5-b2c7-d6215d90fc2a",

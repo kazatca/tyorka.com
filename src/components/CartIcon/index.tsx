@@ -5,7 +5,7 @@ import { RootState } from '../../state/reducer'
 
 import './index.scss'
 
-import * as cart from './static/cart.png'
+import cart from './static/cart.png'
 
 const b = b_.with('cart-icon')
 

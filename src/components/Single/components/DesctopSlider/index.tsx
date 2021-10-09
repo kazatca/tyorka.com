@@ -5,9 +5,9 @@ import Zoom from '../Zoom';
 
 import './index.scss';
 
-import * as arrow from './static/arrow.png';
-import * as unchecked from './static/unchecked.png';
-import * as checked from './static/checked.png';
+import arrow from './static/arrow.png';
+import unchecked from './static/unchecked.png';
+import checked from './static/checked.png';
 
 const b = b_.with('slider');
 

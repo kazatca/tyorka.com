@@ -3,10 +3,10 @@ import * as b_ from 'b_'
 
 import './index.scss';
 
-import * as insta from './static/insta.svg';
-import * as etsy from './static/etsy.png';
-import * as fb from './static/fb.png';
-import * as vk from './static/vk.png';
+import insta from './static/insta.svg';
+import etsy from './static/etsy.png';
+import fb from './static/fb.png';
+import vk from './static/vk.png';
 
 const b = b_.with('socials');
 

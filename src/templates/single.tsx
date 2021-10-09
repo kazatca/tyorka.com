@@ -3,14 +3,14 @@ import Single from '../components/Single'
 import Layout from '../components/Layout';
 
 interface Props {
-  pathContext: {
+  pageContext: {
     id: number
     slug: string
     price?: number
   }
 }
 
-const SinglePage = ({pathContext: {price, slug}}: Props) => {
+const SinglePage = ({pageContext: {price, slug}}: Props) => {
   return (
     <Layout>
       <Single

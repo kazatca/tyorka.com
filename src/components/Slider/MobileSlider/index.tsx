@@ -5,8 +5,8 @@ import { Slide } from '../../../types';
 
 import './index.scss';
 
-import * as unchecked from './static/unchecked.svg';
-import * as checked from './static/checked.svg';
+import unchecked from './static/unchecked.svg';
+import checked from './static/checked.svg';
 
 const ratio = 1;
 

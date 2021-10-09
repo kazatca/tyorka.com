@@ -1,8 +1,12 @@
-require("dotenv").config({path: `.env`})
+require("dotenv").config({ path: `.env` })
 
 module.exports = {
   siteMetadata: {
     title: `Tyorka`,
+  },
+  flags: {
+    // FAST_DEV: true,
+    // PARALLEL_SOURCING: true,
   },
   plugins: [
     {
@@ -19,8 +23,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        includePaths: ["src"],
-        useResolveUrlLoader: true
+        useResolveUrlLoader: true,
+        sassOptions: {
+          includePaths: ["src"],
+        }
       },
     },
     'gatsby-plugin-react-helmet',
@@ -47,7 +53,7 @@ module.exports = {
         access_token: process.env.FB_API_KEY,
         instagram_id: process.env.INSTAGRAM_BUSINESS_ACCOUNT,
         paginate: 100,
-        maxPosts: 1000,
+        maxPosts: 100,
       },
     }
   ],

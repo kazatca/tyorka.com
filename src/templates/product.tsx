@@ -3,14 +3,14 @@ import Product from '../components/Product'
 import Layout from '../components/Layout';
 
 interface Props {
-  pathContext: {
+  pageContext: {
     id: string
     slug: string
     price?: number
   }
 }
 
-const ProductPage: React.FC<Props> = ({ pathContext: { id, slug, price } }) => (
+const ProductPage: React.FC<Props> = ({ pageContext: { id, slug, price } }) => (
   <Layout>
     <Product id={id} name={slug} price={price} />
   </Layout>

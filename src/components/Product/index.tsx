@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as b_ from 'b_';
-import { push } from 'gatsby';
+import { navigate } from 'gatsby';
 import { actions } from '../../state/actions';
 import { RootState } from '../../state/reducer';
 import { useTranslate } from '../../hooks/translate';
@@ -28,7 +28,7 @@ const Product: React.FC<Props> = ({ id, name, price }) => {
 
   const addToCart = () => dispatch(actions.addToCart(id));
 
-  const goToCart = () => push('/cart')
+  const goToCart = () => navigate('/cart')
 
   return (
     <div className={b()}>

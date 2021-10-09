@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as b_ from 'b_'
 import { useSelector, useDispatch } from 'react-redux'
-import { push } from 'gatsby'
+import { navigate } from 'gatsby'
 import { RootState } from '../../state/reducer'
 import { actions } from '../../state/actions'
 import Modal from '../Modal'
@@ -50,7 +50,7 @@ const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
       toggleLoading(false)
 
       dispatch(actions.cleanCart());
-      push('/success')
+      navigate('/success')
     },
     [name, email, cart]
   )

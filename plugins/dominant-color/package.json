@@ -14,7 +14,7 @@
   "main": "gatsby-node.js",
   "name": "gatsby-plugin-extract-dominant-colors",
   "peerDependencies": {
-    "gatsby": "^2.0.0"
+    "gatsby": "^3.0.0"
   },
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",

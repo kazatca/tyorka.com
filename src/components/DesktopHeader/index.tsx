@@ -5,7 +5,7 @@ import CornerMenu from '../CornerMenu';
 
 import './index.scss';
 
-import * as logo from "./static/logo_400.png";
+import logo from "./static/logo_400.png";
 import { useTranslate } from '../../hooks/translate';
 
 const b = b_.with('desktop-header');

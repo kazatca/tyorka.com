@@ -17,9 +17,11 @@ const app = new Koa();
 app.use(koaBody());
 
 app.use(async ctx => {
-  ctx.set('Access-Control-Allow-Credentials', 'true')
-  ctx.set('Access-Control-Allow-Origin', ctx.request.headers.origin);
-  ctx.set('Access-Control-Allow-Headers', 'Content-Type');
+  if(ctx.request.headers.origin) {
+    ctx.set('Access-Control-Allow-Credentials', 'true')
+    ctx.set('Access-Control-Allow-Origin', ctx.request.headers.origin);
+    ctx.set('Access-Control-Allow-Headers', 'Content-Type');
+  }
 
   if (ctx.request.method === 'OPTIONS') {
     ctx.body = '';

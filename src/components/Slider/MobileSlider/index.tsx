@@ -1,7 +1,7 @@
 import * as React from 'react'
-import SlideView from './components/SliderView';
 import * as b_ from 'b_';
 import { Picture } from '../../../types';
+import { SlideView } from './components/SliderView';
 
 import './index.scss';
 
@@ -121,6 +121,10 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
               touchPosition={touchPosition}
               isScrolling={isScrolling}
               onClick={() => onClick(pic)}
+              layout={{
+                width,
+                height: width / ratio
+              }}
             />
           ))}
       </div>

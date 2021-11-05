@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { navigate } from 'gatsby'
 import { RootState } from '../../state/reducer'
 import { actions } from '../../state/actions'
-import Modal from '../Modal'
 import { addOrder, Cart } from './firebase'
+import { useTranslate } from '../../hooks/translate'
 import { Loading } from './Loader'
+import Modal from '../Modal'
 
 import './index.scss'
-import { useTranslate } from '../../hooks/translate'
 
 const b = b_.with('checkout-modal')
 

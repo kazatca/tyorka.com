@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as b_ from 'b_'
-import { Picture } from 'types'
-import { useImageLoader } from './hooks'
+import { Picture, Size } from '../../../../../types'
+import { CroppedImage } from '../../../../CroppedImage'
 
 import './index.scss'
 
@@ -9,6 +9,7 @@ const b = b_.with('mobile-slider-slide')
 
 interface Props {
   pic: Picture
+  layout: Size
   current: number
   touchPosition: number
   isScrolling: boolean
@@ -16,18 +17,16 @@ interface Props {
   onClick: () => void
 }
 
-const SlideView: React.FC<Props> = ({
+export const SlideView: React.FC<Props> = ({
   pic,
+  layout,
   touchPosition,
   index,
   current,
   isScrolling,
   onClick,
 }) => {
-  const { src, crop, color, originalSize } = pic
-  const position = (index - current) * originalSize.width + touchPosition
-
-  const { url } = useImageLoader(src)
+  const position = (index - current) * layout.width + touchPosition
 
   return (
     <div
@@ -37,19 +36,7 @@ const SlideView: React.FC<Props> = ({
       }}
       onClick={onClick}
     >
-      <div
-        className={b('image')}
-        style={{
-          backgroundImage: url ? `url(${url})` : undefined,
-          backgroundColor: !url ? color : undefined,
-          backgroundPositionX: `${(crop.anchor.x || 0) * originalSize.width}px`,
-          backgroundPositionY: `${(crop.anchor.y || 0) *
-            originalSize.height}px`,
-          backgroundSize: `${crop.factor}%`,
-        }}
-      />
+      <CroppedImage className={b('image')}>{pic}</CroppedImage>
     </div>
   )
 }
-
-export default SlideView

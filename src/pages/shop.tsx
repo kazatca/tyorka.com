@@ -1,10 +1,11 @@
 import * as React from 'react'
 import Layout from '../components/Layout'
-import Shop from '../components/Shop'
+import { ShopView } from '../components/Shop'
 
-const ShopPage = () =>
+const ShopPage = () => (
   <Layout>
-    <Shop />
+    <ShopView />
   </Layout>
+)
 
 export default ShopPage

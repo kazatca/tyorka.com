@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import { CreatePagesArgs } from 'gatsby'
+import { CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
 import { collectItems } from './context/products'
 
 exports.createPages = async ({
@@ -30,4 +30,21 @@ exports.createPages = async ({
       context: product,
     })
   })
+}
+
+exports.onCreateWebpackConfig = ({
+  actions,
+  getConfig,
+}: CreateWebpackConfigArgs) => {
+  const config = getConfig() as { plugins: Object[] }
+  console.log(config)
+  const miniCssExtractPlugin = config.plugins.find(
+    plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+  )
+  if (miniCssExtractPlugin) {
+    console.log(miniCssExtractPlugin)
+    // @ts-ignore
+    miniCssExtractPlugin.options.ignoreOrder = true
+  }
+  actions.replaceWebpackConfig(config)
 }

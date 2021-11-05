@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import * as b_ from 'b_'
+import { useTranslate } from '../../hooks/translate';
 import CornerMenu from '../CornerMenu';
 
 import './index.scss';
 
 import logo from "./static/logo_400.png";
-import { useTranslate } from '../../hooks/translate';
 
 const b = b_.with('desktop-header');
 

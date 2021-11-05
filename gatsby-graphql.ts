@@ -389,6 +389,7 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsSassOptions = {
   includePaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  ignoreOrder?: Maybe<Scalars['Boolean']>;
   indentedSyntax?: Maybe<Scalars['Boolean']>;
   indentType?: Maybe<Scalars['String']>;
   indentWidth?: Maybe<Scalars['Int']>;
@@ -2672,6 +2673,7 @@ export type SitePluginPluginOptionsFilterInput = {
 
 export type SitePluginPluginOptionsSassOptionsFilterInput = {
   includePaths?: Maybe<StringQueryOperatorInput>;
+  ignoreOrder?: Maybe<BooleanQueryOperatorInput>;
   indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
   indentType?: Maybe<StringQueryOperatorInput>;
   indentWidth?: Maybe<IntQueryOperatorInput>;
@@ -2884,6 +2886,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___useResolveUrlLoader'
   | 'pluginCreator___pluginOptions___sassOptions___includePaths'
+  | 'pluginCreator___pluginOptions___sassOptions___ignoreOrder'
   | 'pluginCreator___pluginOptions___sassOptions___indentedSyntax'
   | 'pluginCreator___pluginOptions___sassOptions___indentType'
   | 'pluginCreator___pluginOptions___sassOptions___indentWidth'
@@ -3087,6 +3090,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___useResolveUrlLoader'
   | 'pluginOptions___sassOptions___includePaths'
+  | 'pluginOptions___sassOptions___ignoreOrder'
   | 'pluginOptions___sassOptions___indentedSyntax'
   | 'pluginOptions___sassOptions___indentType'
   | 'pluginOptions___sassOptions___indentWidth'
@@ -4590,6 +4594,20 @@ export type GalleryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GalleryQuery = { backend: { gallery: Array<Pick<Backend_GalleryItem, 'id' | 'src' | 'width' | 'height' | 'color'>> } };
+
+export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ShopQuery = { backend: { products: Array<(
+      Pick<Backend_Product, 'id' | 'title'>
+      & { cover?: Maybe<(
+        Pick<Backend_Picture, 'src' | 'color'>
+        & { crop: (
+          Pick<Backend_Crop, 'factor'>
+          & { anchor: Pick<Backend_Point, 'x' | 'y'> }
+        ), originalSize: Pick<Backend_Size, 'height' | 'width'> }
+      )> }
+    )> } };
 
 export type CoversQueryVariables = Exact<{ [key: string]: never; }>;
 

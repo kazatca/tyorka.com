@@ -26,6 +26,7 @@ const config = {
         useResolveUrlLoader: true,
         sassOptions: {
           includePaths: ["src"],
+          ignoreOrder: true,
         }
       },
     },

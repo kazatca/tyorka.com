@@ -56,3 +56,5 @@ export type ProductItem = ProductsQuery['backend']['products'][number]
 export type Picture = ProductItem['pictures'][number]
 
 export type Crop = Picture['crop']
+
+export type Size = Picture['originalSize']

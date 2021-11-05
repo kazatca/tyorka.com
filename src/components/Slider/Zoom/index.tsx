@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as b_ from 'b_';
 import PinchZoom from 'pinch-zoom-js';
 import { Picture } from '../../../types';
+import { useImage } from '../../../hooks/image';
 
 import './index.scss';
-import { useImage } from '../../../hooks/image';
 
 const b = b_.with('zoom');
 

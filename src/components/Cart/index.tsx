@@ -11,7 +11,7 @@ const b = b_.with('cart')
 
 interface Props { }
 
-const Cart: React.SFC<Props> = () => {
+const Cart: React.FC<Props> = () => {
   const {list, total} = useCart();
   const { t } = useTranslate();
 

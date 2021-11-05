@@ -1,4 +1,4 @@
-import { navigate } from 'gatsby-link'
+import { navigate } from 'gatsby'
 import { useDispatch, useSelector } from 'react-redux'
 import { actions } from '../../state/actions'
 import { RootState } from '../../state/reducer'

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {range} from 'lodash';
 
 import './index.scss';
+
+const range = (n: number) => new Array(n).fill(0).map((_, i) => i)
 
 export const Loading: React.FC = () => 
   <div className="loader">

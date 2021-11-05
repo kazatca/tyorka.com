@@ -19,4 +19,4 @@ const args = yargs
 
 args.help();
 
-export const argv = args.argv;
+export const argv = async () => await args.argv;

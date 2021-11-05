@@ -37,12 +37,10 @@ exports.onCreateWebpackConfig = ({
   getConfig,
 }: CreateWebpackConfigArgs) => {
   const config = getConfig() as { plugins: Object[] }
-  console.log(config)
   const miniCssExtractPlugin = config.plugins.find(
     plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
   )
   if (miniCssExtractPlugin) {
-    console.log(miniCssExtractPlugin)
     // @ts-ignore
     miniCssExtractPlugin.options.ignoreOrder = true
   }

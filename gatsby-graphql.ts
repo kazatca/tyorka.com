@@ -20,15 +20,6 @@ export type Scalars = {
   JSON: any;
 };
 
-
-
-
-
-
-
-
-
-
 export type File = Node & {
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
@@ -157,7 +148,6 @@ export type Internal = {
   owner: Scalars['String'];
   type: Scalars['String'];
 };
-
 
 export type FileDominantColor = {
   color?: Maybe<Scalars['String']>;
@@ -518,7 +508,6 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
 };
-
 
 export type ImageFormat =
   | 'NO_CHANGE'
@@ -4585,64 +4574,29 @@ export type GraphQlSourceSortInput = {
 export type InstagramQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type InstagramQuery = { instagram: { nodes: Array<(
-      Pick<InstaNode, 'caption' | 'id' | 'preview'>
-      & { localFile?: Maybe<{ dominantColor?: Maybe<Pick<FileDominantColor, 'color'>>, childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src'>> }> }> }
-    )> } };
+export type InstagramQuery = { instagram: { nodes: Array<{ caption?: string | null | undefined, id: string, preview?: string | null | undefined, localFile?: { dominantColor?: { color?: string | null | undefined } | null | undefined, childImageSharp?: { resize?: { src?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined }> } };
 
 export type GalleryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GalleryQuery = { backend: { gallery: Array<Pick<Backend_GalleryItem, 'id' | 'src' | 'width' | 'height' | 'color'>> } };
+export type GalleryQuery = { backend: { gallery: Array<{ id: string, src: string, width: number, height: number, color: string }> } };
 
 export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ShopQuery = { backend: { products: Array<(
-      Pick<Backend_Product, 'id' | 'title'>
-      & { cover?: Maybe<(
-        Pick<Backend_Picture, 'src' | 'color'>
-        & { crop: (
-          Pick<Backend_Crop, 'factor'>
-          & { anchor: Pick<Backend_Point, 'x' | 'y'> }
-        ), originalSize: Pick<Backend_Size, 'height' | 'width'> }
-      )> }
-    )> } };
-
-export type CoversQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type CoversQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
-      ) }> } };
+export type ShopQuery = { backend: { products: Array<{ id: string, title?: string | null | undefined, cover?: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } } | null | undefined }> } };
 
 export type MdQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MdQuery = { allMarkdownRemark: { edges: Array<{ node: (
-        Pick<MarkdownRemark, 'fileAbsolutePath' | 'html'>
-        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'path'>> }
-      ) }> } };
+export type MdQuery = { allMarkdownRemark: { edges: Array<{ node: { fileAbsolutePath?: string | null | undefined, html?: string | null | undefined, frontmatter?: { title?: string | null | undefined, path?: string | null | undefined } | null | undefined } }> } };
 
 export type SquareCoversQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SquareCoversQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
-      ) }> } };
+export type SquareCoversQuery = { allFile: { edges: Array<{ node: { relativePath: string, childImageSharp?: { resize?: { src?: string | null | undefined, width?: number | null | undefined, height?: number | null | undefined } | null | undefined } | null | undefined, dominantColor?: { color?: string | null | undefined } | null | undefined } }> } };
 
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductsQuery = { backend: { products: Array<(
-      Pick<Backend_Product, 'id' | 'title'>
-      & { pictures: Array<(
-        Pick<Backend_Picture, 'src' | 'color'>
-        & { crop: (
-          Pick<Backend_Crop, 'factor'>
-          & { anchor: Pick<Backend_Point, 'x' | 'y'> }
-        ), originalSize: Pick<Backend_Size, 'height' | 'width'> }
-      )> }
-    )> } };
+export type ProductsQuery = { backend: { products: Array<{ id: string, title?: string | null | undefined, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };

@@ -800,8 +800,10 @@ export type Backend_Product = {
   title?: Maybe<Scalars['String']>;
   showInGallery: Scalars['Boolean'];
   showInShop: Scalars['Boolean'];
+  price?: Maybe<Scalars['Float']>;
+  description?: Maybe<Scalars['String']>;
   pictures: Array<Backend_Picture>;
-  cover?: Maybe<Backend_Picture>;
+  cover: Backend_Picture;
 };
 
 /** State of product */
@@ -842,6 +844,15 @@ export type Backend_GalleryItem = {
   height: Scalars['Float'];
 };
 
+export type Backend_ShopItem = {
+  id: Scalars['ID'];
+  title: Scalars['String'];
+  price: Scalars['Float'];
+  description?: Maybe<Scalars['String']>;
+  pictures: Array<Backend_Picture>;
+  cover: Backend_Picture;
+};
+
 export type Backend_ProductInput = {
   id: Scalars['ID'];
   state: Backend_State;
@@ -850,6 +861,8 @@ export type Backend_ProductInput = {
   title?: Maybe<Scalars['String']>;
   showInGallery: Scalars['Boolean'];
   showInShop: Scalars['Boolean'];
+  price?: Maybe<Scalars['Float']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type Backend_CropInput = {
@@ -867,6 +880,7 @@ export type Backend = {
   picture: Backend_Picture;
   product: Backend_Product;
   gallery: Array<Backend_GalleryItem>;
+  shop: Array<Backend_ShopItem>;
 };
 
 
@@ -4581,15 +4595,15 @@ export type GalleryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GalleryQuery = { backend: { gallery: Array<{ id: string, src: string, width: number, height: number, color: string }> } };
 
-export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ShopQuery = { backend: { products: Array<{ id: string, title?: string | null | undefined, cover?: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } } | null | undefined }> } };
-
 export type MdQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type MdQuery = { allMarkdownRemark: { edges: Array<{ node: { fileAbsolutePath?: string | null | undefined, html?: string | null | undefined, frontmatter?: { title?: string | null | undefined, path?: string | null | undefined } | null | undefined } }> } };
+
+export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ShopQuery = { backend: { shop: Array<{ id: string, price: number, title: string, description?: string | null | undefined, cover: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { width: number, height: number } } }> } };
 
 export type SquareCoversQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -9,7 +9,7 @@ interface Props {
 
 const SinglePage: React.FC<Props> = ({ pageContext }) => (
   <Layout>
-    <Single product={pageContext} name={'botanist'} price={0} />
+    <Single product={pageContext} />
   </Layout>
 )
 

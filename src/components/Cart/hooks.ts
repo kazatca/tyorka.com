@@ -1,41 +1,20 @@
-import { Product } from './Item'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../state/reducer'
-import { ProductsJson } from '../../types'
-
-const { products }: ProductsJson = require('../../products/products.json')
-
-interface CartItem {
-  product: Product
-  count: number
-}
+import { useShop } from '../../hooks/shop'
 
 export const useCart = () => {
+  const { products } = useShop()
   const items = useSelector((state: RootState) => state.cart.items)
 
-  const list = items
-    .map(item => {
-      const result = products.find(product => product.id === item.id);
-      if(!result){
-        return;
-      }
-      const product: CartItem['product'] = {
-        id: result.id,
-        name: result.path,
-        url: `/shop/${result.path}`,
-        price: result.price
-      }
-      return {
-        product,
-        count: item.count,
-      }
-    })
-    .filter(Boolean) as CartItem[]
+  const cart = items.map(item => ({
+    product: products.find(product => product.id === item.id)!,
+    count: item.count,
+  }))
 
-  const total = list.reduce(
+  const total = cart.reduce(
     (result, { product, count }) => result + (product.price || 0) * count,
     0
-  );
+  )
 
-  return {list, total};
+  return { cart, total }
 }

@@ -1,3 +1,3 @@
 import { ShopQuery } from '../../../gatsby-graphql'
 
-export type Product = ShopQuery['backend']['products'][number]
+export type Product = ShopQuery['backend']['shop'][number]

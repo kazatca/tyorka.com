@@ -12,18 +12,22 @@ const b = b_.with('cart')
 interface Props { }
 
 const Cart: React.FC<Props> = () => {
-  const {list, total} = useCart();
+  const {cart, total} = useCart();
   const { t } = useTranslate();
 
   const [checkoutModalVisible, setCheckoutModalVisible] = React.useState(false)
+
+  if(typeof window === 'undefined') {
+    return null;
+  }
 
   return (
     <div className={b()}>
       <div className={b('title')}>{t('My cart')}</div>
       {!total && <div className={b('empty')}>{t("There is nothing here yet")}</div>}
       <div className={b('list')}>
-        {list.map(({ product, count }) => (
-          <Item key={product.id} product={product} count={count} />
+        {cart.map(({ product }) => (
+          <Item key={product.id} product={product} />
         ))}
       </div>
 
@@ -43,7 +47,7 @@ const Cart: React.FC<Props> = () => {
       {checkoutModalVisible && (
         <CheckoutModal
           total={total}
-          cart={list.map(item => ({ count: item.count, ...item.product }))}
+          cart={cart}
           onClose={() => setCheckoutModalVisible(false)}
         />
       )}

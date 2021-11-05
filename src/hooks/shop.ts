@@ -1,14 +1,13 @@
 import { useStaticQuery, graphql } from "gatsby";
-import { ShopQuery } from '../../../gatsby-graphql';
-
+import { ShopQuery } from '../../gatsby-graphql';
 
 export const useShop = () => {
   const data = useStaticQuery<ShopQuery>(graphql`
     query Shop {
       backend {
-        products {
+        shop {
           id
-          title
+          price
           cover {
             src
             crop {
@@ -20,16 +19,21 @@ export const useShop = () => {
             }
             color
             originalSize {
-              height
               width
+              height
             }
           }
+          title
+          description
         }
       }
     }
+
   `);
 
   return {
-    products: data.backend.products 
+    products: data.backend.shop 
   }
 }
+
+export type ShopItem = ReturnType<typeof useShop>['products'][number]

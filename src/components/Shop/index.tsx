@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as b_ from 'b_'
-import { useShop } from './hooks'
+import { useShop } from '../../hooks/shop'
 import { ProductView } from './Product';
 
 import './index.scss';

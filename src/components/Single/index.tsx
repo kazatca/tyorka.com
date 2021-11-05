@@ -2,27 +2,28 @@ import 'isomorphic-fetch';
 import * as React from 'react'
 import * as b_ from 'b_'
 import Slider from '../Slider';
-import { Slide } from '../../types';
 import { useDescription } from '../../hooks/md';
+import { ProductItem } from '../../types';
 
 import './index.scss';
 
 const b = b_.with('single');
 
 interface Props {
+  product: ProductItem
   name: string
   price?: number;
 }
 
-const Single: React.FC<Props> = ({ name }) => {
+const Single: React.FC<Props> = ({ name, product }) => {
 
-  const { title, html } = useDescription(name);
+  const { html } = useDescription(name);
 
   return (
     <section className={b()}>
-      <Slider name={name} />
+      <Slider pictures={product.pictures} />
       <section>
-        <div className={b('title')}>{title}</div>
+        <div className={b('title')}>{product.title}</div>
         <div className={b('description')} dangerouslySetInnerHTML={{ __html: html }} />
       </section>
     </section>);

@@ -307,20 +307,42 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
-  isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
-  pluginCreator?: Maybe<SitePlugin>;
-  pluginCreatorId?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
+  pluginCreator?: Maybe<SitePlugin>;
+  pluginCreatorId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  pictures?: Maybe<Array<Maybe<SitePageContextPictures>>>;
+};
+
+export type SitePageContextPictures = {
+  src?: Maybe<Scalars['String']>;
+  crop?: Maybe<SitePageContextPicturesCrop>;
+  color?: Maybe<Scalars['String']>;
+  originalSize?: Maybe<SitePageContextPicturesOriginalSize>;
+};
+
+export type SitePageContextPicturesCrop = {
+  anchor?: Maybe<SitePageContextPicturesCropAnchor>;
+  factor?: Maybe<Scalars['Float']>;
+};
+
+export type SitePageContextPicturesCropAnchor = {
+  x?: Maybe<Scalars['Float']>;
+  y?: Maybe<Scalars['Float']>;
+};
+
+export type SitePageContextPicturesOriginalSize = {
+  height?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
 };
 
 export type SitePlugin = Node & {
@@ -359,6 +381,9 @@ export type SitePluginPluginOptions = {
   instagram_id?: Maybe<Scalars['String']>;
   paginate?: Maybe<Scalars['Int']>;
   maxPosts?: Maybe<Scalars['Int']>;
+  typeName?: Maybe<Scalars['String']>;
+  fieldName?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -769,6 +794,101 @@ export type InstaNodeCarouselImages = {
   localFile?: Maybe<File>;
 };
 
+export type GraphQlSource = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  typeName?: Maybe<Scalars['String']>;
+  fieldName?: Maybe<Scalars['String']>;
+};
+
+export type Backend_Product = {
+  id: Scalars['ID'];
+  state: Backend_State;
+  coverId?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  showInGallery: Scalars['Boolean'];
+  showInShop: Scalars['Boolean'];
+  pictures: Array<Backend_Picture>;
+  cover?: Maybe<Backend_Picture>;
+};
+
+/** State of product */
+export type Backend_State =
+  | 'DRAFT'
+  | 'PUBLISHED'
+  | 'ARCHIVED';
+
+export type Backend_Picture = {
+  id: Scalars['ID'];
+  src: Scalars['String'];
+  originalSize: Backend_Size;
+  crop: Backend_Crop;
+  color: Scalars['String'];
+};
+
+export type Backend_Size = {
+  width: Scalars['Float'];
+  height: Scalars['Float'];
+};
+
+export type Backend_Crop = {
+  anchor: Backend_Point;
+  factor: Scalars['Float'];
+};
+
+export type Backend_Point = {
+  x: Scalars['Float'];
+  y: Scalars['Float'];
+};
+
+export type Backend_GalleryItem = {
+  /** id of product */
+  id: Scalars['ID'];
+  src: Scalars['String'];
+  color: Scalars['String'];
+  width: Scalars['Float'];
+  height: Scalars['Float'];
+};
+
+export type Backend_ProductInput = {
+  id: Scalars['ID'];
+  state: Backend_State;
+  pictures: Array<Scalars['ID']>;
+  coverId?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  showInGallery: Scalars['Boolean'];
+  showInShop: Scalars['Boolean'];
+};
+
+export type Backend_CropInput = {
+  anchor: Backend_PointInput;
+  factor: Scalars['Float'];
+};
+
+export type Backend_PointInput = {
+  x: Scalars['Float'];
+  y: Scalars['Float'];
+};
+
+export type Backend = {
+  products: Array<Backend_Product>;
+  picture: Backend_Picture;
+  product: Backend_Product;
+  gallery: Array<Backend_GalleryItem>;
+};
+
+
+export type BackendPictureArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type BackendProductArgs = {
+  id: Scalars['ID'];
+};
+
 export type Query = {
   file?: Maybe<File>;
   allFile: FileConnection;
@@ -790,6 +910,9 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   instaNode?: Maybe<InstaNode>;
   allInstaNode: InstaNodeConnection;
+  graphQlSource?: Maybe<GraphQlSource>;
+  allGraphQlSource: GraphQlSourceConnection;
+  backend: Backend;
 };
 
 
@@ -949,14 +1072,14 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  pluginCreator?: Maybe<SitePluginFilterInput>;
-  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
+  pluginCreator?: Maybe<SitePluginFilterInput>;
+  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -1081,6 +1204,24 @@ export type QueryInstaNodeArgs = {
 export type QueryAllInstaNodeArgs = {
   filter?: Maybe<InstaNodeFilterInput>;
   sort?: Maybe<InstaNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGraphQlSourceArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  typeName?: Maybe<StringQueryOperatorInput>;
+  fieldName?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllGraphQlSourceArgs = {
+  filter?: Maybe<GraphQlSourceFilterInput>;
+  sort?: Maybe<GraphQlSourceSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2455,6 +2596,38 @@ export type SiteFunctionSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type SitePageContextFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  pictures?: Maybe<SitePageContextPicturesFilterListInput>;
+};
+
+export type SitePageContextPicturesFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPicturesFilterInput>;
+};
+
+export type SitePageContextPicturesFilterInput = {
+  src?: Maybe<StringQueryOperatorInput>;
+  crop?: Maybe<SitePageContextPicturesCropFilterInput>;
+  color?: Maybe<StringQueryOperatorInput>;
+  originalSize?: Maybe<SitePageContextPicturesOriginalSizeFilterInput>;
+};
+
+export type SitePageContextPicturesCropFilterInput = {
+  anchor?: Maybe<SitePageContextPicturesCropAnchorFilterInput>;
+  factor?: Maybe<FloatQueryOperatorInput>;
+};
+
+export type SitePageContextPicturesCropAnchorFilterInput = {
+  x?: Maybe<FloatQueryOperatorInput>;
+  y?: Maybe<FloatQueryOperatorInput>;
+};
+
+export type SitePageContextPicturesOriginalSizeFilterInput = {
+  height?: Maybe<IntQueryOperatorInput>;
+  width?: Maybe<IntQueryOperatorInput>;
+};
+
 export type SitePluginFilterInput = {
   resolve?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
@@ -2491,6 +2664,9 @@ export type SitePluginPluginOptionsFilterInput = {
   instagram_id?: Maybe<StringQueryOperatorInput>;
   paginate?: Maybe<IntQueryOperatorInput>;
   maxPosts?: Maybe<IntQueryOperatorInput>;
+  typeName?: Maybe<StringQueryOperatorInput>;
+  fieldName?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2547,12 +2723,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterInput = {
   version?: Maybe<StringQueryOperatorInput>;
 };
 
-export type SitePageContextFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-  price?: Maybe<IntQueryOperatorInput>;
-};
-
 export type SitePageConnection = {
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
@@ -2604,98 +2774,6 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'isCreatedByStatefulCreatePages'
-  | 'pluginCreator___resolve'
-  | 'pluginCreator___name'
-  | 'pluginCreator___version'
-  | 'pluginCreator___nodeAPIs'
-  | 'pluginCreator___browserAPIs'
-  | 'pluginCreator___ssrAPIs'
-  | 'pluginCreator___pluginFilepath'
-  | 'pluginCreator___pluginOptions___name'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___ignore'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___useResolveUrlLoader'
-  | 'pluginCreator___pluginOptions___sassOptions___includePaths'
-  | 'pluginCreator___pluginOptions___sassOptions___indentedSyntax'
-  | 'pluginCreator___pluginOptions___sassOptions___indentType'
-  | 'pluginCreator___pluginOptions___sassOptions___indentWidth'
-  | 'pluginCreator___pluginOptions___sassOptions___linefeed'
-  | 'pluginCreator___pluginOptions___sassOptions___omitSourceMapUrl'
-  | 'pluginCreator___pluginOptions___sassOptions___precision'
-  | 'pluginCreator___pluginOptions___sassOptions___sourceComments'
-  | 'pluginCreator___pluginOptions___sassOptions___sourceMapContents'
-  | 'pluginCreator___pluginOptions___sassOptions___sourceMapEmbed'
-  | 'pluginCreator___pluginOptions___base64Width'
-  | 'pluginCreator___pluginOptions___stripMetadata'
-  | 'pluginCreator___pluginOptions___defaultQuality'
-  | 'pluginCreator___pluginOptions___failOnError'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___documentPaths'
-  | 'pluginCreator___pluginOptions___username'
-  | 'pluginCreator___pluginOptions___access_token'
-  | 'pluginCreator___pluginOptions___instagram_id'
-  | 'pluginCreator___pluginOptions___paginate'
-  | 'pluginCreator___pluginOptions___maxPosts'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___packageJson___name'
-  | 'pluginCreator___packageJson___description'
-  | 'pluginCreator___packageJson___version'
-  | 'pluginCreator___packageJson___main'
-  | 'pluginCreator___packageJson___author'
-  | 'pluginCreator___packageJson___license'
-  | 'pluginCreator___packageJson___dependencies'
-  | 'pluginCreator___packageJson___dependencies___name'
-  | 'pluginCreator___packageJson___dependencies___version'
-  | 'pluginCreator___packageJson___devDependencies'
-  | 'pluginCreator___packageJson___devDependencies___name'
-  | 'pluginCreator___packageJson___devDependencies___version'
-  | 'pluginCreator___packageJson___peerDependencies'
-  | 'pluginCreator___packageJson___peerDependencies___name'
-  | 'pluginCreator___packageJson___peerDependencies___version'
-  | 'pluginCreator___packageJson___keywords'
-  | 'pluginCreator___id'
-  | 'pluginCreator___parent___id'
-  | 'pluginCreator___parent___parent___id'
-  | 'pluginCreator___parent___parent___children'
-  | 'pluginCreator___parent___children'
-  | 'pluginCreator___parent___children___id'
-  | 'pluginCreator___parent___children___children'
-  | 'pluginCreator___parent___internal___content'
-  | 'pluginCreator___parent___internal___contentDigest'
-  | 'pluginCreator___parent___internal___description'
-  | 'pluginCreator___parent___internal___fieldOwners'
-  | 'pluginCreator___parent___internal___ignoreType'
-  | 'pluginCreator___parent___internal___mediaType'
-  | 'pluginCreator___parent___internal___owner'
-  | 'pluginCreator___parent___internal___type'
-  | 'pluginCreator___children'
-  | 'pluginCreator___children___id'
-  | 'pluginCreator___children___parent___id'
-  | 'pluginCreator___children___parent___children'
-  | 'pluginCreator___children___children'
-  | 'pluginCreator___children___children___id'
-  | 'pluginCreator___children___children___children'
-  | 'pluginCreator___children___internal___content'
-  | 'pluginCreator___children___internal___contentDigest'
-  | 'pluginCreator___children___internal___description'
-  | 'pluginCreator___children___internal___fieldOwners'
-  | 'pluginCreator___children___internal___ignoreType'
-  | 'pluginCreator___children___internal___mediaType'
-  | 'pluginCreator___children___internal___owner'
-  | 'pluginCreator___children___internal___type'
-  | 'pluginCreator___internal___content'
-  | 'pluginCreator___internal___contentDigest'
-  | 'pluginCreator___internal___description'
-  | 'pluginCreator___internal___fieldOwners'
-  | 'pluginCreator___internal___ignoreType'
-  | 'pluginCreator___internal___mediaType'
-  | 'pluginCreator___internal___owner'
-  | 'pluginCreator___internal___type'
-  | 'pluginCreatorId'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2782,9 +2860,109 @@ export type SitePageFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
+  | 'isCreatedByStatefulCreatePages'
   | 'context___id'
-  | 'context___slug'
-  | 'context___price';
+  | 'context___title'
+  | 'context___pictures'
+  | 'context___pictures___src'
+  | 'context___pictures___crop___factor'
+  | 'context___pictures___color'
+  | 'context___pictures___originalSize___height'
+  | 'context___pictures___originalSize___width'
+  | 'pluginCreator___resolve'
+  | 'pluginCreator___name'
+  | 'pluginCreator___version'
+  | 'pluginCreator___nodeAPIs'
+  | 'pluginCreator___browserAPIs'
+  | 'pluginCreator___ssrAPIs'
+  | 'pluginCreator___pluginFilepath'
+  | 'pluginCreator___pluginOptions___name'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___ignore'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___useResolveUrlLoader'
+  | 'pluginCreator___pluginOptions___sassOptions___includePaths'
+  | 'pluginCreator___pluginOptions___sassOptions___indentedSyntax'
+  | 'pluginCreator___pluginOptions___sassOptions___indentType'
+  | 'pluginCreator___pluginOptions___sassOptions___indentWidth'
+  | 'pluginCreator___pluginOptions___sassOptions___linefeed'
+  | 'pluginCreator___pluginOptions___sassOptions___omitSourceMapUrl'
+  | 'pluginCreator___pluginOptions___sassOptions___precision'
+  | 'pluginCreator___pluginOptions___sassOptions___sourceComments'
+  | 'pluginCreator___pluginOptions___sassOptions___sourceMapContents'
+  | 'pluginCreator___pluginOptions___sassOptions___sourceMapEmbed'
+  | 'pluginCreator___pluginOptions___base64Width'
+  | 'pluginCreator___pluginOptions___stripMetadata'
+  | 'pluginCreator___pluginOptions___defaultQuality'
+  | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___documentPaths'
+  | 'pluginCreator___pluginOptions___username'
+  | 'pluginCreator___pluginOptions___access_token'
+  | 'pluginCreator___pluginOptions___instagram_id'
+  | 'pluginCreator___pluginOptions___paginate'
+  | 'pluginCreator___pluginOptions___maxPosts'
+  | 'pluginCreator___pluginOptions___typeName'
+  | 'pluginCreator___pluginOptions___fieldName'
+  | 'pluginCreator___pluginOptions___url'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___packageJson___name'
+  | 'pluginCreator___packageJson___description'
+  | 'pluginCreator___packageJson___version'
+  | 'pluginCreator___packageJson___main'
+  | 'pluginCreator___packageJson___author'
+  | 'pluginCreator___packageJson___license'
+  | 'pluginCreator___packageJson___dependencies'
+  | 'pluginCreator___packageJson___dependencies___name'
+  | 'pluginCreator___packageJson___dependencies___version'
+  | 'pluginCreator___packageJson___devDependencies'
+  | 'pluginCreator___packageJson___devDependencies___name'
+  | 'pluginCreator___packageJson___devDependencies___version'
+  | 'pluginCreator___packageJson___peerDependencies'
+  | 'pluginCreator___packageJson___peerDependencies___name'
+  | 'pluginCreator___packageJson___peerDependencies___version'
+  | 'pluginCreator___packageJson___keywords'
+  | 'pluginCreator___id'
+  | 'pluginCreator___parent___id'
+  | 'pluginCreator___parent___parent___id'
+  | 'pluginCreator___parent___parent___children'
+  | 'pluginCreator___parent___children'
+  | 'pluginCreator___parent___children___id'
+  | 'pluginCreator___parent___children___children'
+  | 'pluginCreator___parent___internal___content'
+  | 'pluginCreator___parent___internal___contentDigest'
+  | 'pluginCreator___parent___internal___description'
+  | 'pluginCreator___parent___internal___fieldOwners'
+  | 'pluginCreator___parent___internal___ignoreType'
+  | 'pluginCreator___parent___internal___mediaType'
+  | 'pluginCreator___parent___internal___owner'
+  | 'pluginCreator___parent___internal___type'
+  | 'pluginCreator___children'
+  | 'pluginCreator___children___id'
+  | 'pluginCreator___children___parent___id'
+  | 'pluginCreator___children___parent___children'
+  | 'pluginCreator___children___children'
+  | 'pluginCreator___children___children___id'
+  | 'pluginCreator___children___children___children'
+  | 'pluginCreator___children___internal___content'
+  | 'pluginCreator___children___internal___contentDigest'
+  | 'pluginCreator___children___internal___description'
+  | 'pluginCreator___children___internal___fieldOwners'
+  | 'pluginCreator___children___internal___ignoreType'
+  | 'pluginCreator___children___internal___mediaType'
+  | 'pluginCreator___children___internal___owner'
+  | 'pluginCreator___children___internal___type'
+  | 'pluginCreator___internal___content'
+  | 'pluginCreator___internal___contentDigest'
+  | 'pluginCreator___internal___description'
+  | 'pluginCreator___internal___fieldOwners'
+  | 'pluginCreator___internal___ignoreType'
+  | 'pluginCreator___internal___mediaType'
+  | 'pluginCreator___internal___owner'
+  | 'pluginCreator___internal___type'
+  | 'pluginCreatorId';
 
 export type SitePageGroupConnection = {
   totalCount: Scalars['Int'];
@@ -2833,14 +3011,14 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  pluginCreator?: Maybe<SitePluginFilterInput>;
-  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
+  pluginCreator?: Maybe<SitePluginFilterInput>;
+  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageSortInput = {
@@ -2929,6 +3107,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___instagram_id'
   | 'pluginOptions___paginate'
   | 'pluginOptions___maxPosts'
+  | 'pluginOptions___typeName'
+  | 'pluginOptions___fieldName'
+  | 'pluginOptions___url'
   | 'pluginOptions___pathCheck'
   | 'packageJson___name'
   | 'packageJson___description'
@@ -4207,6 +4388,196 @@ export type InstaNodeSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type GraphQlSourceConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<GraphQlSourceEdge>;
+  nodes: Array<GraphQlSource>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<GraphQlSourceGroupConnection>;
+};
+
+
+export type GraphQlSourceConnectionDistinctArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceConnectionMaxArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceConnectionMinArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceConnectionSumArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: GraphQlSourceFieldsEnum;
+};
+
+export type GraphQlSourceEdge = {
+  next?: Maybe<GraphQlSource>;
+  node: GraphQlSource;
+  previous?: Maybe<GraphQlSource>;
+};
+
+export type GraphQlSourceFieldsEnum =
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'typeName'
+  | 'fieldName';
+
+export type GraphQlSourceGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<GraphQlSourceEdge>;
+  nodes: Array<GraphQlSource>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<GraphQlSourceGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type GraphQlSourceGroupConnectionDistinctArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceGroupConnectionMaxArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceGroupConnectionMinArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceGroupConnectionSumArgs = {
+  field: GraphQlSourceFieldsEnum;
+};
+
+
+export type GraphQlSourceGroupConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: GraphQlSourceFieldsEnum;
+};
+
+export type GraphQlSourceFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  typeName?: Maybe<StringQueryOperatorInput>;
+  fieldName?: Maybe<StringQueryOperatorInput>;
+};
+
+export type GraphQlSourceSortInput = {
+  fields?: Maybe<Array<Maybe<GraphQlSourceFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type InstagramQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4215,29 +4586,10 @@ export type InstagramQuery = { instagram: { nodes: Array<(
       & { localFile?: Maybe<{ dominantColor?: Maybe<Pick<FileDominantColor, 'color'>>, childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src'>> }> }> }
     )> } };
 
-export type ProductPagePicsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GalleryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductPagePicsQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'name' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
-      ) }> } };
-
-export type SinglePagePicsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SinglePagePicsQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'name' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }> }
-      ) }> } };
-
-export type SliderPicsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SliderPicsQuery = { allFile: { edges: Array<{ node: (
-        Pick<File, 'name' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>>, original?: Maybe<Pick<ImageSharpOriginal, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
-      ) }> } };
+export type GalleryQuery = { backend: { gallery: Array<Pick<Backend_GalleryItem, 'id' | 'src' | 'width' | 'height' | 'color'>> } };
 
 export type CoversQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4262,3 +4614,17 @@ export type SquareCoversQuery = { allFile: { edges: Array<{ node: (
         Pick<File, 'relativePath'>
         & { childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src' | 'width' | 'height'>> }>, dominantColor?: Maybe<Pick<FileDominantColor, 'color'>> }
       ) }> } };
+
+export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ProductsQuery = { backend: { products: Array<(
+      Pick<Backend_Product, 'id' | 'title'>
+      & { pictures: Array<(
+        Pick<Backend_Picture, 'src' | 'color'>
+        & { crop: (
+          Pick<Backend_Crop, 'factor'>
+          & { anchor: Pick<Backend_Point, 'x' | 'y'> }
+        ), originalSize: Pick<Backend_Size, 'height' | 'width'> }
+      )> }
+    )> } };

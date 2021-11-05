@@ -1,23 +1,16 @@
 import * as React from 'react'
 import Single from '../components/Single'
-import Layout from '../components/Layout';
+import Layout from '../components/Layout'
+import { ProductItem } from '../types'
 
 interface Props {
-  pageContext: {
-    id: number
-    slug: string
-    price?: number
-  }
+  pageContext: ProductItem
 }
 
-const SinglePage = ({pageContext: {price, slug}}: Props) => {
-  return (
-    <Layout>
-      <Single
-        name={slug}
-        price={price}
-      />
-    </Layout>);
-}
+const SinglePage: React.FC<Props> = ({ pageContext }) => (
+  <Layout>
+    <Single product={pageContext} name={'botanist'} price={0} />
+  </Layout>
+)
 
-export default SinglePage;
+export default SinglePage

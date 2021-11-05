@@ -1,18 +1,15 @@
 import * as React from 'react'
 import Product from '../components/Product'
 import Layout from '../components/Layout';
+import { ProductItem } from '../types';
 
 interface Props {
-  pageContext: {
-    id: string
-    slug: string
-    price?: number
-  }
+  pageContext: ProductItem
 }
 
-const ProductPage: React.FC<Props> = ({ pageContext: { id, slug, price } }) => (
+const ProductPage: React.FC<Props> = ({ pageContext }) => (
   <Layout>
-    <Product id={id} name={slug} price={price} />
+    <Product product={pageContext} />
   </Layout>
 );
 

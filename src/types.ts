@@ -1,3 +1,5 @@
+import { ProductsQuery } from "../gatsby-graphql";
+
 export interface AllProductsJson<P> {
   allProductsJson: {
     edges: {
@@ -32,6 +34,7 @@ export interface Slide {
   original?: Image | null
   preview?: Image | null
   color?: string
+  crop: Crop
 }
 
 export interface Product {
@@ -47,3 +50,9 @@ export interface ProductsJson {
   gallery: string[]
   products: Product[]
 }
+
+export type ProductItem = ProductsQuery['backend']['products'][number]
+
+export type Picture = ProductItem['pictures'][number]
+
+export type Crop = Picture['crop']

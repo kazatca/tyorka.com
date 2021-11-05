@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as b_ from 'b_';
 import { btoa } from 'isomorphic-base64'
+import { useImage } from '../../hooks/image'
 
 import './index.scss';
 
@@ -8,6 +9,7 @@ const b = b_.with('fast-image');
 
 interface Props extends React.HTMLProps<HTMLImageElement> {
   color: string
+  src: string
 }
 
 export const Image: React.FC<Props> = ({
@@ -23,7 +25,7 @@ export const Image: React.FC<Props> = ({
   return (
     <div className={`${b()} ${className || ''}`}>
       <img src={back} className={b('back')}/>
-      <img src={src} className={b('image')}/>
+      <img src={useImage(src)} className={b('image')}/>
     </div>
   )
 }

@@ -1,57 +1,21 @@
-import { useStaticQuery, graphql } from "gatsby";
-import { ProductPagePicsQuery } from '../../../gatsby-graphql';
-import { ProductsJson, Slide } from "../../types";
-const { products }: ProductsJson = require('../../products/products.json');
+import { navigate } from 'gatsby-link'
+import { useDispatch, useSelector } from 'react-redux'
+import { actions } from '../../state/actions'
+import { RootState } from '../../state/reducer'
 
-export const usePics = (name: string): Slide[] => {
-  const data = useStaticQuery<ProductPagePicsQuery>(graphql`
-    query ProductPagePics{
-      allFile(filter: {extension: {regex: "/jpg|png/"}}){
-        edges{
-          node{
-            name
-            relativePath
-            childImageSharp{
-              resize(width: 200, height: 200, quality: 95){
-                src
-                width
-                height
-              }
+export const useCart = (id: string) => {
+  const inCart = useSelector((state: RootState) =>
+    state.cart.items.find(item => item.id === id)
+  )
+  const dispatch = useDispatch()
 
-              original{
-                src
-                width
-                height
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const addToCart = () => dispatch(actions.addToCart(id))
 
-  const pics = data.allFile.edges
-    .filter(({node}) => node.relativePath.startsWith(`${name}/`));
+  const goToCart = () => navigate('/cart')
 
-  const product = products.find(product => product.path === name);
-
-  if(!product || !pics.length){
-    return [];
+  return {
+    inCart,
+    addToCart,
+    goToCart,
   }
-
-  const slideConfigs = product.slides || [];
-
-  return pics.map(({node}) => {
-
-    const slideConfig = slideConfigs.find(config => node.relativePath.endsWith(`/${config.id}`));
-
-    return {
-      id: node.relativePath,
-      positionX: slideConfig?.positionX || 0,
-      positionY: slideConfig?.positionY || 0,
-      size: slideConfig?.size || 100,
-      original: node.childImageSharp?.original,
-      preview: node.childImageSharp?.resize
-    }
-  })
 }

@@ -1,13 +1,14 @@
 import * as React from 'react'
 import * as b_ from 'b_';
 import PinchZoom from 'pinch-zoom-js';
-import { Image } from '../../../types';
+import { Picture } from '../../../types';
 
 import './index.scss';
+import { useImage } from '../../../hooks/image';
 
 const b = b_.with('zoom');
 
-type Props = Image & {
+type Props = Picture & {
   onClose: () => void;
 };
 
@@ -25,7 +26,7 @@ const Zoom: React.FC<Props> = ({ src, onClose }) => {
     <div className={b()} onClick={onClose} >
       <img
         ref={el => el && new PinchZoom(el)}
-        src={src || undefined}
+        src={useImage(src) || undefined}
       />
     </div>);
 }

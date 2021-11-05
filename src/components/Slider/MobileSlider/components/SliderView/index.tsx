@@ -1,57 +1,33 @@
 import * as React from 'react'
-import * as b_ from 'b_';
-import { Image } from 'types';
-import './index.scss';
+import * as b_ from 'b_'
+import { Picture } from 'types'
+import { useImageLoader } from './hooks'
 
-const b = b_.with('mobile-slider-slide');
+import './index.scss'
 
-interface Geo {
-  positionX?: number
-  positionY?: number
-  size?: number
-}
+const b = b_.with('mobile-slider-slide')
 
 interface Props {
-  pic: Image
-  color?: string
-  geo: Geo
-  width: number
-  height: number
+  pic: Picture
   current: number
-  touchPosition: number;
-  isScrolling: boolean;
-  index: number;
+  touchPosition: number
+  isScrolling: boolean
+  index: number
   onClick: () => void
 }
 
 const SlideView: React.FC<Props> = ({
-  width,
-  height,
+  pic,
   touchPosition,
   index,
   current,
   isScrolling,
-  pic,
-  color,
-  geo,
-  onClick
+  onClick,
 }) => {
-  const position = (index - current) * width + touchPosition;
+  const { src, crop, color, originalSize } = pic
+  const position = (index - current) * originalSize.width + touchPosition
 
-  const [url, setUrl] = React.useState<string | null>(null);
-
-  React.useEffect(() => {
-    if(typeof window === 'undefined' || !pic.src){
-      return;
-    }
-
-    const img = document.createElement('img');
-
-    img.onload = () => setUrl(pic.src || null);
-    img.onerror = () => setUrl(pic.src || null);
-
-    img.src = pic.src;
-  })
+  const { url } = useImageLoader(src)
 
   return (
     <div
@@ -62,17 +38,18 @@ const SlideView: React.FC<Props> = ({
       onClick={onClick}
     >
       <div
-        className={b("image")}
+        className={b('image')}
         style={{
-          backgroundImage: url? `url(${url})`: undefined,
+          backgroundImage: url ? `url(${url})` : undefined,
           backgroundColor: !url ? color : undefined,
-          backgroundPositionX: `${(geo.positionX || 0) * width}px`,
-          backgroundPositionY: `${(geo.positionY || 0) * height}px`,
-          backgroundSize: `${geo.size}%`
+          backgroundPositionX: `${(crop.anchor.x || 0) * originalSize.width}px`,
+          backgroundPositionY: `${(crop.anchor.y || 0) *
+            originalSize.height}px`,
+          backgroundSize: `${crop.factor}%`,
         }}
       />
     </div>
-  );
+  )
 }
 
-export default SlideView;
+export default SlideView

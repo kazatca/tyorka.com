@@ -13,28 +13,4 @@
   &__photo {
     margin: 0 0 .6rem .6rem;
   }
-
-  &__wrap {
-    position: relative;
-  }
-
-  &__edit-btn {
-      @extend .button;
-      font-size: 1.5rem;
-      position: absolute;
-      right: 0;
-      top: -2.5rem;
-      // margin: .3rem;
-      z-index: 1;
-      line-height: 0.8;
-      color: rgba(black, 0.5);
-      cursor: pointer;
-      transform: scaleX(-1);
-      
-      &_active {
-        transform: scaleX(1);
-        color: black;
-      }
-  
-  }
 }

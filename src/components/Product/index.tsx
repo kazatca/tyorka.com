@@ -1,45 +1,35 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import * as b_ from 'b_';
-import { navigate } from 'gatsby';
-import { actions } from '../../state/actions';
-import { RootState } from '../../state/reducer';
 import { useTranslate } from '../../hooks/translate';
-import { useDescription } from '../../hooks/md';
 import Slider from '../Slider';
+import { ProductItem } from '../../types';
+import { useCart } from './hooks';
 
 import './index.scss';
 
 interface Props {
-  id: string
-  name: string
-  price?: number
+  product: ProductItem
 }
 
 const b = b_.with('product');
 
-const Product: React.FC<Props> = ({ id, name, price }) => {
-  const inCart = useSelector((state: RootState) => state.cart.items.find(item => item.id === id))
-  const dispatch = useDispatch();
+const price = 2000;
 
+const Product: React.FC<Props> = ({ product }) => {
   const { t } = useTranslate();
+  const { addToCart, goToCart, inCart} = useCart(product.id)
 
-  const { title } = useDescription(name);
-
-  const addToCart = () => dispatch(actions.addToCart(id));
-
-  const goToCart = () => navigate('/cart')
 
   return (
     <div className={b()}>
       <section>
-        <Slider name={name} />
+        <Slider pictures={product.pictures} />
       </section>
 
       <section>
         <div className={b('column')}>
           <div className={b('title')}>
-            {title}
+            {product.title}
           </div>
 
           {price && <div className={b('price')}>

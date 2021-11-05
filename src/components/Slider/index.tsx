@@ -1,52 +1,39 @@
 import * as React from 'react'
 import * as b_ from 'b_'
-import SliderEditing from './MobileSliderAdmin';
-import Slider from './MobileSlider';
-import { usePics } from './hooks';
-import Zoom from './Zoom';
+import Slider from './MobileSlider'
+import Zoom from './Zoom'
+import { Picture } from '../../types'
 
-import './index.scss';
+import './index.scss'
 
-const b = b_.with('slider');
-
-const isDev = process.env.NODE_ENV === 'development';
+const b = b_.with('slider')
 
 interface Props {
-  name: string
+  pictures: Picture[]
 }
 
-const SliderView: React.FC<Props> = ({ name }) => {
-  const [isEdit, setEditing] = React.useState(false);
+const SliderView: React.FC<Props> = ({ pictures }) => {
+  const [current, onChangeCurrent] = React.useState(0)
 
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-
-  const [zoomed, toggleZoom] = React.useState(false);
-
-  const pics = usePics(name);
+  const [zoomed, toggleZoom] = React.useState(false)
 
   const commonProps = {
-    pics,
-    current: currentSlide,
-    onChangeCurrent: setCurrentSlide
+    pics: pictures,
+    current,
+    onChangeCurrent,
   }
 
   return (
     <section className={b()}>
-      {isDev &&
-        <button
-          className={b('edit', { active: isEdit })}
-          onClick={() => setEditing(v => !v)}
-        >
-          {!isEdit ? '✎' : '✓'}
-        </button>
-      }
-      {isEdit
-        ? <SliderEditing slug={name} {...commonProps} />
-        : <Slider onClick={() => toggleZoom(true)} {...commonProps} />
-      }
-      {zoomed && <Zoom {...pics[currentSlide].original} onClose={() => toggleZoom(false)} />}
+      <Slider onClick={() => toggleZoom(true)} {...commonProps} />
+      {zoomed && (
+        <Zoom
+          {...pictures[current]}
+          onClose={() => toggleZoom(false)}
+        />
+      )}
     </section>
-  );
+  )
 }
 
-export default SliderView;
+export default SliderView

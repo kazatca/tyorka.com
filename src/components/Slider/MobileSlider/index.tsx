@@ -1,7 +1,7 @@
 import * as React from 'react'
 import SlideView from './components/SliderView';
 import * as b_ from 'b_';
-import { Slide } from '../../../types';
+import { Picture } from '../../../types';
 
 import './index.scss';
 
@@ -11,8 +11,8 @@ import checked from './static/checked.svg';
 const ratio = 1;
 
 interface Props {
-  pics: Slide[];
-  onClick: (pic: Slide) => void
+  pics: Picture[];
+  onClick: (pic: Picture) => void
   current: number;
   onChangeCurrent: (i: number) => void
 }
@@ -113,19 +113,10 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
       <div className={b('wrapper')} style={{ height: `${width / ratio}px` }} ref={container}>
         {width &&
           pics.map((pic, i) => (
-            pic.preview && <SlideView
+            pic && <SlideView
               key={i}
-              pic={pic.preview}
-              color={pic.color}
-              
-              geo={{
-                positionX: pic.positionX,
-                positionY: pic.positionY,
-                size: pic.size
-              }}
+              pic={pic}
               index={i}
-              width={width}
-              height={width / ratio}
               current={current}
               touchPosition={touchPosition}
               isScrolling={isScrolling}

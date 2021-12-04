@@ -63,6 +63,9 @@ const config = {
         typeName: "Backend",
         fieldName: "backend",
         url: "http://localhost:3000/graphql",
+        headers: {
+          "X-Auth": process.env.BUILDER_TOKEN,
+        },
       },
     },
   ],

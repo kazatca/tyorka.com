@@ -15,21 +15,25 @@ exports.createPages = async ({
 
   const products = await collectItems(graphql)
 
-  products.forEach(product => {
-    createPage({
-      path: `/single/${product.id}`,
-      component: resolve(`./src/templates/single.tsx`),
-      context: product,
+  products
+    .filter(product => product.showInGallery)
+    .forEach(product => {
+      createPage({
+        path: `/single/${product.id}`,
+        component: resolve(`./src/templates/single.tsx`),
+        context: product,
+      })
     })
-  })
 
-  products.forEach(product => {
-    createPage({
-      path: `/shop/${product.id}`,
-      component: resolve(`./src/templates/product.tsx`),
-      context: product,
+  products
+    .filter(product => product.showInShop)
+    .forEach(product => {
+      createPage({
+        path: `/shop/${product.id}`,
+        component: resolve(`./src/templates/product.tsx`),
+        context: product,
+      })
     })
-  })
 }
 
 exports.onCreateWebpackConfig = ({

@@ -1,5 +1,5 @@
-import { CreatePagesArgs } from "gatsby";
-import { ProductsQuery} from '../../../gatsby-graphql'
+import { CreatePagesArgs } from 'gatsby'
+import { ProductsQuery } from '../../../gatsby-graphql'
 
 export async function collectItems(graphql: CreatePagesArgs['graphql']) {
   const { data } = await graphql<ProductsQuery>(`
@@ -8,6 +8,7 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
         products {
           id
           title
+          price
           pictures {
             src
             crop {
@@ -23,10 +24,12 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
               width
             }
           }
+          showInShop
+          showInGallery
         }
       }
     }
-  `);
+  `)
 
   return data?.backend.products || []
 }

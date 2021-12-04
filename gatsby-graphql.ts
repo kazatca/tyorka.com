@@ -254,8 +254,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -310,7 +308,10 @@ export type SitePage = Node & {
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Int']>;
   pictures?: Maybe<Array<Maybe<SitePageContextPictures>>>;
+  showInShop?: Maybe<Scalars['Boolean']>;
+  showInGallery?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePageContextPictures = {
@@ -374,6 +375,7 @@ export type SitePluginPluginOptions = {
   typeName?: Maybe<Scalars['String']>;
   fieldName?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
+  headers?: Maybe<SitePluginPluginOptionsHeaders>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -389,6 +391,10 @@ export type SitePluginPluginOptionsSassOptions = {
   sourceComments?: Maybe<Scalars['Boolean']>;
   sourceMapContents?: Maybe<Scalars['Boolean']>;
   sourceMapEmbed?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsHeaders = {
+  X_Auth?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJson = {
@@ -853,6 +859,10 @@ export type Backend_ShopItem = {
   cover: Backend_Picture;
 };
 
+export type Backend_User = {
+  email: Scalars['String'];
+};
+
 export type Backend_ProductInput = {
   id: Scalars['ID'];
   state: Backend_State;
@@ -881,6 +891,7 @@ export type Backend = {
   product: Backend_Product;
   gallery: Array<Backend_GalleryItem>;
   shop: Array<Backend_ShopItem>;
+  user: Backend_User;
 };
 
 
@@ -1028,8 +1039,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2250,8 +2259,6 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2385,8 +2392,6 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2603,7 +2608,10 @@ export type SiteFunctionSortInput = {
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  price?: Maybe<IntQueryOperatorInput>;
   pictures?: Maybe<SitePageContextPicturesFilterListInput>;
+  showInShop?: Maybe<BooleanQueryOperatorInput>;
+  showInGallery?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePageContextPicturesFilterListInput = {
@@ -2671,6 +2679,7 @@ export type SitePluginPluginOptionsFilterInput = {
   typeName?: Maybe<StringQueryOperatorInput>;
   fieldName?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
+  headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2686,6 +2695,10 @@ export type SitePluginPluginOptionsSassOptionsFilterInput = {
   sourceComments?: Maybe<BooleanQueryOperatorInput>;
   sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
   sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsHeadersFilterInput = {
+  X_Auth?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPackageJsonFilterInput = {
@@ -2868,12 +2881,15 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___id'
   | 'context___title'
+  | 'context___price'
   | 'context___pictures'
   | 'context___pictures___src'
   | 'context___pictures___crop___factor'
   | 'context___pictures___color'
   | 'context___pictures___originalSize___height'
   | 'context___pictures___originalSize___width'
+  | 'context___showInShop'
+  | 'context___showInGallery'
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
@@ -2913,6 +2929,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___typeName'
   | 'pluginCreator___pluginOptions___fieldName'
   | 'pluginCreator___pluginOptions___url'
+  | 'pluginCreator___pluginOptions___headers___X_Auth'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___packageJson___name'
   | 'pluginCreator___packageJson___description'
@@ -3117,6 +3134,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___typeName'
   | 'pluginOptions___fieldName'
   | 'pluginOptions___url'
+  | 'pluginOptions___headers___X_Auth'
   | 'pluginOptions___pathCheck'
   | 'packageJson___name'
   | 'packageJson___description'
@@ -4613,4 +4631,4 @@ export type SquareCoversQuery = { allFile: { edges: Array<{ node: { relativePath
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductsQuery = { backend: { products: Array<{ id: string, title?: string | null | undefined, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
+export type ProductsQuery = { backend: { products: Array<{ id: string, title?: string | null | undefined, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };

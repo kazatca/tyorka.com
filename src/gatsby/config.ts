@@ -1,4 +1,4 @@
-require("dotenv").config({ path: `.env` })
+require('dotenv').config({ path: `.env` })
 
 const config = {
   siteMetadata: {
@@ -9,15 +9,6 @@ const config = {
     // PARALLEL_SOURCING: true,
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `products`,
-        path: `${__dirname}/../products/`,
-        ignore: [`.~*`, `${__dirname}/../products/.~*`]
-      },
-    },
-    'gatsby-transformer-remark',
     'gatsby-plugin-typescript',
     'gatsby-plugin-typescript-checker',
     {
@@ -25,50 +16,34 @@ const config = {
       options: {
         useResolveUrlLoader: true,
         sassOptions: {
-          includePaths: ["src"],
+          includePaths: ['src'],
           ignoreOrder: true,
-        }
+        },
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'dominant-color',
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./gatsby-graphql.ts`,
         documentPaths: [
-          './src/pages/*.tsx',
-          './src/**/hooks.ts',
-          './src/hooks/*.ts',
-          './src/**/*.ts'
+          './src/**/*.ts',
         ],
-      }
-    },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `tyorka`,
-        access_token: process.env.FB_API_KEY,
-        instagram_id: process.env.INSTAGRAM_BUSINESS_ACCOUNT,
-        paginate: 10,
-        maxPosts: 10,
       },
     },
     'gatsby-plugin-graphql-loader',
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "Backend",
-        fieldName: "backend",
-        url: "http://localhost:3000/graphql",
+        typeName: 'Backend',
+        fieldName: 'backend',
+        url: process.env.GRAPHQL_URL,
         headers: {
-          "X-Auth": process.env.BUILDER_TOKEN,
+          'X-Auth': process.env.BUILDER_TOKEN,
         },
       },
     },
   ],
 }
 
-module.exports = config;
+module.exports = config

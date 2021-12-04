@@ -1,27 +1,37 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore as reduxCreateStore, StoreEnhancer } from 'redux';
+import React, { createContext } from 'react'
+import { Provider } from 'react-redux'
+import { createStore as reduxCreateStore } from 'redux'
 import persistState from 'redux-localstorage'
-import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
-import rootReducer from './reducer';
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
+import rootReducer from './reducer'
+import config from '../../config.json'
 
-const enhancer = (
-  typeof window !== 'undefined' 
-  ? composeWithDevTools(
-    // @ts-ignore
-    persistState()
-  )
-  : undefined
-);
+const enhancer =
+  typeof window !== 'undefined'
+    ? composeWithDevTools(
+        // @ts-ignore
+        persistState()
+      )
+    : undefined
 
-const createStore = () => reduxCreateStore(rootReducer, enhancer);
+const createStore = () => reduxCreateStore(rootReducer, enhancer)
+
+const ctx = {
+  config,
+}
+
+export type Context = typeof ctx
+
+export const Ctx = createContext<Context>(ctx)
 
 interface Props {
   element: React.ReactNode
 }
 
 const Root: React.FC<Props> = ({ element }) => (
-  <Provider store={createStore()}>{element}</Provider>
-);
+  <Ctx.Provider value={ctx}>
+    <Provider store={createStore()}>{element}</Provider>
+  </Ctx.Provider>
+)
 
-export default Root;
+export default Root

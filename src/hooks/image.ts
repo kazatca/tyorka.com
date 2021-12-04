@@ -1,3 +1,5 @@
+import { useConfig } from '../hooks/config'
 export const useImage = (src: string) => {
-  return `http://localhost:3000/static/images/${src}`
+  const { imagesUrl } = useConfig()
+  return `${imagesUrl}${src}`
 }

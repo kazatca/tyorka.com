@@ -1,4 +1,4 @@
-import { ProductsQuery } from "../gatsby-graphql";
+import { ProductsQuery, InstagramFeedQuery } from "../gatsby-graphql";
 
 export type CheckoutFields = 'name' | 'email';
 

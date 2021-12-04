@@ -1,5 +1,0 @@
----
-path: "shadow"
-title: "Тень"
----
-

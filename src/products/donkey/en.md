@@ -1,5 +1,0 @@
----
-path: "donkey"
-title: ""
----
-

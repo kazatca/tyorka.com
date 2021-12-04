@@ -1,5 +1,0 @@
----
-path: "pingolin"
-title: "Пинголин"
----
-

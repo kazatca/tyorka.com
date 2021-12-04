@@ -1,5 +1,0 @@
----
-path: "photo"
-title: "Photo"
----
-

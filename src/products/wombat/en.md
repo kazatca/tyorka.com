@@ -1,5 +1,0 @@
----
-path: "wombat"
-title: "Wombat"
----
-

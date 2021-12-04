@@ -1,5 +1,0 @@
----
-path: "punya"
-title: "Punya"
----
-

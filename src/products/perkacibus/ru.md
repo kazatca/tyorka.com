@@ -1,5 +1,0 @@
----
-path: "perkacibus"
-title: "Перкацибус"
----
-

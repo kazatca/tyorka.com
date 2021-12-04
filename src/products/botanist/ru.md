@@ -1,5 +1,0 @@
----
-path: "botanist"
-title: "Ботаник"
----
-

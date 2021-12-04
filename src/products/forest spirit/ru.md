@@ -1,5 +1,0 @@
----
-path: "forest spirit"
-title: ""
----
-

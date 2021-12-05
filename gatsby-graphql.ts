@@ -288,7 +288,6 @@ export type SitePage = Node & {
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Int']>;
   pictures?: Maybe<Array<Maybe<SitePageContextPictures>>>;
   showInShop?: Maybe<Scalars['Boolean']>;
   showInGallery?: Maybe<Scalars['Boolean']>;
@@ -303,7 +302,7 @@ export type SitePageContextPictures = {
 
 export type SitePageContextPicturesCrop = {
   anchor?: Maybe<SitePageContextPicturesCropAnchor>;
-  factor?: Maybe<Scalars['Float']>;
+  factor?: Maybe<Scalars['Int']>;
 };
 
 export type SitePageContextPicturesCropAnchor = {
@@ -1764,7 +1763,6 @@ export type SiteFunctionSortInput = {
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  price?: Maybe<IntQueryOperatorInput>;
   pictures?: Maybe<SitePageContextPicturesFilterListInput>;
   showInShop?: Maybe<BooleanQueryOperatorInput>;
   showInGallery?: Maybe<BooleanQueryOperatorInput>;
@@ -1783,7 +1781,7 @@ export type SitePageContextPicturesFilterInput = {
 
 export type SitePageContextPicturesCropFilterInput = {
   anchor?: Maybe<SitePageContextPicturesCropAnchorFilterInput>;
-  factor?: Maybe<FloatQueryOperatorInput>;
+  factor?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePageContextPicturesCropAnchorFilterInput = {
@@ -2026,7 +2024,6 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___id'
   | 'context___title'
-  | 'context___price'
   | 'context___pictures'
   | 'context___pictures___src'
   | 'context___pictures___crop___factor'

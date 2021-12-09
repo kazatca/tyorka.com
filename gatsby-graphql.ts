@@ -232,8 +232,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -288,6 +286,7 @@ export type SitePage = Node & {
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Int']>;
   pictures?: Maybe<Array<Maybe<SitePageContextPictures>>>;
   showInShop?: Maybe<Scalars['Boolean']>;
   showInGallery?: Maybe<Scalars['Boolean']>;
@@ -302,7 +301,7 @@ export type SitePageContextPictures = {
 
 export type SitePageContextPicturesCrop = {
   anchor?: Maybe<SitePageContextPicturesCropAnchor>;
-  factor?: Maybe<Scalars['Int']>;
+  factor?: Maybe<Scalars['Float']>;
 };
 
 export type SitePageContextPicturesCropAnchor = {
@@ -489,6 +488,17 @@ export type Backend_User = {
   email: Scalars['String'];
 };
 
+export type Backend_Build = {
+  status: Backend_BuildStatus;
+  log: Scalars['String'];
+};
+
+/** State of building process */
+export type Backend_BuildStatus =
+  | 'DONE'
+  | 'FAILURE'
+  | 'PENDING';
+
 export type Backend_ProductInput = {
   id: Scalars['ID'];
   state: Backend_State;
@@ -519,6 +529,8 @@ export type Backend = {
   shop: Array<Backend_ShopItem>;
   blog: Array<Backend_BlogPost>;
   user: Backend_User;
+  currentBuild: Backend_Build;
+  isDraft: Scalars['Boolean'];
 };
 
 
@@ -649,8 +661,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1410,8 +1420,6 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -1545,8 +1553,6 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1763,6 +1769,7 @@ export type SiteFunctionSortInput = {
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  price?: Maybe<IntQueryOperatorInput>;
   pictures?: Maybe<SitePageContextPicturesFilterListInput>;
   showInShop?: Maybe<BooleanQueryOperatorInput>;
   showInGallery?: Maybe<BooleanQueryOperatorInput>;
@@ -1781,7 +1788,7 @@ export type SitePageContextPicturesFilterInput = {
 
 export type SitePageContextPicturesCropFilterInput = {
   anchor?: Maybe<SitePageContextPicturesCropAnchorFilterInput>;
-  factor?: Maybe<IntQueryOperatorInput>;
+  factor?: Maybe<FloatQueryOperatorInput>;
 };
 
 export type SitePageContextPicturesCropAnchorFilterInput = {
@@ -2024,6 +2031,7 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___id'
   | 'context___title'
+  | 'context___price'
   | 'context___pictures'
   | 'context___pictures___src'
   | 'context___pictures___crop___factor'

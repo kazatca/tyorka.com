@@ -278,40 +278,8 @@ export type SitePage = Node & {
   children: Array<Node>;
   internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
-  context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContext = {
-  id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Int']>;
-  pictures?: Maybe<Array<Maybe<SitePageContextPictures>>>;
-  showInShop?: Maybe<Scalars['Boolean']>;
-  showInGallery?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePageContextPictures = {
-  src?: Maybe<Scalars['String']>;
-  crop?: Maybe<SitePageContextPicturesCrop>;
-  color?: Maybe<Scalars['String']>;
-  originalSize?: Maybe<SitePageContextPicturesOriginalSize>;
-};
-
-export type SitePageContextPicturesCrop = {
-  anchor?: Maybe<SitePageContextPicturesCropAnchor>;
-  factor?: Maybe<Scalars['Float']>;
-};
-
-export type SitePageContextPicturesCropAnchor = {
-  x?: Maybe<Scalars['Float']>;
-  y?: Maybe<Scalars['Float']>;
-};
-
-export type SitePageContextPicturesOriginalSize = {
-  height?: Maybe<Scalars['Int']>;
-  width?: Maybe<Scalars['Int']>;
 };
 
 export type SitePlugin = Node & {
@@ -712,7 +680,6 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
 };
@@ -1766,41 +1733,6 @@ export type SiteFunctionSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type SitePageContextFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  price?: Maybe<IntQueryOperatorInput>;
-  pictures?: Maybe<SitePageContextPicturesFilterListInput>;
-  showInShop?: Maybe<BooleanQueryOperatorInput>;
-  showInGallery?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type SitePageContextPicturesFilterListInput = {
-  elemMatch?: Maybe<SitePageContextPicturesFilterInput>;
-};
-
-export type SitePageContextPicturesFilterInput = {
-  src?: Maybe<StringQueryOperatorInput>;
-  crop?: Maybe<SitePageContextPicturesCropFilterInput>;
-  color?: Maybe<StringQueryOperatorInput>;
-  originalSize?: Maybe<SitePageContextPicturesOriginalSizeFilterInput>;
-};
-
-export type SitePageContextPicturesCropFilterInput = {
-  anchor?: Maybe<SitePageContextPicturesCropAnchorFilterInput>;
-  factor?: Maybe<FloatQueryOperatorInput>;
-};
-
-export type SitePageContextPicturesCropAnchorFilterInput = {
-  x?: Maybe<FloatQueryOperatorInput>;
-  y?: Maybe<FloatQueryOperatorInput>;
-};
-
-export type SitePageContextPicturesOriginalSizeFilterInput = {
-  height?: Maybe<IntQueryOperatorInput>;
-  width?: Maybe<IntQueryOperatorInput>;
-};
-
 export type SitePluginFilterInput = {
   resolve?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
@@ -2029,17 +1961,6 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
-  | 'context___id'
-  | 'context___title'
-  | 'context___price'
-  | 'context___pictures'
-  | 'context___pictures___src'
-  | 'context___pictures___crop___factor'
-  | 'context___pictures___color'
-  | 'context___pictures___originalSize___height'
-  | 'context___pictures___originalSize___width'
-  | 'context___showInShop'
-  | 'context___showInGallery'
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
@@ -2178,7 +2099,6 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
 };

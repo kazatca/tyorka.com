@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
 import cart from './cart';
 import checkout from './checkout';
-import app from './app';
 
-const rootReducer = combineReducers({ cart, checkout, app });
+const rootReducer = combineReducers({ cart, checkout });
 
 export default rootReducer;
 

@@ -331,11 +331,11 @@ export type Backend_Product = {
   id: Scalars['ID'];
   state: Backend_State;
   coverId?: Maybe<Scalars['ID']>;
-  title?: Maybe<Scalars['String']>;
+  title?: Maybe<Backend_MultiLang>;
   showInGallery: Scalars['Boolean'];
   showInShop: Scalars['Boolean'];
   price?: Maybe<Scalars['Float']>;
-  description?: Maybe<Scalars['String']>;
+  description?: Maybe<Backend_MultiLang>;
   pictures: Array<Backend_Picture>;
   cover: Backend_Picture;
 };
@@ -345,6 +345,11 @@ export type Backend_State =
   | 'DRAFT'
   | 'PUBLISHED'
   | 'ARCHIVED';
+
+export type Backend_MultiLang = {
+  en?: Maybe<Scalars['String']>;
+  ru?: Maybe<Scalars['String']>;
+};
 
 export type Backend_Picture = {
   id: Scalars['ID'];
@@ -380,9 +385,9 @@ export type Backend_GalleryItem = {
 
 export type Backend_ShopItem = {
   id: Scalars['ID'];
-  title: Scalars['String'];
+  title?: Maybe<Backend_MultiLang>;
   price: Scalars['Float'];
-  description?: Maybe<Scalars['String']>;
+  description?: Maybe<Backend_MultiLang>;
   pictures: Array<Backend_Picture>;
   cover: Backend_Picture;
 };
@@ -399,8 +404,10 @@ export type Backend_User = {
 };
 
 export type Backend_Build = {
+  id: Scalars['String'];
   status: Backend_BuildStatus;
   log: Scalars['String'];
+  date: Scalars['String'];
 };
 
 /** State of building process */
@@ -414,11 +421,16 @@ export type Backend_ProductInput = {
   state: Backend_State;
   pictures: Array<Scalars['ID']>;
   coverId?: Maybe<Scalars['ID']>;
-  title?: Maybe<Scalars['String']>;
+  title?: Maybe<Backend_MultiLangInput>;
   showInGallery: Scalars['Boolean'];
   showInShop: Scalars['Boolean'];
   price?: Maybe<Scalars['Float']>;
-  description?: Maybe<Scalars['String']>;
+  description?: Maybe<Backend_MultiLangInput>;
+};
+
+export type Backend_MultiLangInput = {
+  en?: Maybe<Scalars['String']>;
+  ru?: Maybe<Scalars['String']>;
 };
 
 export type Backend_CropInput = {
@@ -439,7 +451,10 @@ export type Backend = {
   shop: Array<Backend_ShopItem>;
   blog: Array<Backend_BlogPost>;
   user: Backend_User;
-  currentBuild: Backend_Build;
+  currentBuild?: Maybe<Backend_Build>;
+  publications: Array<Backend_Build>;
+  publication?: Maybe<Backend_Build>;
+  publicationDuration: Scalars['Float'];
   isDraft: Scalars['Boolean'];
 };
 
@@ -451,6 +466,11 @@ export type BackendPictureArgs = {
 
 export type BackendProductArgs = {
   id: Scalars['ID'];
+};
+
+
+export type BackendPublicationArgs = {
+  id: Scalars['String'];
 };
 
 export type Query = {
@@ -2533,9 +2553,9 @@ export type InstagramFeedQuery = { backend: { blog: Array<{ color: string, id: s
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductsQuery = { backend: { products: Array<{ id: string, title?: string | null | undefined, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
+export type ProductsQuery = { backend: { products: Array<{ id: string, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, title?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, description?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
 
 export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ShopQuery = { backend: { shop: Array<{ id: string, price: number, title: string, description?: string | null | undefined, cover: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { width: number, height: number } } }> } };
+export type ShopQuery = { backend: { shop: Array<{ id: string, price: number, cover: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { width: number, height: number } }, title?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, description?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined }> } };

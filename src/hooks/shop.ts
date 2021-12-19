@@ -1,5 +1,8 @@
 import { useStaticQuery, graphql } from "gatsby";
 import { ShopQuery } from '../../gatsby-graphql';
+import { Lng } from "../types";
+
+const lng = (process.env.GATSBY_LNG || 'ru')  as Lng
 
 export const useShop = () => {
   const data = useStaticQuery<ShopQuery>(graphql`
@@ -23,16 +26,27 @@ export const useShop = () => {
               height
             }
           }
-          title
-          description
+          title {
+            en
+            ru
+          }
+          description {
+            en
+            ru
+          }
         }
       }
     }
-
   `);
 
+  const items = data.backend.shop || [];
+
   return {
-    products: data.backend.shop 
+    products: items.map(item => ({
+      ...item,
+      title: item.title?.[lng],
+      description: item.description?.[lng]
+    }))
   }
 }
 

@@ -1,5 +1,8 @@
 import { CreatePagesArgs } from 'gatsby'
 import { ProductsQuery } from '../../../gatsby-graphql'
+import { Lng } from '../../types'
+
+const lng = (process.env.GATSBY_LNG || 'ru') as Lng
 
 export async function collectItems(graphql: CreatePagesArgs['graphql']) {
   const { data } = await graphql<ProductsQuery>(`
@@ -7,7 +10,14 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
       backend {
         products {
           id
-          title
+          title {
+            en
+            ru
+          }
+          description {
+            en
+            ru
+          }
           price
           pictures {
             src
@@ -31,5 +41,13 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
     }
   `)
 
-  return data?.backend.products || []
+  return (data?.backend.products || []).map(product => ({
+    ...product,
+    title: product.title?.[lng] || '',
+    description: product.description?.[lng] || ''
+  }))
 }
+
+type Awaited<T> = T extends PromiseLike<infer U> ? U : T
+
+export type ProductItem = Awaited<ReturnType<typeof collectItems>>[number]

@@ -39,7 +39,7 @@ const config = {
         fieldName: 'backend',
         url: process.env.GRAPHQL_URL,
         headers: {
-          'X-Auth': process.env.BUILDER_TOKEN,
+          'X-Auth': process.env.BUILDER_TOKEN
         },
       },
     },

@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/b_", "npm:1.3.2"],
             ["@types/flat", "npm:5.0.2"],
             ["@types/glob", "npm:7.2.0"],
-            ["@types/node", "npm:16.11.6"],
+            ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:16.14.20"],
             ["@types/react-helmet", "npm:5.0.19"],
             ["@types/react-redux", "npm:7.1.20"],
@@ -5627,6 +5627,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-16.11.6-3a38cc239a-6e19634766.zip/node_modules/@types/node/",
           "packageDependencies": [
             ["@types/node", "npm:16.11.6"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:17.0.0", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.0-6f9c2e4e41-30970a70c2.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:17.0.0"]
           ],
           "linkType": "HARD",
         }],
@@ -12618,7 +12625,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/b_", "npm:1.3.2"],
             ["@types/flat", "npm:5.0.2"],
             ["@types/glob", "npm:7.2.0"],
-            ["@types/node", "npm:16.11.6"],
+            ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:16.14.20"],
             ["@types/react-helmet", "npm:5.0.19"],
             ["@types/react-redux", "npm:7.1.20"],

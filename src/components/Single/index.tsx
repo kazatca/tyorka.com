@@ -2,7 +2,7 @@ import 'isomorphic-fetch';
 import * as React from 'react'
 import * as b_ from 'b_'
 import Slider from '../Slider';
-import { ProductItem } from '../../types';
+import { ProductItem } from '../../gatsby/context/products';
 
 import './index.scss';
 
@@ -20,7 +20,7 @@ const Single: React.FC<Props> = ({ product }) => {
       <Slider pictures={product.pictures} />
       <section>
         <div className={b('title')}>{product.title}</div>
-        <div className={b('description')} dangerouslySetInnerHTML={{ __html: '' }} />
+        <div className={b('description')} dangerouslySetInnerHTML={{ __html: product.description }} />
       </section>
     </section>);
 }

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as b_ from 'b_'
 import { useTranslate } from '../../hooks/translate'
+import { ProductItem } from '../../gatsby/context/products'
 import Slider from '../Slider'
-import { ProductItem } from '../../types'
 import { useCart } from './hooks'
 
 import './index.scss'

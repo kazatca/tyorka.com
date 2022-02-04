@@ -26,7 +26,7 @@ const Zoom: React.FC<Props> = ({ src, onClose }) => {
     <div className={b()} onClick={onClose} >
       <img
         ref={el => el && new PinchZoom(el)}
-        src={useImage(src) || undefined}
+        src={useImage(src, 'big') || undefined}
       />
     </div>);
 }

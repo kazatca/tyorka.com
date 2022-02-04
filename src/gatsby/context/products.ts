@@ -14,7 +14,7 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
             en
             ru
           }
-          description {
+          descriptionHTML {
             en
             ru
           }
@@ -44,7 +44,7 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
   return (data?.backend.products || []).map(product => ({
     ...product,
     title: product.title?.[lng] || '',
-    description: product.description?.[lng] || ''
+    description: product.descriptionHTML?.[lng] || ''
   }))
 }
 

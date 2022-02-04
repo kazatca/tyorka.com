@@ -13,8 +13,6 @@ interface Props {
 }
 
 const Single: React.FC<Props> = ({ product }) => {
-
-
   return (
     <section className={b()}>
       <Slider pictures={product.pictures} />

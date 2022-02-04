@@ -56,12 +56,14 @@
     text-align: center;
     padding: 1rem;
     padding-top: 1.6rem;
+    word-break: break-word;
   }
 
   &__description {
     padding-left: 1rem;
     padding-right: 1rem;
-    text-indent: 0.5rem;
+    // text-indent: 0.5rem;
+    word-break: break-word;
   }
 
   &__price {

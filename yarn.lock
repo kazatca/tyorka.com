@@ -8146,6 +8146,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"final-form-persist@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "final-form-persist@npm:1.0.4"
+  dependencies:
+    lodash.debounce: ^4.0.8
+  checksum: 8aacde60924b93ddd6c3959e1d65fe2d157b69c0247655c298c863ea75c63d3b115100a81a18a900371258ad2260daab4b24adfa33f36318829fa572163d4b30
+  languageName: node
+  linkType: hard
+
 "final-form@npm:^4.20.6":
   version: 4.20.6
   resolution: "final-form@npm:4.20.6"
@@ -8964,6 +8973,7 @@ fsevents@~2.3.2:
     concurrently: ^5.2.0
     dotenv: ^10.0.0
     final-form: ^4.20.6
+    final-form-persist: ^1.0.4
     firebase: ^7.14.2
     flat: ^5.0.0
     gatsby: ^4.3.0

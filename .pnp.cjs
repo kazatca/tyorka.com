@@ -55,6 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["concurrently", "npm:5.3.0"],
             ["dotenv", "npm:10.0.0"],
             ["final-form", "npm:4.20.6"],
+            ["final-form-persist", "npm:1.0.4"],
             ["firebase", "npm:7.24.0"],
             ["flat", "npm:5.0.2"],
             ["gatsby", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],
@@ -11455,6 +11456,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["final-form-persist", [
+        ["npm:1.0.4", {
+          "packageLocation": "./.yarn/cache/final-form-persist-npm-1.0.4-f29a43b7f8-8aacde6092.zip/node_modules/final-form-persist/",
+          "packageDependencies": [
+            ["final-form-persist", "npm:1.0.4"],
+            ["lodash.debounce", "npm:4.0.8"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["finalhandler", [
         ["npm:1.1.2", {
           "packageLocation": "./.yarn/cache/finalhandler-npm-1.1.2-55a75d6b53-617880460c.zip/node_modules/finalhandler/",
@@ -12691,6 +12702,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["concurrently", "npm:5.3.0"],
             ["dotenv", "npm:10.0.0"],
             ["final-form", "npm:4.20.6"],
+            ["final-form-persist", "npm:1.0.4"],
             ["firebase", "npm:7.24.0"],
             ["flat", "npm:5.0.2"],
             ["gatsby", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],

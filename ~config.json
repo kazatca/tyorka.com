@@ -1,3 +1,10 @@
 {
-  "imagesUrl": ""
+  "imagesUrl": "",
+  "captcha": {
+    "key": ""
+  },
+  "api": {
+    "url": "http://localhost:3001"
+  }
+
 }

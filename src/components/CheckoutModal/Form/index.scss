@@ -1,0 +1,36 @@
+@import '../../../common.scss';
+
+.checkout-form {
+  width: 100%;
+  &_submitting {
+    opacity: 0.2;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    vertical-align: baseline;
+    @media (max-width: 375px) {
+      flex-direction: column;
+
+      > * {
+        text-align: center;
+      }
+    }
+  }
+
+  &__btn {
+    @extend .button;
+    padding: 0.5rem 2rem;
+
+    @media (max-width: 375px) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__total {
+    padding: 0.5rem;
+    line-height: 2rem;
+  }
+}

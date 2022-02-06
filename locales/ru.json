@@ -1,5 +1,4 @@
 {
-  "Remove": "Убрать",
   "About page": "Обо мне",
   "Add to cart": "Добавить в корзину",
   "Amounting to": "На сумму",
@@ -10,10 +9,15 @@
   "My cart": "Моя корзина",
   "Name": "Имя",
   "Order checkout": "Оформление заказа",
+  "Remove": "Убрать",
   "Send": "Отправить",
   "Shop page": "Магазин",
+  "Something went wrong": "Что-то пошло не так",
   "Thank you": "Спасибо!",
   "There is nothing here yet": "Тут пока ничего нет :)",
   "Total": "Итого",
-  "We will send you instructions": "В ближайшее время вам на почту придет письмо с ответом"
+  "We will send you instructions": "В ближайшее время вам на почту придет письмо с ответом",
+  "any_required": "Обязательное",
+  "string_email": "Нужен email",
+  "string_empty": "Обязательное"
 }

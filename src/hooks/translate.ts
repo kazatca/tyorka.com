@@ -8,7 +8,7 @@ const locales: {[lng: string]: {[token: string]: string}} = {
 };
 
 export const useTranslate = () => {
-  const t = (token: string) => lng in locales ? locales[lng][token] : token;
+  const t = (token: string) => locales[lng]?.[token] || token;
 
   return {
     t,

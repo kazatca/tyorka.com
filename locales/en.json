@@ -1,5 +1,4 @@
 {
-  "Remove": "Remove",
   "About page": "About",
   "Add to cart": "Add to cart",
   "Amounting to": "Amounting to",
@@ -10,10 +9,15 @@
   "My cart": "My cart",
   "Name": "Name",
   "Order checkout": "Order checkout",
+  "Remove": "Remove",
   "Send": "Send",
   "Shop page": "Shop",
+  "Something went wrong": "Something went wrong",
   "Thank you": "Thank you!",
   "There is nothing here yet": "There is nothing yet :)",
   "Total": "Total",
-  "We will send you instructions": "You'll soon receive an email with a reply"
+  "We will send you instructions": "You'll soon receive an email with a reply",
+  "any_required": "Required",
+  "string_email": "Should be email",
+  "string_empty": "Required"
 }

@@ -6,7 +6,7 @@ import CornerMenu from '../CornerMenu';
 
 import './index.scss';
 
-import logo from "./static/logo.png";
+import logo from "./static/logo_377.png";
 
 const b = b_.with('desktop-header');
 

@@ -21,7 +21,7 @@
     font-size: 23px;
     justify-content: space-between;
     align-items: center;
-    min-width: 220px;
+    min-width: 180px;
 
     a {
       text-decoration: none;
@@ -35,7 +35,11 @@
   }
 
   &__logo {
-    width: 400px;
+    width: 3770px;
+  }
+
+  &__logo-link {
+    padding: 1rem 3rem;
   }
 }
 

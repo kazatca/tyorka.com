@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "kazatca",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "start": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "locales": "ts-node ./src/lib/locales"

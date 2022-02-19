@@ -4,6 +4,7 @@ const config = {
   siteMetadata: {
     title: `Tyorka`,
   },
+  assetPrefix: `/${process.env.GATSBY_LNG}/`,
   flags: {
     // FAST_DEV: true,
     // PARALLEL_SOURCING: true,

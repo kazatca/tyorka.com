@@ -16,6 +16,11 @@
     right: 10px;
   }
 
+  @media( min-width: 1201px) {
+    top: 100px;
+    z-index: -1;
+  }
+
   &__inner {
     float: right;
   }

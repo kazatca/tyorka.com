@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as b_ from 'b_';
 import Helmet from 'react-helmet'
 import { ToTopButton } from '../ToTopButton'
-import DesktopHeader from '../DesktopHeader'
-import MobileHeader from '../MobileHeader'
-import Socials from '../Socials';
+import { DesktopHeader } from '../DesktopHeader'
+import { MobileHeader } from '../MobileHeader'
+import { Socials } from '../Socials';
 import { LanguageSelector } from '../LanguageSelector';
 
 import './index.scss';
@@ -13,7 +13,7 @@ const b = b_.with('content');
 
 const fixedMenu = false;
 
-const Layout: React.FC<{}> = ({ children }) => (
+export const Layout: React.FC<{}> = ({ children }) => (
   <>
     <Helmet
       title='Тёрка'
@@ -32,5 +32,3 @@ const Layout: React.FC<{}> = ({ children }) => (
     </div>
   </>
 )
-
-export default Layout

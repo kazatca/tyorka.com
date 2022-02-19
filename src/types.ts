@@ -1,4 +1,3 @@
-import { ProductsQuery } from "../gatsby-graphql";
 import { ProductItem } from "./gatsby/context/products";
 
 export type CheckoutFields = 'name' | 'email';

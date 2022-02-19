@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as b_ from 'b_'
 import { useTranslate } from '../../hooks/translate'
 import { ProductItem } from '../../gatsby/context/products'
-import Slider from '../Slider'
+import { SliderView } from '../Slider'
 import { useCart } from './hooks'
 
 import './index.scss'
@@ -22,7 +22,7 @@ export const Product: React.FC<Props> = ({
   return (
     <div className={b()}>
       <section>
-        <Slider pictures={pictures} />
+        <SliderView pictures={pictures} />
       </section>
 
       <section>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import * as b_ from 'b_'
 import { useTranslate } from '../../hooks/translate'
-import CornerMenu from '../CornerMenu'
+import { CornerMenu } from '../CornerMenu'
 
 import './index.scss'
 
@@ -17,7 +17,7 @@ interface Props {
 const headerHeightMax = 400
 const headerHeightMin = 140
 
-const DesktopHeader: React.FC<Props> = ({ fixed }) => {
+export const DesktopHeader: React.FC<Props> = ({ fixed }) => {
   const logoRef = React.useRef<HTMLImageElement>(null)
 
   const { t } = useTranslate()
@@ -64,5 +64,3 @@ const DesktopHeader: React.FC<Props> = ({ fixed }) => {
     </section>
   )
 }
-
-export default DesktopHeader

@@ -142,5 +142,3 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
     </div >
   );
 }
-
-export default Slider;

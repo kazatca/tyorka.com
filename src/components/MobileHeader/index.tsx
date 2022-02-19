@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby';
 import * as b_ from 'b_'
-import CornerMenu from '../CornerMenu';
+import { CornerMenu } from '../CornerMenu';
 import { Logo } from './components/Logo'
 import { useTranslate } from '../../hooks/translate';
 
@@ -9,7 +9,7 @@ import './index.scss';
 
 const b = b_.with('mobile-header');
 
-const MobileHeader = () => {
+export const MobileHeader: React.FC = () => {
 
   const { t } = useTranslate();
 
@@ -23,5 +23,3 @@ const MobileHeader = () => {
       </div>
     </section>);
 }
-
-export default MobileHeader;

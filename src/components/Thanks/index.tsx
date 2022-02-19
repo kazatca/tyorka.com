@@ -7,9 +7,9 @@ import './index.scss'
 
 import smileImg from './static/smile.svg'
 
-const b = b_.with('thanks-page');
+const b = b_.with('thanks-page')
 
-export const Thanks = () => {
+export const Thanks: React.FC = () => {
   const { t } = useTranslate()
   return (
     <div className={b()} onClick={() => navigate('/')}>

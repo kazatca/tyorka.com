@@ -14,7 +14,7 @@ interface Props {
   product: ShopItem
 }
 
-const Item: React.FC<Props> = ({ product: { id, title, price, cover } }) => {
+export const Item: React.FC<Props> = ({ product: { id, title, price, cover } }) => {
   const dispatch = useDispatch()
   const { t } = useTranslate()
   const remove = () => dispatch(actions.removeFromCart(id))
@@ -33,5 +33,3 @@ const Item: React.FC<Props> = ({ product: { id, title, price, cover } }) => {
     </div>
   )
 }
-
-export default Item

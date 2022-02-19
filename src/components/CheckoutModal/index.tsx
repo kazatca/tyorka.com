@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as b_ from 'b_'
 import { Cart } from './types'
 import { useTranslate } from '../../hooks/translate'
-import Modal from '../Modal'
+import { Modal } from '../Modal'
 import { CheckoutForm  } from './Form'
 
 import './index.scss'
@@ -15,7 +15,7 @@ interface Props {
   onClose: () => void
 }
 
-const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
+export const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
   const { t } = useTranslate()
 
   return (
@@ -27,5 +27,3 @@ const CheckoutModal: React.SFC<Props> = ({ total, cart, onClose }) => {
     </Modal>
   )
 }
-
-export default CheckoutModal

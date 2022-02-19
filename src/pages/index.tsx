@@ -1,10 +1,11 @@
 import * as React from 'react'
-import Layout from '../components/Layout'
-import Gallery from '../components/Gallery'
+import { Layout } from '../components/Layout'
+import { Gallery } from '../components/Gallery'
 
-const IndexPage = () => 
+const IndexPage = () => (
   <Layout>
     <Gallery />
   </Layout>
+)
 
 export default IndexPage

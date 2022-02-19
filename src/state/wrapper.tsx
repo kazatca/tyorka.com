@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { createStore as reduxCreateStore } from 'redux'
 import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
-import rootReducer from './reducer'
+import { rootReducer } from './reducer'
 import config from '../../config.json'
 
 const enhancer =

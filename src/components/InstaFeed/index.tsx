@@ -8,7 +8,7 @@ import './index.scss'
 const b = b_.with('insta-feed')
 
 export const InstaFeed: React.FC = () => {
-  const {posts} = useFeed()
+  const { posts } = useFeed()
   return (
     <div className={b()}>
       {posts.map(post => (

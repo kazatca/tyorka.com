@@ -8,7 +8,7 @@ import './index.scss'
 
 const b = b_.with('gallery')
 
-const Gallery: React.FC = () => {
+export const Gallery: React.FC = () => {
   const { gallery } = useGallery()
 
   return (
@@ -21,5 +21,3 @@ const Gallery: React.FC = () => {
     </section>
   )
 }
-
-export default Gallery

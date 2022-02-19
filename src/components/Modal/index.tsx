@@ -1,20 +1,18 @@
 import * as React from 'react'
+import * as b_ from 'b_'
 
-import './index.scss';
+import './index.scss'
 
+const b = b_.with('modal')
 interface Props {
   onClose: () => void
 }
-const Modal: React.FC<Props> = ({ onClose, children }) => {
-  return (
-    <>
-      <div className="modal__overlay" onClick={onClose} />
-      <div className="modal">
-        <div className="modal__close" onClick={onClose} />
-        {children}
-      </div>
-    </>
-  )
-}
-
-export default Modal
+export const Modal: React.FC<Props> = ({ onClose, children }) => (
+  <>
+    <div className={b('overlay')} onClick={onClose} />
+    <div className={b()}>
+      <div className={b('close')} onClick={onClose} />
+      {children}
+    </div>
+  </>
+)

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Single from '../components/Single'
-import Layout from '../components/Layout'
+import { Single } from '../components/Single'
+import { Layout } from '../components/Layout'
 import { ProductItem } from '../gatsby/context/products'
 
 interface Props {

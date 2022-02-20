@@ -1,0 +1,67 @@
+.desktop-slider {
+  padding: 2rem;
+
+  &__wrapper {
+    position: relative;
+    width: auto;
+    height: 70vh;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 40%;
+    margin-top: -1.5rem;
+    cursor: pointer;
+    opacity: .2;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &_left {
+      transform: rotate(-90deg);
+      left: 2rem;
+    }
+
+    &_right {
+      transform: rotate(90deg);
+      right: 2rem;
+    }
+  }
+
+  &__dots {
+    padding: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__dot {
+    padding: 0.5rem;
+    cursor: pointer;
+
+    img {
+      width: 1rem;
+    }
+  }
+
+  &__zoomed {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 11;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 12;
+      margin: auto;
+    }
+  }
+}

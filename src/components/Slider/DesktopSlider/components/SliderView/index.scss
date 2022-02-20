@@ -1,0 +1,17 @@
+.desktop-slider-slide {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &_active {
+    transition: all 0.3s ease;
+    opacity: 1;
+  }
+
+  &__image {
+    width: auto;
+    height: 70vh;
+  }
+}

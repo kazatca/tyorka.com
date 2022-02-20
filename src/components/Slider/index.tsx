@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as b_ from 'b_'
 import { Slider } from './MobileSlider'
+import { Slider as DesktopSlider } from './DesktopSlider'
 import { Zoom } from './Zoom'
 import { Picture } from '../../types'
 
@@ -19,12 +20,22 @@ export const SliderView: React.FC<Props> = ({ pictures }) => {
 
   return (
     <section className={b()}>
-      <Slider
-        onClick={() => toggleZoom(true)}
-        pics={pictures}
-        current={current}
-        onChangeCurrent={onChangeCurrent}
-      />
+      <div className={b('mobile-slider')}>
+        <Slider
+          onClick={() => toggleZoom(true)}
+          pics={pictures}
+          current={current}
+          onChangeCurrent={onChangeCurrent}
+        />
+      </div>
+      <div className={b('desktop-slider')}>
+        <DesktopSlider
+          onClick={() => null}
+          pics={pictures}
+          current={current}
+          onChangeCurrent={onChangeCurrent}
+        />
+      </div>
       {zoomed && (
         <Zoom {...pictures[current]} onClose={() => toggleZoom(false)} />
       )}

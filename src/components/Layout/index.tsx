@@ -13,7 +13,11 @@ const b = b_.with('content');
 
 const fixedMenu = false;
 
-export const Layout: React.FC<{}> = ({ children }) => (
+interface Props {
+  noHeaderOnDesktop?: boolean
+}
+
+export const Layout: React.FC<Props> = ({ children, noHeaderOnDesktop }) => (
   <>
     <Helmet
       title='Тёрка'
@@ -23,7 +27,7 @@ export const Layout: React.FC<{}> = ({ children }) => (
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     </Helmet>
     <div className={b({'fixed-menu': fixedMenu})}>
-      <DesktopHeader fixed={fixedMenu}/>
+      {!noHeaderOnDesktop && <DesktopHeader fixed={fixedMenu}/>}
       <MobileHeader />
       {children}
       <Socials />

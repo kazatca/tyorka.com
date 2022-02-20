@@ -22,7 +22,7 @@ export const Product: React.FC<Props> = ({
   return (
     <div className={b()}>
       <section>
-        <SliderView pictures={pictures} />
+        <SliderView pictures={pictures} view='small' />
       </section>
 
       <section>

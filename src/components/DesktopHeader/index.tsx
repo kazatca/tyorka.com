@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import * as b_ from 'b_'
 import { useTranslate } from '../../hooks/translate'
-import { CornerMenu } from '../CornerMenu'
+import { CartIcon } from '../CartIcon'
 
 import './index.scss'
 
@@ -41,7 +41,7 @@ export const DesktopHeader: React.FC<Props> = ({ fixed }) => {
 
   return (
     <section className={b({ fixed })}>
-      <CornerMenu />
+      {/* <CornerMenu /> */}
       <div className={b('menu')}>
         <Link to="/" activeClassName="active">
           {t('Main page')}
@@ -60,6 +60,9 @@ export const DesktopHeader: React.FC<Props> = ({ fixed }) => {
         <Link partiallyActive to="/shop" activeClassName="active">
           {t('Shop page')}
         </Link>
+      </div>
+      <div className={b('corner')}>
+        <CartIcon />
       </div>
     </section>
   )

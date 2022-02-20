@@ -21,7 +21,13 @@
     text-transform: lowercase;
 
     &.active {
-      font-weight: bold;  
+      font-weight: bold;
     }
+  }
+
+  &__corner {
+    position: absolute;
+    top: 0;
+    right: 10px;
   }
 }

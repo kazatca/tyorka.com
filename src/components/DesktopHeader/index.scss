@@ -1,4 +1,5 @@
 .desktop-header{
+  position: relative;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -43,6 +44,17 @@
 
   &__logo-link {
     padding: 1rem 3rem;
+  }
+
+  &__corner {
+    position: absolute;
+    top: 100px;
+    right: 0;
+
+    @media (max-width: 1024px) {
+      top: 0px;
+      
+    }
   }
 }
 

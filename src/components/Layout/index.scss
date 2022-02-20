@@ -1,10 +1,16 @@
 @import "../../common.scss";
 
 .content {
-  // width: 1024px;
+  width: 1024px;
+  margin: 0 auto;
+
   margin: auto;
   &_fixed-menu {
     margin-top: 250px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 768px;
   }
 
   @media (max-width: 768px) {

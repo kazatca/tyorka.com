@@ -37,6 +37,10 @@ button {
   }
 }
 
+a {
+  color: #888888;
+}
+
 @mixin cross($width: 1rem) {
   width: $width;
   height: $width;

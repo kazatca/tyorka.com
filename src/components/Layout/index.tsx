@@ -24,7 +24,6 @@ export const Layout: React.FC<Props> = ({ children, noHeaderOnDesktop }) => (
     >
       <html lang={process.env.GATSBY_LNG} />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-      {/* <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" /> */}
     </Helmet>
     <div className={b({'fixed-menu': fixedMenu})}>
       {!noHeaderOnDesktop && <DesktopHeader fixed={fixedMenu}/>}

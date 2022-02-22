@@ -44,6 +44,13 @@ const config = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: process.env.GTM_ID,
+        // enableWebVitalsTracking: true,
+      },
+    }
   ],
 }
 

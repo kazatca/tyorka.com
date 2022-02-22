@@ -59,6 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["firebase", "npm:7.24.0"],
             ["flat", "npm:5.0.2"],
             ["gatsby", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],
+            ["gatsby-plugin-google-tagmanager", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.7.0"],
             ["gatsby-plugin-graphql-codegen", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:3.1.0"],
             ["gatsby-plugin-graphql-loader", "npm:1.0.2"],
             ["gatsby-plugin-manifest", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],
@@ -12227,6 +12228,38 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["gatsby-plugin-google-tagmanager", [
+        ["npm:4.7.0", {
+          "packageLocation": "./.yarn/cache/gatsby-plugin-google-tagmanager-npm-4.7.0-b444bb8727-d82eb10406.zip/node_modules/gatsby-plugin-google-tagmanager/",
+          "packageDependencies": [
+            ["gatsby-plugin-google-tagmanager", "npm:4.7.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.7.0", {
+          "packageLocation": "./.yarn/__virtual__/gatsby-plugin-google-tagmanager-virtual-edf9552b2c/0/cache/gatsby-plugin-google-tagmanager-npm-4.7.0-b444bb8727-d82eb10406.zip/node_modules/gatsby-plugin-google-tagmanager/",
+          "packageDependencies": [
+            ["gatsby-plugin-google-tagmanager", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.7.0"],
+            ["@babel/runtime", "npm:7.16.0"],
+            ["@types/gatsby", null],
+            ["@types/react", "npm:16.14.20"],
+            ["@types/react-dom", null],
+            ["gatsby", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],
+            ["react", "npm:16.14.0"],
+            ["react-dom", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:16.14.0"],
+            ["web-vitals", "npm:1.1.2"]
+          ],
+          "packagePeers": [
+            "@types/gatsby",
+            "@types/react-dom",
+            "@types/react",
+            "gatsby",
+            "react-dom",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["gatsby-plugin-graphql-codegen", [
         ["npm:3.1.0", {
           "packageLocation": "./.yarn/cache/gatsby-plugin-graphql-codegen-npm-3.1.0-c99d1817e9-93f4830f3e.zip/node_modules/gatsby-plugin-graphql-codegen/",
@@ -12706,6 +12739,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["firebase", "npm:7.24.0"],
             ["flat", "npm:5.0.2"],
             ["gatsby", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],
+            ["gatsby-plugin-google-tagmanager", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.7.0"],
             ["gatsby-plugin-graphql-codegen", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:3.1.0"],
             ["gatsby-plugin-graphql-loader", "npm:1.0.2"],
             ["gatsby-plugin-manifest", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.3.0"],
@@ -23078,6 +23112,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/weak-lru-cache-npm-1.1.3-9d9c6faaab-bc1572721f.zip/node_modules/weak-lru-cache/",
           "packageDependencies": [
             ["weak-lru-cache", "npm:1.1.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["web-vitals", [
+        ["npm:1.1.2", {
+          "packageLocation": "./.yarn/cache/web-vitals-npm-1.1.2-8e3860bc35-9207102908.zip/node_modules/web-vitals/",
+          "packageDependencies": [
+            ["web-vitals", "npm:1.1.2"]
           ],
           "linkType": "HARD",
         }]

@@ -8655,6 +8655,20 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-google-tagmanager@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "gatsby-plugin-google-tagmanager@npm:4.7.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    web-vitals: ^1.1.2
+  peerDependencies:
+    gatsby: ^4.0.0-next
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+  checksum: d82eb10406268914e67e328d9060f4f598915150875da726f65a1d49f75cff80470eae1e0d825bb0a77457d8a96e2337c687f0bf2df0c8bd6685692e51be88a9
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-graphql-codegen@npm:^3.1.0":
   version: 3.1.0
   resolution: "gatsby-plugin-graphql-codegen@npm:3.1.0"
@@ -8977,6 +8991,7 @@ fsevents@~2.3.2:
     firebase: ^7.14.2
     flat: ^5.0.0
     gatsby: ^4.3.0
+    gatsby-plugin-google-tagmanager: ^4.7.0
     gatsby-plugin-graphql-codegen: ^3.1.0
     gatsby-plugin-graphql-loader: ^1.0.2
     gatsby-plugin-manifest: ^4.3.0
@@ -17852,6 +17867,13 @@ typescript@^3.2.2:
   version: 1.1.3
   resolution: "weak-lru-cache@npm:1.1.3"
   checksum: bc1572721f4fdef536dbeda6c753c8d5879e6f4aed62dc757cc3a438d0f28056345ffa9605c148f8c532862fb0366fed41dc1035adf963497cd51d8001232331
+  languageName: node
+  linkType: hard
+
+"web-vitals@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "web-vitals@npm:1.1.2"
+  checksum: 92071029089277166e11141b735831d9011e85737d32c1360034676db898ab0ca95f19041ee01904f2189ad6e711b9da6b17567e4831290a429a586c98bc573f
   languageName: node
   linkType: hard
 

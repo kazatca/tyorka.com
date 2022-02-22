@@ -1,17 +1,17 @@
 import * as React from 'react'
-import * as b_ from 'b_';
+import * as b_ from 'b_'
 import Helmet from 'react-helmet'
 import { ToTopButton } from '../ToTopButton'
 import { DesktopHeader } from '../DesktopHeader'
 import { MobileHeader } from '../MobileHeader'
-import { Socials } from '../Socials';
-import { LanguageSelector } from '../LanguageSelector';
+import { Socials } from '../Socials'
+import { LanguageSelector } from '../LanguageSelector'
 
-import './index.scss';
+import './index.scss'
 
-const b = b_.with('content');
+const b = b_.with('content')
 
-const fixedMenu = false;
+const fixedMenu = false
 
 interface Props {
   noHeaderOnDesktop?: boolean
@@ -19,14 +19,15 @@ interface Props {
 
 export const Layout: React.FC<Props> = ({ children, noHeaderOnDesktop }) => (
   <>
-    <Helmet
-      title='Тёрка'
-    >
+    <Helmet title="Тёрка">
       <html lang={process.env.GATSBY_LNG} />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=no"
+      />
     </Helmet>
-    <div className={b({'fixed-menu': fixedMenu})}>
-      {!noHeaderOnDesktop && <DesktopHeader fixed={fixedMenu}/>}
+    <div className={b({ 'fixed-menu': fixedMenu })}>
+      {!noHeaderOnDesktop && <DesktopHeader fixed={fixedMenu} />}
       <MobileHeader />
       {children}
       <Socials />

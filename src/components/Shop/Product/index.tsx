@@ -12,7 +12,9 @@ interface Props {
 
 const b = b_.with('shop-product')
 
-export const ProductView: React.FC<Props> = ({ product: {price, title, id, cover} }) => (
+export const ProductView: React.FC<Props> = ({
+  product: { price, title, id, cover },
+}) => (
   <Link className={b()} to={`/shop/${id}`}>
     <div>
       <CroppedImage className={b('photo')}>{cover}</CroppedImage>

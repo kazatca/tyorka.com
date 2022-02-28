@@ -14,7 +14,7 @@ interface Props {
 const b = b_.with('product')
 
 export const Product: React.FC<Props> = ({
-  product: { id, pictures, title, price },
+  product: { id, pictures, title, price, description },
 }) => {
   const { t } = useTranslate()
   const { addToCart, goToCart, inCart } = useCart(id)
@@ -30,6 +30,8 @@ export const Product: React.FC<Props> = ({
           <div className={b('title')}>{title}</div>
 
           {price && <div className={b('price')}>{price} ₽</div>}
+
+          {description && <p dangerouslySetInnerHTML={{__html: description}} />}
 
           <div>
             <button

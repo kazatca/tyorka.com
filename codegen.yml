@@ -1,0 +1,28 @@
+overwrite: true
+schema: 'https://utcom-graphql-gateway.unitedtraders.work/graphql'
+documents: 'src/**/*.{tsx,ts}'
+generates:
+  src/types/gql.ts:
+    - typescript
+  src/:
+    preset: near-operation-file-preset
+    presetConfig:
+      extension: .types.ts
+      baseTypesPath: types/gql.ts
+    plugins:
+      - typescript-operations
+    config:
+      withHOC: false
+      withComponent: false
+      documentMode: documentNode
+      skipTypename: true
+      preResolveTypes: true
+      avoidOptionals: false
+      omitOperationSuffix: true
+      scalars: 
+        Long: number
+        CurrencyScalar: string
+        Percent: number
+        ZonedDateTime: string
+        UUID: string
+

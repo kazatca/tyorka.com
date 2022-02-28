@@ -31,7 +31,7 @@ export const Product: React.FC<Props> = ({
 
           {price && <div className={b('price')}>{price} ₽</div>}
 
-          {description && <p dangerouslySetInnerHTML={{__html: description}} />}
+          {description && <div dangerouslySetInnerHTML={{__html: description}} />}
 
           <div>
             <button

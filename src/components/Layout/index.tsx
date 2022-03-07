@@ -6,9 +6,9 @@ import { DesktopHeader } from '../DesktopHeader'
 import { MobileHeader } from '../MobileHeader'
 import { Socials } from '../Socials'
 import { LanguageSelector } from '../LanguageSelector'
+import { useTranslate } from '../../hooks/translate'
 
 import './index.scss'
-import { useTranslate } from '../../hooks/translate'
 
 const b = b_.with('content')
 

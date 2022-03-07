@@ -1,4 +1,13 @@
+import { ConfigSchema } from '../schemas/config'
+import clientConfig from '../../config.json'
 require('dotenv').config({ path: `.env` })
+
+const { error } = ConfigSchema.validate(clientConfig)
+
+if (error) {
+  console.error(error.message)
+  process.exit(-1)
+}
 
 const config = {
   siteMetadata: {
@@ -27,9 +36,7 @@ const config = {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./gatsby-graphql.ts`,
-        documentPaths: [
-          './src/**/*.ts',
-        ],
+        documentPaths: ['./src/**/*.ts'],
       },
     },
     'gatsby-plugin-graphql-loader',
@@ -40,7 +47,7 @@ const config = {
         fieldName: 'backend',
         url: process.env.GRAPHQL_URL,
         headers: {
-          'X-Auth': process.env.BUILDER_TOKEN
+          'X-Auth': process.env.BUILDER_TOKEN,
         },
       },
     },
@@ -50,8 +57,8 @@ const config = {
         id: process.env.GTM_ID,
         // enableWebVitalsTracking: true,
       },
-    }
+    },
   ],
 }
 
-module.exports = config
+export default config

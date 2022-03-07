@@ -1,10 +1,10 @@
 {
-  "imagesUrl": "",
+  "$schema": "./config.schema.json",
+  "imagesUrl": "http://localhost:3000/static/images/",
   "captcha": {
     "key": ""
   },
-  "api": {
-    "url": "http://localhost:3001"
+  "shop": {
+    "url": "http://localhost:3001/graphql"
   }
-
 }

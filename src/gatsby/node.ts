@@ -1,8 +1,17 @@
 import { resolve } from 'path'
 import { CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
 import { collectItems } from './context/products'
+import { ConfigSchema } from '../schemas/config'
+import rawConfig from '../../config.json'
 
-exports.createPages = async ({
+const { error, value: config } = ConfigSchema.validate(rawConfig)
+
+if (error) {
+  console.error(error.message)
+  process.exit(-1)
+}
+
+export const createPages = async ({
   actions: { createPage, createRedirect },
   graphql,
 }: CreatePagesArgs) => {
@@ -36,7 +45,7 @@ exports.createPages = async ({
     })
 }
 
-exports.onCreateWebpackConfig = ({
+export const onCreateWebpackConfig = ({
   actions,
   getConfig,
 }: CreateWebpackConfigArgs) => {

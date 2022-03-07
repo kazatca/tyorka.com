@@ -3,8 +3,10 @@ import { Provider } from 'react-redux'
 import { createStore as reduxCreateStore } from 'redux'
 import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
+import { ApolloProvider } from '@apollo/client'
 import { rootReducer } from '../state/reducer'
 import config from '../../config.json'
+import { createApolloClient } from '../lib/apollo'
 
 const enhancer =
   typeof window !== 'undefined'
@@ -24,12 +26,10 @@ export type Context = typeof ctx
 
 export const Ctx = createContext<Context>(ctx)
 
-interface Props {
-  element: React.ReactNode
-}
-
-export const Root: React.FC<Props> = ({ element }) => (
-  <Ctx.Provider value={ctx}>
-    <Provider store={createStore()}>{element}</Provider>
-  </Ctx.Provider>
+export const Root: React.FC = ({ children }) => (
+  <ApolloProvider client={createApolloClient(config.shop.url)}>
+    <Ctx.Provider value={ctx}>
+      <Provider store={createStore()}>{children}</Provider>
+    </Ctx.Provider>
+  </ApolloProvider>
 )

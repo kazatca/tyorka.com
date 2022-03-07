@@ -2,12 +2,13 @@ import { useRef } from 'react'
 import { navigate } from 'gatsby'
 import { useDispatch } from 'react-redux'
 import { FORM_ERROR } from 'final-form'
-import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { useConfig } from '../../../hooks/config'
+import { useApolloClient } from '@apollo/client'
 import { actions } from '../../../state/actions'
 import { Cart } from '../types'
 import { FormValues } from '.'
+import mutation from './mutation.gql'
+import { AddOrder, AddOrderVariables } from './mutation.types'
 
 interface ValidationError {
   type: string
@@ -15,11 +16,15 @@ interface ValidationError {
 }
 
 // @translate
-type ErrorMessage = 'Something went wrong' | 'string_email' | 'any_required' | 'string_empty'
+type ErrorMessage =
+  | 'Something went wrong'
+  | 'string_email'
+  | 'any_required'
+  | 'string_empty'
 
 export const useForm = (cart: Cart) => {
+  const apollo = useApolloClient()
   const captchaRef = useRef<ReCAPTCHA>()
-  const { api } = useConfig()
 
   const dispatch = useDispatch()
 
@@ -27,10 +32,15 @@ export const useForm = (cart: Cart) => {
     const recaptchaValue = await captchaRef.current?.executeAsync()
 
     try {
-      await axios.post(`${api.url}/order`, {
-        captcha: recaptchaValue,
-        cart: cart.map(({ product }) => product.id),
-        recepient: values,
+      await apollo.mutate<AddOrder, AddOrderVariables>({
+        mutation,
+        variables: {
+          order: {
+            cart: cart.map(({ product }) => ({ id: product.id })),
+            recipient: values,
+            captcha: recaptchaValue!
+          },
+        },
       })
     } catch (e) {
       if (e.response?.data?.details) {

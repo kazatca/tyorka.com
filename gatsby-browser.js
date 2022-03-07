@@ -5,4 +5,4 @@
  */
 
 // You can delete this file if you're not using it
-export { default as wrapRootElement} from './src/state/wrapper';
+export { wrapRootElement } from './src/gatsby/browser';

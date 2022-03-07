@@ -9,6 +9,7 @@ export const ServiceConfigSchema = Joi.object({
 }).meta({ className: 'ServiceConfig' })
 
 export const ConfigSchema = Joi.object({
+  $schema: Joi.any(),
   imagesUrl: Joi.string().required(),
   captcha: CaptchaConfigSchema.required(),
   shop: ServiceConfigSchema.required(),

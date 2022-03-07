@@ -8,6 +8,7 @@ export interface CaptchaConfig {
 }
 
 export interface Config {
+  $schema?: any;
   captcha: CaptchaConfig;
   imagesUrl: string;
   shop: ServiceConfig;

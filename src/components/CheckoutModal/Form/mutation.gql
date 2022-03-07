@@ -1,0 +1,3 @@
+mutation AddOrder($order: NewOrder!) {
+	addOrder(order: $order)
+}

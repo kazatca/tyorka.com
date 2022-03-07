@@ -7,6 +7,7 @@ import { MobileHeader } from '../MobileHeader'
 import { Socials } from '../Socials'
 import { LanguageSelector } from '../LanguageSelector'
 import { useTranslate } from '../../hooks/translate'
+import favicon from './static/favicon.svg'
 
 import './index.scss'
 
@@ -28,6 +29,7 @@ export const Layout: React.FC<Props> = ({ children, noHeaderOnDesktop }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, user-scalable=no"
         />
+        <link rel="icon" href={favicon}/>
       </Helmet>
       <div className={b({ 'fixed-menu': fixedMenu })}>
         {!noHeaderOnDesktop && <DesktopHeader fixed={fixedMenu} />}

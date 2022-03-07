@@ -18,6 +18,9 @@
 
   &__column {
     padding: 10px;
+    @media (min-width: 768px) {
+      padding-left: 3rem;
+    }
   }
 
   &__title {

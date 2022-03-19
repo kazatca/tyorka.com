@@ -5,6 +5,7 @@ import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
 import { rootReducer } from './reducer'
 import config from '../../config.json'
+import { Config } from '../interfaces'
 
 const enhancer =
   typeof window !== 'undefined'
@@ -20,7 +21,9 @@ const ctx = {
   config,
 }
 
-export type Context = typeof ctx
+export interface Context {
+  config: Config
+}
 
 export const Ctx = createContext<Context>(ctx)
 

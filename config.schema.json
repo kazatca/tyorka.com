@@ -13,6 +13,14 @@
       ],
       "type": "object"
     },
+    "FeatureFlags": {
+      "properties": {
+        "useCroppedImages": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "ServiceConfig": {
       "properties": {
         "url": {
@@ -29,6 +37,9 @@
     "$schema": {},
     "captcha": {
       "$ref": "#/definitions/CaptchaConfig"
+    },
+    "featureFlags": {
+      "$ref": "#/definitions/FeatureFlags"
     },
     "imagesUrl": {
       "type": "string"

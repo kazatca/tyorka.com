@@ -10,8 +10,13 @@ export interface CaptchaConfig {
 export interface Config {
   $schema?: any;
   captcha: CaptchaConfig;
+  featureFlags?: FeatureFlags;
   imagesUrl: string;
   shop: ServiceConfig;
+}
+
+export interface FeatureFlags {
+  useCroppedImages?: boolean;
 }
 
 export interface ServiceConfig {

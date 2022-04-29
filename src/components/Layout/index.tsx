@@ -7,7 +7,7 @@ import { MobileHeader } from '../MobileHeader'
 import { Socials } from '../Socials'
 import { LanguageSelector } from '../LanguageSelector'
 import { useTranslate } from '../../hooks/translate'
-import favicon from './static/favicon.png'
+import favicon from './static/favicon.svg'
 
 import './index.scss'
 

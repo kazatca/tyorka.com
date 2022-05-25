@@ -8,7 +8,7 @@ import { Socials } from '../Socials'
 import { LanguageSelector } from '../LanguageSelector'
 import { useTranslate } from '../../hooks/translate'
 import favicon from './static/favicon.svg'
-import image from './static/image.svg'
+import image from './static/image.jpg'
 
 import './index.scss'
 

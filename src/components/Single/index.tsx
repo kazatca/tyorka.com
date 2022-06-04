@@ -6,6 +6,7 @@ import { navigate } from 'gatsby'
 import { SliderView } from '../Slider'
 import { ProductItem } from '../../gatsby/context/products'
 import { useTranslate } from '../../hooks/translate'
+import { useImage, Size } from '../../hooks/image'
 
 import './index.scss'
 
@@ -19,6 +20,8 @@ interface Props {
 
 export const Single: React.FC<Props> = ({ product }) => {
   const { t } = useTranslate()
+  const cover = useImage(product.pictures[0].src, 'small', true);
+
   return (
     <>
       <Helmet title={`${product.title} | ${t('Tyorka')}`}>
@@ -28,13 +31,13 @@ export const Single: React.FC<Props> = ({ product }) => {
         <meta property="og:url" content="https://tyorka.com/" />
         <meta property="og:title" content={product.title} />
         <meta property="og:description" content={product.description} />
-        <meta property="og:image" content={product.pictures[0].src} />
+        <meta property="og:image" content={cover} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://tyorka.com/" />
         <meta property="twitter:title" content={product.title} />
         <meta property="twitter:description" content={product.description} />
-        <meta property="twitter:image" content={product.pictures[0].src} />
+        <meta property="twitter:image" content={cover} />
       </Helmet>
 
       <section className={b()}>

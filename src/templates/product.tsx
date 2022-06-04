@@ -6,13 +6,13 @@ import { MetaTags } from '../components/MetaTags'
 
 interface Props {
   pageContext: ProductItem
-  path: string
+  location: Location
 }
 
-const ProductPage: React.FC<Props> = ({ pageContext: product, path }) => (
+const ProductPage: React.FC<Props> = ({ pageContext: product, location }) => (
   <Layout>
     <MetaTags
-      path={path}
+      path={location.pathname}
       title={product.title}
       description={product.descriptionText}
       image={product.pictures[0].src}

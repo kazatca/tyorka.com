@@ -5,15 +5,15 @@ import { MetaTags } from '../components/MetaTags'
 import { useTranslate } from '../hooks/translate'
 
 interface Props {
-  path: string
+  location: Location
 }
 
-const ShopPage: React.FC<Props> = ({ path }) => {
+const ShopPage: React.FC<Props> = ({ location }) => {
   const { t } = useTranslate()
   return (
     <Layout>
       <MetaTags
-        path={path}
+        path={location.pathname}
         title={t('Shop')}
         description={t('site-description')}
       />

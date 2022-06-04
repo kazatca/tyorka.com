@@ -17,5 +17,11 @@
     left: 0;
     z-index: 2;
     background-color: transparent;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    &_loaded {
+      opacity: 1;
+    }
   }
 }

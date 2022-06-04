@@ -26,10 +26,20 @@ export const Image: React.FC<Props> = ({
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect fill="${color}" width="${width}" height="${height}"/></svg>`
   const back = `data:image/svg+xml;base64,${btoa(svg)}`;
 
+  const source = useImage(src, size, cropped);
+
+  const [loaded, setLoaded] = React.useState<string | undefined>();
+
+  React.useEffect(() => {
+    const img = new window.Image();
+    img.onload = () => setLoaded(source);
+    img.src = source;
+  }, [])
+
   return (
     <div className={`${b()} ${className || ''}`}>
       <img src={back} className={b('back')}/>
-      <img src={useImage(src, size, cropped)} className={b('image')}/>
+      <img src={loaded} className={b('image', {loaded: !!loaded})} />
     </div>
   )
 }

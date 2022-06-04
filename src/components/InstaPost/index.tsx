@@ -11,10 +11,8 @@ export interface Props {
   post: InstaPost
 }
 
-export const Post: React.FC<Props> = ({ post: { url, src, color } }) => {
-  return (
-    <a className={b()} href={url} target="_blank">
-      <Image src={src} color={color} />
-    </a>
-  )
-}
+export const Post: React.FC<Props> = ({ post: { url, src, color } }) => (
+  <a className={b()} href={url} target="_blank">
+    <Image className={b('image')} src={src} color={color} />
+  </a>
+)

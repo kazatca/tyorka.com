@@ -18,8 +18,8 @@ export const Image: React.FC<Props> = ({
   className,
   color,
   src,
-  width = 10,
-  height = 10,
+  width = 1,
+  height = 1,
   size = 'small',
   cropped = false
 }) => {

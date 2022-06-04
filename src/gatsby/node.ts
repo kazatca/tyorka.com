@@ -30,7 +30,7 @@ export const createPages = async ({
       createPage({
         path: `/single/${product.id}`,
         component: resolve(`./src/templates/single.tsx`),
-        context: product,
+        context: product
       })
     })
 

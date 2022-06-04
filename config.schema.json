@@ -44,6 +44,9 @@
     "imagesUrl": {
       "type": "string"
     },
+    "origin": {
+      "type": "string"
+    },
     "shop": {
       "$ref": "#/definitions/ServiceConfig"
     }

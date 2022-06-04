@@ -12,6 +12,7 @@ export interface Config {
   captcha: CaptchaConfig;
   featureFlags?: FeatureFlags;
   imagesUrl: string;
+  origin?: string;
   shop: ServiceConfig;
 }
 

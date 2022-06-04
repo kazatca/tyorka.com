@@ -5,11 +5,15 @@ import { Layout } from '../components/Layout'
 
 interface Props {
   pageContext: ProductItem
+  path: string
 }
 
-const SinglePage: React.FC<Props> = ({ pageContext }) => (
+const SinglePage: React.FC<Props> = ({ pageContext: product, path }) => (
   <Layout noHeaderOnDesktop>
-    <Single product={pageContext} />
+    <Single
+      product={product}
+      path={path}
+    />
   </Layout>
 )
 

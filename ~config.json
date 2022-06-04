@@ -1,5 +1,6 @@
 {
   "$schema": "./config.schema.json",
+  "origin": "https://tyorka.com",
   "imagesUrl": "http://localhost:3000/static/images/",
   "captcha": {
     "key": ""

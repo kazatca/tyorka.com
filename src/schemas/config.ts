@@ -14,6 +14,7 @@ export const FeatureFlagsSchema = Joi.object({
 
 export const ConfigSchema = Joi.object({
   $schema: Joi.any(),
+  origin: Joi.string(),
   imagesUrl: Joi.string().required(),
   captcha: CaptchaConfigSchema.required(),
   shop: ServiceConfigSchema.required(),

@@ -20,7 +20,7 @@ export const MetaTags: React.FC<Props> = ({ path, image, price, ...props }) => {
   const { t } = useTranslate()
   const cover = useImage(image, 'small', true) || defaultImage;
   const config = useConfig();
-  const selfUrl = `${config.origin || 'https://tyorka.com'}${path}`;
+  const selfUrl = `${config.origin || 'https://tyorka.com'}${path}/`.replace(/\/+$/, '/');
   const title = props.title ? `${props.title} | ${t('Tyorka')}` : t('Tyorka');
   const description = (
     props.description.length > DESC_LEN

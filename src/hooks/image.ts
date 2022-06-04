@@ -8,10 +8,13 @@ const sizeToWidth: Record<Size, number> = {
 }
 
 export const useImage = (
-  src: string,
+  src: string | undefined,
   size: Size = 'small',
   cropped = false
 ) => {
+  if(!src) {
+    return;
+  }
   const [basename, ext] = src.split('.')
   const { imagesUrl } = useConfig()
   return `${imagesUrl}${basename}${cropped ? '_square' : ''}_${

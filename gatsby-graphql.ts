@@ -340,6 +340,7 @@ export type Backend_Product = {
   pictures: Array<Backend_Picture>;
   cover: Backend_Picture;
   descriptionHTML: Backend_MultiLang;
+  descriptionText: Backend_MultiLang;
 };
 
 /** State of product */
@@ -2560,7 +2561,7 @@ export type InstagramFeedQuery = { backend: { blog: Array<{ color: string, id: s
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductsQuery = { backend: { products: Array<{ id: string, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, title?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, descriptionHTML: { en?: string | null | undefined, ru?: string | null | undefined }, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
+export type ProductsQuery = { backend: { products: Array<{ id: string, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, title?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, descriptionHTML: { en?: string | null | undefined, ru?: string | null | undefined }, descriptionText: { en?: string | null | undefined, ru?: string | null | undefined }, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
 
 export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
 

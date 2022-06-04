@@ -18,6 +18,10 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
             en
             ru
           }
+          descriptionText {
+            en
+            ru
+          }
           price
           pictures {
             src
@@ -44,7 +48,8 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
   return (data?.backend.products || []).map(product => ({
     ...product,
     title: product.title?.[lng] || '',
-    description: product.descriptionHTML?.[lng] || ''
+    description: product.descriptionHTML?.[lng] || '',
+    descriptionText: product.descriptionText?.[lng] || ''
   }))
 }
 

@@ -33,7 +33,8 @@ export const Image: React.FC<Props> = ({
   React.useEffect(() => {
     const img = new window.Image();
     img.onload = () => setLoaded(source);
-    img.src = source;
+    img.onerror = () => setLoaded(source);
+    img.src = source || '';
   }, [])
 
   return (

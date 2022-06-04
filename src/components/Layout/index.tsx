@@ -35,7 +35,7 @@ export const Layout: React.FC<Props> = ({ children, noHeaderOnDesktop }) => {
         <meta name="description" content={t('site-description')} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tyorka.com/" />
+        <meta property="og:url" content="https://tyorka.com" />
         <meta property="og:title" content={t('Tyorka')} />
         <meta property="og:description" content={t('site-description')} />
         <meta property="og:image" content={image} />

@@ -9,7 +9,6 @@ export const ServiceConfigSchema = Joi.object({
 }).meta({ className: 'ServiceConfig' })
 
 export const FeatureFlagsSchema = Joi.object({
-  useCroppedImages: Joi.bool()
 }).meta({ className: 'FeatureFlags' })
 
 export const ConfigSchema = Joi.object({

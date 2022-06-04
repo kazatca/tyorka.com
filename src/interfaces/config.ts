@@ -16,9 +16,7 @@ export interface Config {
   shop: ServiceConfig;
 }
 
-export interface FeatureFlags {
-  useCroppedImages?: boolean;
-}
+export interface FeatureFlags {}
 
 export interface ServiceConfig {
   url: string;

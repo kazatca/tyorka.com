@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useImage } from '../../hooks/image'
 import { Crop, Size } from "../../types";
-import { useConfig } from "../../hooks/config";
 
 export const useImageLoader = (src: string) => {
   const [url, setUrl] = useState<string | null>(null);
-  const { featureFlags } = useConfig()
 
-  const fullSrc = useImage(src, 'small', featureFlags?.useCroppedImages);
+  const fullSrc = useImage(src, 'small');
 
   useEffect(() => {
     if(typeof window === 'undefined' || !fullSrc){

@@ -14,11 +14,6 @@
       "type": "object"
     },
     "FeatureFlags": {
-      "properties": {
-        "useCroppedImages": {
-          "type": "boolean"
-        }
-      },
       "type": "object"
     },
     "ServiceConfig": {

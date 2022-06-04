@@ -1,5 +1,5 @@
 {
-  "site-description": "Крадущийся валяльщик, затаившийся керамист",
+  "Shop": "Магазин",
   "About page": "Обо мне",
   "Add to cart": "Добавить в корзину",
   "Amounting to": "На сумму",
@@ -20,6 +20,7 @@
   "Tyorka": "Тёрка",
   "We will send you instructions": "В ближайшее время вам на почту придет письмо с ответом",
   "any_required": "Обязательное",
+  "site-description": "Крадущийся валяльщик, затаившийся керамист",
   "string_email": "Нужен email",
   "string_empty": "Обязательное"
 }

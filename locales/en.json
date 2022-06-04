@@ -1,5 +1,5 @@
 {
-  "site-description": "Crouching felter, hidden ceramist",
+  "Shop": "Shop",
   "About page": "About",
   "Add to cart": "Add to cart",
   "Amounting to": "Amounting to",
@@ -20,6 +20,7 @@
   "Tyorka": "Tyorka",
   "We will send you instructions": "You'll soon receive an email with a reply",
   "any_required": "Required",
+  "site-description": "Crouching felter, hidden ceramist",
   "string_email": "Should be email",
   "string_empty": "Required"
 }

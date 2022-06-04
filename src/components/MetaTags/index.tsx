@@ -11,11 +11,12 @@ interface Props {
   title?: string
   description: string
   image?: string
+  price?: number
 }
 
 const DESC_LEN = 160;
 
-export const MetaTags: React.FC<Props> = ({ path, image, ...props }) => {
+export const MetaTags: React.FC<Props> = ({ path, image, price, ...props }) => {
   const { t } = useTranslate()
   const cover = useImage(image, 'small', true) || defaultImage;
   const config = useConfig();
@@ -28,22 +29,30 @@ export const MetaTags: React.FC<Props> = ({ path, image, ...props }) => {
   );
 
   return (
-    <Helmet title={title}>
-      <meta name="title" content={title} />
-      <meta name="description" content={description} />
+    <>
+      <Helmet title={title}>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
 
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={selfUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={cover} />
+        <meta property="og:type" content={price ? 'product' : "website"} />
+        <meta property="og:url" content={selfUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={cover} />
 
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={selfUrl} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={cover} />
-    </Helmet>
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={selfUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={cover} />
+      </Helmet>
+      {price &&
+        <Helmet>
+          <meta property="product:price:amount" content={price?.toFixed(2)} />
+          <meta property="product:price:currency" content="RUB" />
+        </Helmet>
+      }
+    </>
 
   )
 };

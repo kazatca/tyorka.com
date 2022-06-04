@@ -48,6 +48,7 @@ export async function collectItems(graphql: CreatePagesArgs['graphql']) {
   return (data?.backend.products || []).map(product => ({
     ...product,
     title: product.title?.[lng] || '',
+    price: product.price || undefined,
     description: product.descriptionHTML?.[lng] || '',
     descriptionText: product.descriptionText?.[lng] || ''
   }))

@@ -16,6 +16,7 @@ const ProductPage: React.FC<Props> = ({ pageContext: product, path }) => (
       title={product.title}
       description={product.descriptionText}
       image={product.pictures[0].src}
+      price={product.price}
     />
     <Product product={product} />
   </Layout>

@@ -20,7 +20,7 @@ interface Props {
 const b = b_.with('mobile-slider');
 
 export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurrent }) => {
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = React.useState(380);
   const [touchStartPosition, setTouchStartPosition] = React.useState(0)
   // const [touchStartPositionY, setTouchStartPositionY] = React.useState(0)
   const [touchPosition, setTouchPosition] = React.useState(0);
@@ -108,25 +108,24 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
   return (
     <div
       className={b()}
-      
+
     >
       <div className={b('wrapper')} style={{ height: `${width / ratio}px` }} ref={container}>
-        {width &&
-          pics.map((pic, i) => (
-            pic && <SlideView
-              key={i}
-              pic={pic}
-              index={i}
-              current={current}
-              touchPosition={touchPosition}
-              isScrolling={isScrolling}
-              onClick={() => onClick(pic)}
-              layout={{
-                width,
-                height: width / ratio
-              }}
-            />
-          ))}
+        {pics.map((pic, i) => (
+          pic && <SlideView
+            key={i}
+            pic={pic}
+            index={i}
+            current={current}
+            touchPosition={touchPosition}
+            isScrolling={isScrolling}
+            onClick={() => onClick(pic)}
+            layout={{
+              width,
+              height: width / ratio
+            }}
+          />
+        ))}
       </div>
       <div className={b('dots')}>
         {pics.map((_, i) => (

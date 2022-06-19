@@ -329,14 +329,13 @@ export type GraphQlSource = Node & {
 export type Backend_Product = {
   id: Scalars['ID'];
   state: Backend_State;
-  coverId?: Maybe<Scalars['ID']>;
+  cover?: Maybe<Backend_Picture>;
   title?: Maybe<Backend_MultiLang>;
   showInGallery: Scalars['Boolean'];
   showInShop: Scalars['Boolean'];
   price?: Maybe<Scalars['Float']>;
   description?: Maybe<Backend_MultiLang>;
   pictures: Array<Backend_Picture>;
-  cover: Backend_Picture;
   descriptionHTML: Backend_MultiLang;
   descriptionText: Backend_MultiLang;
 };
@@ -346,11 +345,6 @@ export type Backend_State =
   | 'DRAFT'
   | 'PUBLISHED'
   | 'ARCHIVED';
-
-export type Backend_MultiLang = {
-  en?: Maybe<Scalars['String']>;
-  ru?: Maybe<Scalars['String']>;
-};
 
 export type Backend_Picture = {
   id: Scalars['ID'];
@@ -376,6 +370,11 @@ export type Backend_Point = {
   y: Scalars['Float'];
 };
 
+export type Backend_MultiLang = {
+  en?: Maybe<Scalars['String']>;
+  ru?: Maybe<Scalars['String']>;
+};
+
 export type Backend_GalleryItem = {
   /** id of product */
   id: Scalars['ID'];
@@ -387,11 +386,11 @@ export type Backend_GalleryItem = {
 
 export type Backend_ShopItem = {
   id: Scalars['ID'];
+  cover: Backend_Picture;
   title?: Maybe<Backend_MultiLang>;
   price: Scalars['Float'];
   description?: Maybe<Backend_MultiLang>;
   pictures: Array<Backend_Picture>;
-  cover: Backend_Picture;
   descriptionHTML: Backend_MultiLang;
 };
 

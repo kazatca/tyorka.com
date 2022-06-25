@@ -26,7 +26,7 @@ export type CartItemInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  addOrder: Scalars['String'];
+  addOrder: Order;
 };
 
 
@@ -43,7 +43,7 @@ export type NewOrder = {
 export type Order = {
   __typename?: 'Order';
   id: Scalars['ID'];
-  date: Scalars['Float'];
+  date: Scalars['String'];
   status: OrderStatus;
   cart: Array<CartItem>;
   recipient: Recipient;

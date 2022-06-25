@@ -5,4 +5,4 @@ export type AddOrderVariables = Types.Exact<{
 }>;
 
 
-export type AddOrder = { addOrder: string };
+export type AddOrder = { addOrder: { id: string } };

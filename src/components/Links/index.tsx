@@ -12,7 +12,7 @@ export const Links = () => {
   const { t } = useTranslate()
   return (
     <div className={b()}>
-      <Link href="/" title="Сайт" subtitle="Портфолио и магазин" />
+      <Link href="/" title={t('Site')} subtitle={t('Portfolio and shop')} />
       <Link
         href="https://vk.com/tyorkaa"
         title={t('VKontakte')} 

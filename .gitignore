@@ -13,3 +13,7 @@ yarn-error.log
 src/products
 config.json
 root
+
+configstore
+gatsby
+gatsby-graphql.ts

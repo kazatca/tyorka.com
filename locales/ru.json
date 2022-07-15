@@ -1,5 +1,8 @@
 {
-  "Shop": "Магазин",
+  "Email me": "Написать на почту",
+  "For those who want to read articles": "Для тех, кто хочет читать статьи, но нет российской карты. Там же можно задонатить",
+  "Learning articles and life stories": "Обучающие статьи и истории из жизни",
+  "VKontakte": "ВКонтакте",
   "About page": "Обо мне",
   "Add to cart": "Добавить в корзину",
   "Amounting to": "На сумму",
@@ -12,6 +15,7 @@
   "Order checkout": "Оформление заказа",
   "Remove": "Убрать",
   "Send": "Отправить",
+  "Shop": "Магазин",
   "Shop page": "Магазин",
   "Something went wrong": "Что-то пошло не так",
   "Thank you": "Спасибо!",

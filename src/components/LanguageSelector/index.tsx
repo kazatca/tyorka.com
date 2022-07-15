@@ -15,8 +15,12 @@ const set = (lng: Lng) => {
   window.location.reload()
 }
 
-export const LanguageSelector: React.FC = () => (
-  <div className={b()}>
+interface Props {
+  isDark?: boolean
+}
+
+export const LanguageSelector: React.FC<Props> = ({ isDark }) => (
+  <div className={b({dark: isDark})}>
     {locales.map(lng => (
       <span
         key={lng}

@@ -1,0 +1,29 @@
+.links-delimiter {
+  padding: 1rem;
+  padding-bottom: .6rem;
+  display: flex;
+
+  &:before {
+    content: '';
+    height: 1px;
+    width: 5rem;
+    transform: translate(-15%,0);
+    background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%);
+  }
+
+  &:after {
+    content: '';
+    height: 1px;
+    width: 5rem;
+    transform: translate(15%,0);
+    background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%);
+  }
+
+  &__chevron {
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+    transform: translateY(-7px) rotate(45deg);
+  }
+}

@@ -2,6 +2,8 @@
   text-align: center;
   padding: 1rem;
 
+  $this: &;
+
   &__lng {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.5);
@@ -16,6 +18,22 @@
 
     &_active {
       color: black;
+    }
+  }
+
+  &_dark {
+    #{$this}__lng {
+      color: rgba(255, 255, 255, 0.2);
+
+      &:not(:last-child){
+        &::after{
+          color: rgba(255,255, 255, 0.2);
+        }
+      }
+    }
+    
+    #{$this}__lng_active {
+      color: rgba(255, 255, 255, 0.5);
     }
   }
 }

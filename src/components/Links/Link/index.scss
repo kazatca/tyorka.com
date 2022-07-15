@@ -1,0 +1,32 @@
+.links-link {
+  display: block;
+  text-decoration: none;
+  background-color: rgba(173,181,189,0.5);
+  color: white;
+  width: 40rem;
+  text-align: center;
+  margin: .5rem;
+  padding: 1rem;
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  & h3,
+  & p {
+    margin: 0;
+  }
+
+  &__subtitle {
+    opacity: 0.6;
+  }
+}

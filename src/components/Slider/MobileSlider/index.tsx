@@ -20,7 +20,7 @@ interface Props {
 const b = b_.with('mobile-slider');
 
 export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurrent }) => {
-  const [width, setWidth] = React.useState(380);
+  const [width, setWidth] = React.useState(0);
   const [touchStartPosition, setTouchStartPosition] = React.useState(0)
   // const [touchStartPositionY, setTouchStartPositionY] = React.useState(0)
   const [touchPosition, setTouchPosition] = React.useState(0);
@@ -67,6 +67,9 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
   }
 
   const getCurrent = () => {
+    if(!width){
+      return 0;
+    }
     const distance = Math.round(touchPosition / (width / 2));
     const newCurrent = current - (distance ? distance / Math.abs(distance) : 0);
 
@@ -110,8 +113,8 @@ export const Slider: React.FC<Props> = ({ pics, onClick, current, onChangeCurren
       className={b()}
 
     >
-      <div className={b('wrapper')} style={{ height: `${width / ratio}px` }} ref={container}>
-        {pics.map((pic, i) => (
+      <div className={b('wrapper')} style={{ height: width ? `${width / ratio}px`: 'auto' }} ref={container}>
+        {pics.filter((_, i) => i === 0 || width !== 0).map((pic, i) => (
           pic && <SlideView
             key={i}
             pic={pic}

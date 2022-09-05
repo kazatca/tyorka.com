@@ -1,4 +1,4 @@
-mutation AddOrder($order: NewOrder!) {
+mutation AddOrder($order: OrderInput!) {
 	addOrder(order: $order){
 		id
 	}

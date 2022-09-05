@@ -11,55 +11,54 @@ export type Scalars = {
   Float: number;
 };
 
-export type CartItem = {
-  __typename?: 'CartItem';
-  id: Scalars['ID'];
-  count: Scalars['Int'];
-  price: Scalars['Float'];
-};
-
-export type CartItemInput = {
-  id: Scalars['ID'];
-  /** Ignored for now */
-  count?: Maybe<Scalars['Int']>;
-};
-
-export type Mutation = {
-  __typename?: 'Mutation';
+export type Mutations = {
+  __typename?: 'Mutations';
   addOrder: Order;
 };
 
 
-export type MutationAddOrderArgs = {
-  order: NewOrder;
-};
-
-export type NewOrder = {
-  recipient: RecipientInput;
-  cart: Array<CartItemInput>;
-  captcha: Scalars['String'];
+export type MutationsAddOrderArgs = {
+  order: OrderInput;
 };
 
 export type Order = {
   __typename?: 'Order';
-  id: Scalars['ID'];
+  id: Scalars['String'];
   date: Scalars['String'];
-  status: OrderStatus;
-  cart: Array<CartItem>;
+  status: Scalars['String'];
   recipient: Recipient;
+  cart: Array<Product>;
 };
 
-export enum OrderStatus {
-  Created = 'CREATED',
-  Canceled = 'CANCELED',
-  Paid = 'PAID',
-  Shipped = 'SHIPPED',
-  Finished = 'FINISHED'
-}
+export type OrderInput = {
+  recipient: RecipientInput;
+  cart: Array<ProductInput>;
+  captcha: Scalars['String'];
+};
 
-export type Query = {
-  __typename?: 'Query';
-  orders: Array<Order>;
+export type Product = {
+  __typename?: 'Product';
+  id: Scalars['String'];
+  title: Scalars['String'];
+  count: Scalars['Int'];
+  price: Scalars['Int'];
+};
+
+export type ProductInput = {
+  id: Scalars['String'];
+  count?: Maybe<Scalars['Int']>;
+};
+
+export type Queries = {
+  __typename?: 'Queries';
+  status: Scalars['String'];
+  myRole: Scalars['String'];
+  product: Scalars['String'];
+};
+
+
+export type QueriesProductArgs = {
+  id: Scalars['String'];
 };
 
 export type Recipient = {

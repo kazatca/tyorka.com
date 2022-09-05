@@ -2,7 +2,7 @@ overwrite: true
 schema:
   - http://localhost:3001/graphql:
       headers:
-        x-auth: secret
+        x-auth: rW3RHlSnqQPo2yHCMMru203moOtDodgOmHkGwV3eR0dBmb4eHEyx96qAe2V3wDueBY683IGLwVNQSdcze7DXoBtvOt9LFAmsk6LlpvsFQgcErpU0JSzLpSdUXNTPeNh5YG06tHAvyj9xms4guPpb5WRnihtyJcwkN1Z2uO0iynBzWBp0HSQ8zsnFhOcK4gJ10kK1Px8WkIO9DGWIOgKRWBGIAb8IFflAIAfGFXHrs3qLJ6tbG2Qx35zZCR5qF0UQ
 documents: 'src/**/*.gql'
 generates:
   src/types/apollo.ts:

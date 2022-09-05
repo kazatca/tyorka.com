@@ -1,7 +1,7 @@
 import * as Types from '../../../types/apollo';
 
 export type AddOrderVariables = Types.Exact<{
-  order: Types.NewOrder;
+  order: Types.OrderInput;
 }>;
 
 

@@ -13,6 +13,6 @@ export interface Props {
 
 export const Post: React.FC<Props> = ({ post: { url, src, color } }) => (
   <a className={b()} href={url} target="_blank">
-    <Image className={b('image')} src={src} color={color} />
+    <Image className={b('image')} src={src} color={color} cropped/>
   </a>
 )

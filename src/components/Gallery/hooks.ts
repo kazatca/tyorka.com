@@ -1,6 +1,5 @@
-import { useStaticQuery, graphql } from "gatsby";
-import { GalleryQuery } from '../../../gatsby-graphql';
-
+import { useStaticQuery, graphql } from 'gatsby'
+import { GalleryQuery } from '../../../gatsby-graphql'
 
 export const useGallery = () => {
   const data = useStaticQuery<GalleryQuery>(graphql`
@@ -8,16 +7,21 @@ export const useGallery = () => {
       backend {
         gallery {
           id
-          src
-          width
-          height
-          color
+          cover {
+            id
+            src
+            color
+            originalSize {
+              width
+              height
+            }
+          }
         }
       }
     }
-  `);
+  `)
 
   return {
-    gallery: data.backend.gallery 
+    gallery: data.backend.gallery,
   }
 }

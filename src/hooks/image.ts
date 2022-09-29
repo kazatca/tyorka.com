@@ -15,9 +15,9 @@ export const useImage = (
   if(!src) {
     return;
   }
-  const [basename, ext] = src.split('.')
+  // const [basename, ext] = src.split('.')
   const { imagesUrl } = useConfig()
-  return `${imagesUrl}${basename}${cropped ? '_square' : ''}_${
+  return `${imagesUrl}${src}${cropped ? '_square' : ''}_${
     sizeToWidth[size]
-  }.${ext}`
+  }.jpg`
 }

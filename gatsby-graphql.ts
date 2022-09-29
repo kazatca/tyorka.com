@@ -234,8 +234,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   assetPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -328,113 +326,28 @@ export type GraphQlSource = Node & {
   fieldName?: Maybe<Scalars['String']>;
 };
 
-export type Backend_Product = {
-  id: Scalars['ID'];
-  state: Backend_State;
-  cover?: Maybe<Backend_Picture>;
-  title?: Maybe<Backend_MultiLang>;
-  showInGallery: Scalars['Boolean'];
-  showInShop: Scalars['Boolean'];
-  price?: Maybe<Scalars['Float']>;
-  description?: Maybe<Backend_MultiLang>;
-  pictures: Array<Backend_Picture>;
-  descriptionHTML: Backend_MultiLang;
-  descriptionText: Backend_MultiLang;
-};
-
-/** State of product */
-export type Backend_State =
-  | 'DRAFT'
-  | 'PUBLISHED'
-  | 'ARCHIVED';
-
-export type Backend_Picture = {
-  id: Scalars['ID'];
-  src: Scalars['String'];
-  originalSize: Backend_Size;
-  crop: Backend_Crop;
-  color: Scalars['String'];
-  inline: Scalars['String'];
-};
-
-export type Backend_Size = {
-  width: Scalars['Float'];
-  height: Scalars['Float'];
-};
-
-export type Backend_Crop = {
-  anchor: Backend_Point;
-  factor: Scalars['Float'];
-};
-
-export type Backend_Point = {
-  x: Scalars['Float'];
-  y: Scalars['Float'];
-};
-
-export type Backend_MultiLang = {
-  en?: Maybe<Scalars['String']>;
-  ru?: Maybe<Scalars['String']>;
-};
-
-export type Backend_GalleryItem = {
-  /** id of product */
-  id: Scalars['ID'];
-  src: Scalars['String'];
-  color: Scalars['String'];
-  width: Scalars['Float'];
-  height: Scalars['Float'];
-};
-
-export type Backend_ShopItem = {
-  id: Scalars['ID'];
-  cover: Backend_Picture;
-  title?: Maybe<Backend_MultiLang>;
-  price: Scalars['Float'];
-  description?: Maybe<Backend_MultiLang>;
-  pictures: Array<Backend_Picture>;
-  descriptionHTML: Backend_MultiLang;
-};
-
 export type Backend_BlogPost = {
-  id: Scalars['String'];
+  id: Scalars['ID'];
   src: Scalars['String'];
   url: Scalars['String'];
   color: Scalars['String'];
 };
 
-export type Backend_User = {
-  email: Scalars['String'];
-};
-
 export type Backend_Build = {
-  id: Scalars['String'];
-  status: Backend_BuildStatus;
-  log: Scalars['String'];
-  date: Scalars['String'];
-};
-
-/** State of building process */
-export type Backend_BuildStatus =
-  | 'DONE'
-  | 'FAILURE'
-  | 'PENDING';
-
-export type Backend_ProductInput = {
   id: Scalars['ID'];
-  state: Backend_State;
-  pictures: Array<Scalars['ID']>;
-  coverId?: Maybe<Scalars['ID']>;
-  title?: Maybe<Backend_MultiLangInput>;
-  showInGallery: Scalars['Boolean'];
-  showInShop: Scalars['Boolean'];
-  price?: Maybe<Scalars['Float']>;
-  description?: Maybe<Backend_MultiLangInput>;
+  status: Backend_BuildStatus;
+  date: Scalars['String'];
+  log: Scalars['String'];
 };
 
-export type Backend_MultiLangInput = {
-  en?: Maybe<Scalars['String']>;
-  ru?: Maybe<Scalars['String']>;
+export type Backend_BuildStatus =
+  | 'PENDING'
+  | 'DONE'
+  | 'FAILURE';
+
+export type Backend_Crop = {
+  anchor: Backend_Point;
+  factor: Scalars['Float'];
 };
 
 export type Backend_CropInput = {
@@ -442,29 +355,86 @@ export type Backend_CropInput = {
   factor: Scalars['Float'];
 };
 
+export type Backend_MultiLang = {
+  en: Scalars['String'];
+  ru: Scalars['String'];
+};
+
+export type Backend_MultiLangInput = {
+  en: Scalars['String'];
+  ru: Scalars['String'];
+};
+
+export type Backend_Picture = {
+  id: Scalars['ID'];
+  src: Scalars['String'];
+  color: Scalars['String'];
+  originalSize: Backend_PictureSize;
+  crop: Backend_Crop;
+};
+
+export type Backend_PictureSize = {
+  width: Scalars['Int'];
+  height: Scalars['Int'];
+};
+
+export type Backend_Point = {
+  x: Scalars['Float'];
+  y: Scalars['Float'];
+};
+
 export type Backend_PointInput = {
   x: Scalars['Float'];
   y: Scalars['Float'];
 };
 
+export type Backend_Product = {
+  id: Scalars['ID'];
+  title: Backend_MultiLang;
+  showInGallery: Scalars['Boolean'];
+  showInShop: Scalars['Boolean'];
+  price?: Maybe<Scalars['Int']>;
+  description: Backend_MultiLang;
+  state: Backend_ProductState;
+  cover: Backend_Picture;
+  pictures: Array<Backend_Picture>;
+  descriptionHTML: Backend_MultiLang;
+  descriptionText: Backend_MultiLang;
+};
+
+export type Backend_ProductInput = {
+  id: Scalars['ID'];
+  state: Backend_ProductState;
+  pictures: Array<Scalars['ID']>;
+  coverId: Scalars['ID'];
+  title: Backend_MultiLangInput;
+  showInGallery: Scalars['Boolean'];
+  showInShop: Scalars['Boolean'];
+  price?: Maybe<Scalars['Int']>;
+  description: Backend_MultiLangInput;
+};
+
+export type Backend_ProductState =
+  | 'DRAFT';
+
+export type Backend_User = {
+  email: Scalars['String'];
+};
+
 export type Backend = {
-  products: Array<Backend_Product>;
-  picture: Backend_Picture;
-  product: Backend_Product;
-  gallery: Array<Backend_GalleryItem>;
-  shop: Array<Backend_ShopItem>;
-  blog: Array<Backend_BlogPost>;
+  status: Scalars['String'];
   user: Backend_User;
+  products: Array<Backend_Product>;
+  product?: Maybe<Backend_Product>;
+  picture?: Maybe<Backend_Picture>;
+  shop: Array<Backend_Product>;
+  gallery: Array<Backend_Product>;
+  blog: Array<Backend_BlogPost>;
   currentBuild?: Maybe<Backend_Build>;
   publications: Array<Backend_Build>;
   publication?: Maybe<Backend_Build>;
-  publicationDuration: Scalars['Float'];
   isDraft: Scalars['Boolean'];
-};
-
-
-export type BackendPictureArgs = {
-  id: Scalars['ID'];
+  publicationDuration: Scalars['Int'];
 };
 
 
@@ -473,8 +443,13 @@ export type BackendProductArgs = {
 };
 
 
+export type BackendPictureArgs = {
+  id: Scalars['ID'];
+};
+
+
 export type BackendPublicationArgs = {
-  id: Scalars['String'];
+  id: Scalars['ID'];
 };
 
 export type Query = {
@@ -595,8 +570,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   assetPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -1356,8 +1329,6 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
-  | 'port'
-  | 'host'
   | 'assetPrefix'
   | 'polyfill'
   | 'pathPrefix'
@@ -1493,8 +1464,6 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   assetPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -2550,7 +2519,7 @@ export type GraphQlSourceSortInput = {
 export type GalleryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GalleryQuery = { backend: { gallery: Array<{ id: string, src: string, width: number, height: number, color: string }> } };
+export type GalleryQuery = { backend: { gallery: Array<{ id: string, cover: { id: string, src: string, color: string, originalSize: { width: number, height: number } } }> } };
 
 export type InstagramFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2560,9 +2529,9 @@ export type InstagramFeedQuery = { backend: { blog: Array<{ color: string, id: s
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductsQuery = { backend: { products: Array<{ id: string, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, title?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, descriptionHTML: { en?: string | null | undefined, ru?: string | null | undefined }, descriptionText: { en?: string | null | undefined, ru?: string | null | undefined }, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
+export type ProductsQuery = { backend: { products: Array<{ id: string, price?: number | null | undefined, showInShop: boolean, showInGallery: boolean, title: { en: string, ru: string }, descriptionHTML: { en: string, ru: string }, descriptionText: { en: string, ru: string }, pictures: Array<{ src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { height: number, width: number } }> }> } };
 
 export type ShopQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ShopQuery = { backend: { shop: Array<{ id: string, price: number, cover: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { width: number, height: number } }, title?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined, description?: { en?: string | null | undefined, ru?: string | null | undefined } | null | undefined }> } };
+export type ShopQuery = { backend: { shop: Array<{ id: string, price?: number | null | undefined, cover: { src: string, color: string, crop: { factor: number, anchor: { x: number, y: number } }, originalSize: { width: number, height: number } }, title: { en: string, ru: string }, description: { en: string, ru: string } }> } };

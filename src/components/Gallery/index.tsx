@@ -15,7 +15,14 @@ export const Gallery: React.FC = () => {
     <section className={b()}>
       {gallery.map(item => (
         <Link key={item.id} to={`/single/${item.id}`}>
-          <Image className={b('photo')} {...item} />
+          <Image 
+            className={b('photo')}
+            color={item.cover.color}
+            src={item.cover.src}
+            width={item.cover.originalSize.width}
+            height={item.cover.originalSize.height}
+            
+          />
         </Link>
       ))}
     </section>

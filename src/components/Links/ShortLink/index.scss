@@ -1,0 +1,15 @@
+.links-short-link {
+  margin: .5rem;
+  padding: .5rem;
+  border-radius: 5px;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+  
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}

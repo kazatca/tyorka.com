@@ -12,7 +12,7 @@ const b = b_.with('socials')
 export const Socials = () => (
   <section className={b()}>
     <Link href="https://www.instagram.com/tyorka" icon={insta} alt="insta" />
-    <Link href="https://t.me/kaptyorka" icon={tg} alt="tg" />
+    <Link href="https://t.me/tyorkidze" icon={tg} alt="tg" />
     <Link href="https://vk.com/tyorkaa" icon={vk} alt="vk" />
   </section>
 )

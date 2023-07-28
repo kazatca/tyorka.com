@@ -19,7 +19,7 @@ export const Links = () => {
     <div className={b()}>
       <div className={b('shorts')}>
         <ShortLink href="https://www.instagram.com/tyorka/" icon={insta} />
-        <ShortLink href="https://t.me/kaptyorka" icon={tg} />
+        <ShortLink href="https://t.me/tyorkidze" icon={tg} />
         <ShortLink href="https://vk.com/tina_tyorka" icon={vk} />
       </div>
       <Link href="/" title={t('Site')} subtitle={t('Portfolio and shop')} />

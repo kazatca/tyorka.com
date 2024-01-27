@@ -3,6 +3,7 @@ import * as b_ from 'b_'
 import { useTranslate } from '../../hooks/translate'
 import { ProductItem } from '../../gatsby/context/products'
 import { SliderView } from '../Slider'
+import { CURRENCY } from '../../consts'
 import { useCart } from './hooks'
 
 import './index.scss'
@@ -29,7 +30,7 @@ export const Product: React.FC<Props> = ({
         <div className={b('column')}>
           <div className={b('title')}>{title}</div>
 
-          {price && <div className={b('price')}>{price} ₽</div>}
+          {price && <div className={b('price')}>{price} {CURRENCY}</div>}
 
           {description && <div dangerouslySetInnerHTML={{__html: description}} />}
 

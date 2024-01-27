@@ -1,17 +1,17 @@
-import * as React from 'react'
 import * as b_ from 'b_'
+import { createPersistDecorator } from 'final-form-persist'
+import * as React from 'react'
 import { Form } from 'react-final-form'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { createPersistDecorator } from "final-form-persist";
-import { useTranslate } from '../../../hooks/translate'
+import { CURRENCY } from '../../../consts'
 import { useConfig } from '../../../hooks/config'
-import { RecaptchaTerms } from '../RecaptchaTerms'
-import { Loading } from '../Loader'
+import { useTranslate } from '../../../hooks/translate'
 import { FormError } from '../FormError'
 import { Input } from '../Input'
-import { useForm } from './hooks'
+import { Loading } from '../Loader'
+import { RecaptchaTerms } from '../RecaptchaTerms'
 import { Cart } from '../types'
-
+import { useForm } from './hooks'
 import './index.scss'
 
 interface Props {
@@ -29,13 +29,13 @@ const b = b_.with('checkout-form')
 export const CheckoutForm: React.FC<Props> = ({ cart, total }) => {
   const { t } = useTranslate()
   const { captcha } = useConfig()
-  const { captchaRef, submit } = useForm(cart);
+  const { captchaRef, submit } = useForm(cart)
 
   const { persistDecorator } = createPersistDecorator({
-    name: "checkout",
+    name: 'checkout',
     debounceTime: 500,
-    whitelist: ["name", "email"]
-  });
+    whitelist: ['name', 'email'],
+  })
 
   return (
     <Form<FormValues>
@@ -55,7 +55,7 @@ export const CheckoutForm: React.FC<Props> = ({ cart, total }) => {
           <FormError>{submitError}</FormError>
           <div className={b('footer')}>
             <div className={b('total')}>
-              {t('Amounting to')}: {total} ₽
+              {t('Amounting to')}: {total} {CURRENCY}
             </div>
             <button type="submit" className={b('btn')}>
               {t('Send')}

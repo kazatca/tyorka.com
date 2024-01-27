@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { actions } from '../../../state/actions'
 import { ShopItem } from '../../../hooks/shop'
 import { useTranslate } from '../../../hooks/translate'
+import { CURRENCY } from '../../../consts'
 import { Image } from '../../FastImage'
 
 import './index.scss'
@@ -31,7 +32,9 @@ export const Item: React.FC<Props> = ({
       />
       <div className={b('side')}>
         <div className={b('title')}>{title}</div>
-        <div className={b('price')}>{price} ₽</div>
+        <div className={b('price')}>
+          {price} {CURRENCY}
+        </div>
         <div className={b('remove-btn')} onClick={remove}>
           {t('Remove')}
         </div>

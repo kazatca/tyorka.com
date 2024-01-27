@@ -4,6 +4,7 @@ import { Item } from './Item'
 import { CheckoutModal } from '../CheckoutModal'
 import { useCart } from './hooks'
 import { useTranslate } from '../../hooks/translate'
+import { CURRENCY } from '../../consts'
 
 import './index.scss'
 
@@ -36,7 +37,7 @@ export const Cart: React.FC<Props> = () => {
       {total > 0 && (
         <>
           <div className={b('total')}>
-            {t('Total')}: {total} ₽
+            {t('Total')}: {total} {CURRENCY}
           </div>
           <div className={b('btn-wrapper')}>
             <button
